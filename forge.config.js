@@ -29,7 +29,7 @@ module.exports = {
                 config: './game.webpack.config.js',
                 entryPoints: [{
                     html: './src/game/index.html',
-                    js: './src/game/index.js',
+                    js: './src/game/index.jsx',
                     preload: {
                         js: './src/main/preload.js',
                     },

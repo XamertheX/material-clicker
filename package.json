@@ -1,8 +1,8 @@
 {
   "name": "material-clicker",
   "productName": "material-clicker",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "0.0.1",
+  "description": "Clicker Game using Material Design",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -12,34 +12,20 @@
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
-  "author": "dave",
+  "author": "WeAreDevs",
+  "contributors": [
+    {
+      "name": "Dave",
+      "url": "https://davecode.me"
+    },
+    {
+      "name": "Hunter",
+      "url": "https://hparcells.me"
+    }
+  ],
   "license": "MIT",
   "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "material_clicker"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
+    "forge": "./forge.config.js"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"

@@ -24,9 +24,9 @@ module.exports = {
     ],
     plugins: [
         ['@electron-forge/plugin-webpack', {
-            mainConfig: './main.webpack.config.js',
+            mainConfig: './conf/main.webpack.config.js',
             renderer: {
-                config: './game.webpack.config.js',
+                config: './conf/game.webpack.config.js',
                 entryPoints: [{
                     html: './src/game/index.html',
                     js: './src/game/index.jsx',

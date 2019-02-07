@@ -25,7 +25,7 @@
   ],
   "license": "MIT",
   "config": {
-    "forge": "./forge.config.js"
+    "forge": "./conf/forge.config.js"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",

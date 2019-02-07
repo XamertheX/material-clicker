@@ -1,7 +1,8 @@
 //
 // Entrypoint to the application.
 //
-console.log("👋 Hello Material Clcker!");
+// eslint-disable-next-line no-console
+console.log('👋 Hello Material Clcker!');
 
 // Import Global Styles
 import './global.css';

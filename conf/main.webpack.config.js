@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
-    entry: './src/main/main.js',
+  entry: './src/main/main.js',
 };

@@ -4,8 +4,11 @@
 //
 
 // Remove Electron Security Warnings
-const { warn } = console;
+/* eslint-disable no-console */
+const warn = console.warn;
 console.warn = (...args) => {
-    /^%cElectron Security Warning/.test(args[0])
-        || Reflect.apply(warn, console, args);
+  if (!/^%cElectron Security Warning/.test(args[0])) {
+    Reflect.apply(warn, console, args);
+  }
 };
+/* eslint-enable no-console */

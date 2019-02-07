@@ -1,3 +1,4 @@
+/* global GAME_PRELOAD_WEBPACK_ENTRY:readable, GAME_WEBPACK_ENTRY:readable */
 const { app, BrowserWindow } = require('electron');
 
 // This fixes some problems on my linux machine, I hope this wont cause problems anywhere else

@@ -14,11 +14,15 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    minHeight: 300,
+    minWidth: 400,
+    backgroundColor: '#fefefe',
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
       preload: typeof GAME_PRELOAD_WEBPACK_ENTRY !== "undefined" ? GAME_PRELOAD_WEBPACK_ENTRY : undefined,
-    }
+    },
+    autoHideMenuBar: true,
   });
 
   // and load the index.html of the app.

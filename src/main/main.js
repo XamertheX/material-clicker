@@ -1,5 +1,8 @@
 const { app, BrowserWindow } = require('electron');
 
+// This fixes some problems on my linux machine, I hope this wont cause problems anywhere else
+app.commandLine.appendSwitch('force-color-profile', 'srgb');
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
@@ -17,19 +20,21 @@ const createWindow = () => {
     minHeight: 300,
     minWidth: 400,
     backgroundColor: '#fefefe',
+    frame: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
-      preload: typeof GAME_PRELOAD_WEBPACK_ENTRY !== "undefined" ? GAME_PRELOAD_WEBPACK_ENTRY : undefined,
+      // Note: this global is defined by @electron-forge/plugin-webpack
+      preload: GAME_PRELOAD_WEBPACK_ENTRY,
     },
     autoHideMenuBar: true,
   });
 
-  // and load the index.html of the app.
+  // Note: this global is defined by @electron-forge/plugin-webpack
   mainWindow.loadURL(GAME_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

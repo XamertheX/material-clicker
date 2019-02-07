@@ -1,9 +1,13 @@
-const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     // entry: path.join(__dirname, './src/game/index.js'),
     plugins: [
-
+        new webpack.DefinePlugin({
+            // Some package within or used by @material-ui/core uses
+            // `global` instead of `window`.
+            global: 'window',
+        })
     ],
     module: {
         rules: [

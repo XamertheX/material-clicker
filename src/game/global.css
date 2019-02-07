@@ -1,0 +1,10 @@
+/**
+  Small Global CSS
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}

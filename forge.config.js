@@ -21,5 +21,21 @@ module.exports = {
             name: "@electron-forge/maker-rpm",
             config: {}
         }
+    ],
+    plugins: [
+        ['@electron-forge/plugin-webpack', {
+            mainConfig: './main.webpack.config.js',
+            renderer: {
+                config: './game.webpack.config.js',
+                entryPoints: [{
+                    html: './src/game/index.html',
+                    js: './src/game/index.js',
+                    preload: {
+                        js: './src/main/preload.js',
+                    },
+                    name: 'game'
+                }]
+            }
+        }]
     ]
 }

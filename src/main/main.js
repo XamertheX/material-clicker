@@ -14,10 +14,15 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: false,
+      preload: typeof GAME_PRELOAD_WEBPACK_ENTRY !== "undefined" ? GAME_PRELOAD_WEBPACK_ENTRY : undefined,
+    }
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  mainWindow.loadURL(GAME_WEBPACK_ENTRY);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();

@@ -28,7 +28,11 @@
     "forge": "./forge.config.js"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

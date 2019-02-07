@@ -1,7 +1,18 @@
-import React, { Component } from 'react';
-import { AppBar, Toolbar, Typography, withStyles, createStyles } from '@material-ui/core';
+//
+// The "Root" component of the Game. Handles showing the right page, and storing global
+// application state.
+//
 
-const styles = (theme) => createStyles({
+import React, { Component } from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  withStyles,
+  createStyles,
+} from '@material-ui/core';
+
+const styles = () => createStyles({
   main: {
     flex: 1,
   },
@@ -14,7 +25,7 @@ class Game extends Component {
   state = {
 
   }
-  
+
   render() {
     const c = this.props.classes;
 
@@ -25,11 +36,12 @@ class Game extends Component {
           <Typography variant='h6' color='inherit'>Material Clicker</Typography>
         </Toolbar>
       </AppBar>
+
       <div className={c.main}>
 
       </div>
     </>;
   }
 }
- 
+
 export default withStyles(styles)(Game);

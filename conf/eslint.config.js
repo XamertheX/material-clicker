@@ -2,9 +2,10 @@ module.exports = {
   parser: 'babel-eslint',
   extends: 'dave/react',
   globals: {
-    
+
   },
   rules: {
+    'max-len': ['error', { code: 90 }],
     'no-extra-parens': 'error',
     'no-template-curly-in-string': 'error',
     'no-eval': 'error',
@@ -47,5 +48,11 @@ module.exports = {
     'no-new-object': 'error',
     'spaced-comment': ['error', 'always', { 'exceptions': ['-', '+'] }],
     'prefer-object-spread': 'error',
+    'no-trailing-spaces': 'error',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };

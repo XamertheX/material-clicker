@@ -1,6 +1,8 @@
 //
-// Entrypoint to the application.
+// Entrypoint to the web application, renders the <Game> component, and loads all game
+// systems.
 //
+
 // eslint-disable-next-line no-console
 console.log('👋 Hello Material Clcker!');
 

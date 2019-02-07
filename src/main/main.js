@@ -1,7 +1,12 @@
+//
+// Entry point to the entire application, mainly starts up the BrowserWindow.
+//
+
 /* global GAME_PRELOAD_WEBPACK_ENTRY:readable, GAME_WEBPACK_ENTRY:readable */
 const { app, BrowserWindow } = require('electron');
 
-// This fixes some problems on my linux machine, I hope this wont cause problems anywhere else
+// This fixes some problems on my linux machine, I hope this wont cause problems
+// anywhere else.
 app.commandLine.appendSwitch('force-color-profile', 'srgb');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.

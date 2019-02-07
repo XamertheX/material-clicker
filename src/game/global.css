@@ -1,6 +1,8 @@
 /**
-  Small Global CSS
+  Small Global CSS to override some things, like box-sizing, and the styling on the body
+  tag.
 */
+
 * {
   box-sizing: border-box;
 }

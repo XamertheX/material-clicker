@@ -17,3 +17,16 @@ body {
   flex-direction: column;
   height: 100vh;
 }
+
+/* Make the React Hot Loader Overlay always on top, and draggable */
+.react-hot-loader-error-overlay > * {
+  z-index: 10000;
+}
+.react-hot-loader-error-overlay {
+  -webkit-app-region: drag;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

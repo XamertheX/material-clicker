@@ -1,3 +1,7 @@
+//
+// Wrapper around the AppBar and Tabs components adding a simple navigation between pages.
+//
+
 import React, { Component } from 'react';
 import {
   withStyles,

@@ -3,7 +3,7 @@
 //
 
 import React, { Component } from 'react';
-import { withStyles, createStyles, Typography, Button } from '@material-ui/core';
+import { withStyles, createStyles, Typography } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../vars';
 

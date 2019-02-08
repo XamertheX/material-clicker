@@ -1,3 +1,7 @@
+//
+// Simple Router for all the pages.
+//
+
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Router } from '@reach/router';

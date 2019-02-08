@@ -28,6 +28,9 @@ class Game extends Component {
     vars: {
 
       material: 0,
+      materialPerClick: 1,
+
+      shopItemsPurchased: [],
 
     },
   }

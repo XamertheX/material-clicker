@@ -11,7 +11,8 @@ const styles = () => createStyles({
 class MainPage extends Component {
 
   handleClick = () => {
-    this.props.setVar('material', x => x + 1);
+    const { vars } = this.props;
+    this.props.setVar('material', x => x + vars.materialPerClick);
   }
 
   render() {

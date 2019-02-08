@@ -17,6 +17,13 @@ body {
   flex-direction: column;
   height: 100vh;
 }
+/* `root > div > div` will target react router's root */
+#root > div > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
 
 /* Make the React Hot Loader Overlay always on top, and draggable */
 .react-hot-loader-error-overlay > * {

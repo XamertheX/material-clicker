@@ -3,13 +3,20 @@
 //
 
 import React, { Component } from 'react';
-import { withStyles, createStyles } from '@material-ui/core';
+import { withStyles, createStyles, Typography, Button } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../vars';
 
-const styles = () => createStyles({
-  root: {
-
+const styles = (theme) => createStyles({
+  title: {
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3,
+    textAlign: 'center',
+  },
+  button: {
+    padding: theme.spacing.unit * 4,
+    margin: 'auto',
+    display: 'block',
   },
 });
 
@@ -20,15 +27,26 @@ class MainPage extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes: c } = this.props;
 
-    return <div className={classes.root}>
-      <h1>Main Page</h1>
-      <p>
-        You have {vars.material} material.
-      </p>
-      <button onClick={this.handleClick}>+{vars.materialPerClick}</button>
-    </div>;
+    return <>
+      <Typography variant='h3' className={c.title}>
+        {vars.material} Material
+      </Typography>
+      <div>
+        <Button
+          className={c.button}
+          variant='contained'
+          color='primary'
+          onClick={this.handleClick}
+          size='large'
+        >
+          <Typography variant='h6' color='inherit'>
+            +{vars.materialPerClick}
+          </Typography>
+        </Button>
+      </div>
+    </>;
   }
 }
 

@@ -11,6 +11,7 @@
     "**/.babelrc": true,
     "**/.vscode": true,
     "**/.eslintcache": true,
+    "**/.eslintrc": true,
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,

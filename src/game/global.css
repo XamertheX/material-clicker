@@ -26,11 +26,11 @@ body {
 }
 
 /* Make the React Hot Loader Overlay always on top, and draggable */
-.react-hot-loader-error-overlay > * {
+.react-hot-loader-error-overlay, #webpack-hot-middleware-clientOverlay {
   z-index: 10000;
+  -webkit-app-region: drag;
 }
 .react-hot-loader-error-overlay {
-  -webkit-app-region: drag;
   position: fixed;
   top: 0;
   bottom: 0;

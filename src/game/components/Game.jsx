@@ -11,16 +11,18 @@ import {
   Typography,
   withStyles,
   createStyles,
+  MuiThemeProvider,
 } from '@material-ui/core';
 import PageHandler from '../pages/PageHandler';
 import { varsEmitter } from '../vars';
+import Titlebar from './Titlebar';
+import theme from '../theme';
 
 const styles = () => createStyles({
   main: {
     flex: 1,
   },
   appBar: {
-    WebkitAppRegion: 'drag',
   },
 });
 
@@ -49,8 +51,8 @@ class Game extends Component {
   render() {
     const c = this.props.classes;
 
-    return <>
-      {/* TODO: Create a actual title bar. */}
+    return <MuiThemeProvider theme={theme}>
+      <Titlebar />
       <AppBar position='static' color='primary' className={c.appBar}>
         <Toolbar>
           <Typography variant='h6' color='inherit'>Material Clicker</Typography>
@@ -62,7 +64,7 @@ class Game extends Component {
             component to navigate between pages.*/}
         <PageHandler />
       </div>
-    </>;
+    </MuiThemeProvider>;
   }
 }
 

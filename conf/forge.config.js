@@ -33,6 +33,10 @@ module.exports = {
           preload: {
             js: './src/main/preload.js',
           },
+          ...process.env.NODE_ENV !== 'production' ? {
+            DEVELOPMENT_HMR: 'webpack/hot/only-dev-server',
+            DEVELOPMENT_WDS: 'webpack-dev-server/client?http://0.0.0.0:3000',
+          } : {},
           name: 'game',
         }],
       },

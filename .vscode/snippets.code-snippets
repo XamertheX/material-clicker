@@ -1,0 +1,20 @@
+{
+	"Upgrade": {
+    "scope": "javascript",
+    "prefix": "upg",
+    "body": [
+      "export default {",
+      "  name: '${1:Example Upgrade}',",
+      "  desc: '${2:Makes things great again.}',",
+      "  price: ${3:420},",
+      "",
+      "  requires: ['${4:AnotherUpgrade}'],",
+      "",
+      "  activate() {",
+      "    $5",
+      "  }",
+      "}$0"
+    ],
+    "description": "A template for a shop upgrade."
+	}
+}

@@ -13,6 +13,7 @@ import {
   createStyles,
 } from '@material-ui/core';
 import PageHandler from '../pages/PageHandler';
+import { varsEmitter } from '../vars';
 
 const styles = () => createStyles({
   main: {
@@ -35,15 +36,14 @@ class Game extends Component {
     },
   }
 
-  handleSetVar = (varname, newvalue) => {
-    this.setState({
-      vars: {
-        ...this.state.vars,
-        [varname]: typeof newvalue === 'function'
-          ? newvalue(this.state.vars[varname])
-          : newvalue,
-      },
-    });
+  handleSetVar = (vars) => {
+    this.setState({ vars });
+  }
+  componentDidMount() {
+    varsEmitter.on('change', this.handleSetVar);
+  }
+  componentWillUnmount() {
+    varsEmitter.off('change', this.handleSetVar);
   }
 
   render() {
@@ -60,7 +60,7 @@ class Game extends Component {
       <div className={c.main}>
         {/* PageHandler handles routing and everything, which will use a <Link/>
             component to navigate between pages.*/}
-        <PageHandler vars={this.state.vars} setVar={this.handleSetVar} />
+        <PageHandler />
       </div>
     </>;
   }

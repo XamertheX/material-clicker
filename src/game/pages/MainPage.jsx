@@ -1,6 +1,11 @@
+//
+// Main Page: Contains the Clicker button, and displays various statistics.
+//
+
 import React, { Component } from 'react';
 import { withStyles, createStyles } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
+import { vars, setVar } from '../vars';
 
 const styles = () => createStyles({
   root: {
@@ -11,19 +16,18 @@ const styles = () => createStyles({
 class MainPage extends Component {
 
   handleClick = () => {
-    const { vars } = this.props;
-    this.props.setVar('material', x => x + vars.materialPerClick);
+    setVar('material', x => x + vars.materialPerClick);
   }
 
   render() {
-    const { classes, vars } = this.props;
+    const { classes } = this.props;
 
     return <div className={classes.root}>
       <h1>Main Page</h1>
       <p>
         You have {vars.material} material.
       </p>
-      <button onClick={this.handleClick}>+1</button>
+      <button onClick={this.handleClick}>+{vars.materialPerClick}</button>
     </div>;
   }
 }

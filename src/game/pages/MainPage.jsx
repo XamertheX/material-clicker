@@ -21,6 +21,8 @@ const styles = (theme) => createStyles({
 });
 
 class MainPage extends Component {
+  static id = 'main';
+  static display = 'Main';
 
   handleClick = () => {
     setVar('material', x => x + vars.materialPerClick);

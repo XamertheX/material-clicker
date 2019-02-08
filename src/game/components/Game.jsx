@@ -6,16 +6,14 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
 import {
-  AppBar,
-  Toolbar,
-  Typography,
   withStyles,
   createStyles,
   MuiThemeProvider,
 } from '@material-ui/core';
-import PageHandler from '../pages/PageHandler';
+import PageHandler from './PageHandler';
 import { varsEmitter } from '../vars';
 import Titlebar from './Titlebar';
+import NavBar from './NavBar';
 import theme from '../theme';
 
 const styles = () => createStyles({
@@ -53,11 +51,7 @@ class Game extends Component {
 
     return <MuiThemeProvider theme={theme}>
       <Titlebar />
-      <AppBar position='static' color='primary' className={c.appBar}>
-        <Toolbar>
-          <Typography variant='h6' color='inherit'>Material Clicker</Typography>
-        </Toolbar>
-      </AppBar>
+      <NavBar />
 
       <div className={c.main}>
         {/* PageHandler handles routing and everything, which will use a <Link/>

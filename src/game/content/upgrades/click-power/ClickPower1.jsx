@@ -5,7 +5,7 @@ export default {
 
   requires: [],
 
-  activate() {
-    
-  }
+  // TODO: Activate
+  // activate() {
+  // }
 };

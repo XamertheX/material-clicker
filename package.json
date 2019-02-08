@@ -6,10 +6,14 @@
   "main": "./.webpack/main",
   "scripts": {
     "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "eslint . --ext js,jsx"
+    "env-production": "run-script-os",
+    "env-production:win32": "SET NODE_ENV=production && npm run package:start",
+    "env-production:linux:darwin": "export NODE_ENV=production && npm run package:start",
+    "package": "npm run env-production && electron-forge package",
+    "make": "npm run env-production && electron-forge make",
+    "publish": "npm run env-production && electron-forge publish",
+    "lint": "eslint . --ext js,jsx",
+    "cloc": "cloc src conf"
   },
   "keywords": [],
   "author": "WeAreDevs",
@@ -32,7 +36,8 @@
     "@material-ui/icons": "^3.0.2",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react-dom": "^16.8.1",
+    "react-hot-loader": "^4.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

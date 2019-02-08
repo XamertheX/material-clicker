@@ -1,6 +1,5 @@
 {
 	"Upgrade": {
-    "scope": "javascript",
     "prefix": "upg",
     "body": [
       "export default {",
@@ -13,8 +12,38 @@
       "  activate() {",
       "    $5",
       "  }",
-      "}$0"
+			"};",
+			"$0"
     ],
     "description": "A template for a shop upgrade."
+	},
+
+	"MUI Starter Component": {
+		"scope": "javascript,typescript,javascriptreact",
+		"description": "React Component with Material UI Styles",
+		"prefix": "mui",
+		"body": [
+			"import React, { Component } from 'react';",
+			"import { withStyles, createStyles } from '@material-ui/core';",
+			"import { hot } from 'react-hot-loader/root';",
+			"",
+			"const styles = (theme) => createStyles({",
+			"  root: {",
+			"",
+			"  },",
+			"});",
+			"",
+			"class $1 extends Component {",
+			"  render() {",
+			"    const { classes } = this.props;",
+			"",
+			"    return <div className={classes.root}>",
+			"      $2",
+			"    </div>;",
+			"  }",
+			"}",
+			"",
+			"export default hot(withStyles(styles)($1));",
+		]
 	}
 }

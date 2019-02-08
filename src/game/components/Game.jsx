@@ -4,6 +4,7 @@
 //
 
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader/root';
 import {
   AppBar,
   Toolbar,
@@ -44,4 +45,4 @@ class Game extends Component {
   }
 }
 
-export default withStyles(styles)(Game);
+export default hot(withStyles(styles)(Game));

@@ -25,7 +25,22 @@ const styles = () => createStyles({
 
 class Game extends Component {
   state = {
+    vars: {
 
+      material: 0,
+
+    },
+  }
+
+  handleSetVar = (varname, newvalue) => {
+    this.setState({
+      vars: {
+        ...this.state.vars,
+        [varname]: typeof newvalue === 'function'
+          ? newvalue(this.state.vars[varname])
+          : newvalue,
+      },
+    });
   }
 
   render() {
@@ -42,7 +57,7 @@ class Game extends Component {
       <div className={c.main}>
         {/* PageHandler handles routing and everything, which will use a <Link/>
             component to navigate between pages.*/}
-        <PageHandler />
+        <PageHandler vars={this.state.vars} setVar={this.handleSetVar} />
       </div>
     </>;
   }

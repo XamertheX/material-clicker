@@ -20,7 +20,6 @@ module.exports = {
     'no-octal-escape': 'error',
     'no-multi-spaces': 'error',
     'no-iterator': 'error',
-    'no-invalid-this': 'error',
     'no-extend-native': 'error',
     'no-extra-label': 'error',
     'no-floating-decimal': 'error',
@@ -49,6 +48,7 @@ module.exports = {
     'spaced-comment': ['error', 'always', { 'exceptions': ['-', '+'] }],
     'prefer-object-spread': 'error',
     'no-trailing-spaces': 'error',
+    'space-infix-ops': 'error',
   },
   settings: {
     react: {

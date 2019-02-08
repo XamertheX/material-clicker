@@ -9,11 +9,20 @@ const styles = () => createStyles({
 });
 
 class MainPage extends Component {
+
+  handleClick = () => {
+    this.props.setVar('material', x => x + 1);
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, vars } = this.props;
 
     return <div className={classes.root}>
       <h1>Main Page</h1>
+      <p>
+        You have {vars.material} material.
+      </p>
+      <button onClick={this.handleClick}>+1</button>
     </div>;
   }
 }

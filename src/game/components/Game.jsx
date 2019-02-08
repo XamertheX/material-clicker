@@ -12,6 +12,7 @@ import {
   withStyles,
   createStyles,
 } from '@material-ui/core';
+import PageHandler from '../pages/PageHandler';
 
 const styles = () => createStyles({
   main: {
@@ -32,14 +33,16 @@ class Game extends Component {
 
     return <>
       {/* TODO: Create a actual title bar. */}
-      <AppBar color='primary' className={c.appBar}>
+      <AppBar position='static' color='primary' className={c.appBar}>
         <Toolbar>
           <Typography variant='h6' color='inherit'>Material Clicker</Typography>
         </Toolbar>
       </AppBar>
 
       <div className={c.main}>
-
+        {/* PageHandler handles routing and everything, which will use a <Link/>
+            component to navigate between pages.*/}
+        <PageHandler />
       </div>
     </>;
   }

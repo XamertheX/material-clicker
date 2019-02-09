@@ -28,10 +28,9 @@ export function getPurchasableShopItems() {
 }
 
 export function canPurchase(id) {
-  if (getShopItem(id).price >= vars.material) {
+  if (getShopItem(id).price > vars.material) {
     return false;
   }
-
   return true;
 }
 

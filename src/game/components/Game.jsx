@@ -11,7 +11,7 @@ import {
   MuiThemeProvider,
 } from '@material-ui/core';
 import PageHandler from './PageHandler';
-import { varsEmitter } from '../vars';
+import { varsEmitter } from '../systems/vars';
 import Titlebar from './Titlebar';
 import NavBar from './NavBar';
 import theme from '../theme';

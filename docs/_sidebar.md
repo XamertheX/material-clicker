@@ -1,0 +1,6 @@
+* [Home](/)
+* [Game](/game/)
+  * [Material](/game/material.md)
+  * [Shop](/game/shop.md)
+* [Upgrades](/upgrades/)
+  * [Click Power](/upgrades/click-power.md)

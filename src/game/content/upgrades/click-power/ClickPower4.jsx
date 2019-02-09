@@ -9,7 +9,7 @@ export default {
       Make your clicks more powerful by generating 20 Material per click.
     </p>
   </>,
-  price: 200,
+  price: 500,
 
   requires: ['ClickPower3'],
 

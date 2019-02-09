@@ -4,6 +4,9 @@
   "version": "0.0.1",
   "description": "Clicker Game using Material Design",
   "main": "./.webpack/main",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
     "start": "electron-forge start",
     "env-production": "run-script-os",
@@ -13,7 +16,8 @@
     "make": "npm run env-production && electron-forge make",
     "publish": "npm run env-production && electron-forge publish",
     "lint": "eslint . --ext js,jsx",
-    "cloc": "cloc src conf"
+    "cloc": "cloc src conf",
+    "start-docs": "docsify serve docs"
   },
   "keywords": [],
   "author": "WeAreDevs",
@@ -60,6 +64,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
+    "docsify-cli": "^4.3.0",
     "electron": "4.0.4",
     "eslint": "^5.13.0",
     "eslint-config-dave": "^1.0.2",

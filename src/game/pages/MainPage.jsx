@@ -17,6 +17,11 @@ const styles = (theme) => createStyles({
     padding: theme.spacing.unit * 4,
     margin: 'auto',
     display: 'block',
+    borderRadius: '50px',
+  },
+  buttonText: {
+    paddingLeft: '20px',
+    paddingRight: '20px',
   },
 });
 
@@ -41,7 +46,7 @@ class MainPage extends Component {
           onClick={this.handleClick}
           size='large'
         >
-          <Typography variant='h6' color='inherit'>
+          <Typography variant='h6' className={c.buttonText} color='inherit'>
             +{vars.materialPerClick}
           </Typography>
         </Button>

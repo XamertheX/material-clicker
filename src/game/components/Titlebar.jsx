@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import { withStyles, createStyles, Typography } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars } from '../systems/vars';
+import compact from '../util/number-compact';
 
 const styles = (theme) => createStyles({
   root: {
@@ -32,7 +33,7 @@ class Titlebar extends Component {
         Material Clicker
         {
           vars.material >= 1
-            ? <> - {vars.material} Material</>
+            ? <> - {compact(vars.material)} Material</>
             : null
         }
       </Typography>

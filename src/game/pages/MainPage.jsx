@@ -6,8 +6,7 @@ import React, { Component } from 'react';
 import { withStyles, createStyles, Typography, Button } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../systems/vars';
-
-import { compactNumber } from './../util/number-compact';
+import compact from '../util/number-compact';
 
 const styles = (theme) => createStyles({
   title: {
@@ -40,7 +39,7 @@ class MainPage extends Component {
 
     return <>
       <Typography variant='h3' className={c.title}>
-        {compactNumber(vars.material, 2)} Material
+        {compact(vars.material)} Material
       </Typography>
       <div>
         <Button

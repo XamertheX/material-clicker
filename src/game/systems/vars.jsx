@@ -9,6 +9,7 @@ export let vars = {
 
   shopItemsPurchased: [],
 
+  shopItemSelected: null,
 };
 
 export function setVar(varname, newvalue) {

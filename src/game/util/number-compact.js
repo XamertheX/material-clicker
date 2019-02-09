@@ -11,7 +11,7 @@ let compactNumberMap = {
   34: 'D', // 1,000,000,000,000,000,000,000,000,000,000,000 -> 1D
 };
 
-export default function compact(number, decimalPlaces) {
+export default function compact(number, decimalPlaces = 2) {
   let numberString = number.toString();
 
   if (numberString.length < 7) {

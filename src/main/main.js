@@ -24,7 +24,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     minHeight: 300,
-    minWidth: 400,
+    minWidth: 470,
     backgroundColor: '#fefefe',
     frame: false,
     webPreferences: {

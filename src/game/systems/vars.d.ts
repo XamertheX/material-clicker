@@ -9,6 +9,8 @@ interface Variables {
   materialPerClick: number;
   /** List of all Shop Item IDs that have been purchased, and in their order. */
   shopItemsPurchased: string[];
+  /** Current Selection in the shop page */
+  shopItemSelected: string | null;
 }
 type VarName = Variables[keyof Variables]
 

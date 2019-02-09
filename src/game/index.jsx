@@ -14,6 +14,9 @@ import { LocationProvider, createHistory, createMemorySource } from '@reach/rout
 let source = createMemorySource('/');
 let history = createHistory(source);
 
+// Load the shop
+import './systems/shop';
+
 // Render <Game />
 import React from 'react';
 import { render } from 'react-dom';

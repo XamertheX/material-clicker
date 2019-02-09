@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { withStyles, createStyles, Typography } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { vars } from '../vars';
+import { vars } from '../systems/vars';
 
 const styles = (theme) => createStyles({
   root: {

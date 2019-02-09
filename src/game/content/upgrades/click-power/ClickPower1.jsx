@@ -1,3 +1,5 @@
+import { setVar } from '../../../systems/vars';
+
 export default {
   name: 'Click Power 1',
   desc: 'Makes your clicks more POWERFUL!',
@@ -5,7 +7,7 @@ export default {
 
   requires: [],
 
-  // TODO: Activate
-  // activate() {
-  // }
+  activate() {
+    setVar('materialPerClick', 2);
+  },
 };

@@ -7,6 +7,8 @@ import { withStyles, createStyles, Typography, Button } from '@material-ui/core'
 import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../vars';
 
+import { compactNumber } from './../util/number-compact';
+
 const styles = (theme) => createStyles({
   title: {
     marginTop: theme.spacing.unit * 3,
@@ -38,7 +40,7 @@ class MainPage extends Component {
 
     return <>
       <Typography variant='h3' className={c.title}>
-        {vars.material} Material
+        {compactNumber(vars.material, 2)} Material
       </Typography>
       <div>
         <Button

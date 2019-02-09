@@ -18,6 +18,9 @@ export function getShopItem(id) {
 
 export function getPurchasableShopItems() {
   return Object.keys(registry).filter(id => {
+    if(vars.shopItemsPurchased.includes(id)) {
+      return false;
+    }
     return registry[id].requires.find((find) => {
       return !vars.shopItemsPurchased.includes(find);
     }) === undefined;
@@ -36,7 +39,7 @@ export function purchaseShopItem(id) {
   if(!canPurchase(id)) {
     return;
   }
-  setVar('material', (m) => m - getShopItem(id));
+  setVar('material', (m) => m - getShopItem(id).price);
   setVar('shopItemsPurchased', (array) => [...array, id]);
   getShopItem(id).activate();
 }

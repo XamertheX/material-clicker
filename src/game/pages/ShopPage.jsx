@@ -6,6 +6,9 @@ import React, { Component } from 'react';
 import { withStyles, createStyles, Typography } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../systems/vars';
+import { getPurchasableShopItems } from '../systems/shop';
+import { canPurchase } from '../systems/shop';
+import { purchaseShopItem } from '../systems/shop';
 
 const styles = (theme) => createStyles({
   title: {
@@ -26,6 +29,19 @@ class MainPage extends Component {
       <Typography variant='h3' className={c.title}>
         The Shop.
       </Typography>
+      {
+        getPurchasableShopItems().map((item) => {
+          return <span key={item.id}>
+            {item.name} - {item.desc} ({item.price} material)
+
+            {
+              canPurchase(item.id)
+                ? <a href='#' onClick={() => purchaseShopItem(item.id)}>Buy</a>
+                : <a href='#'>CANNOT BUY</a>
+            }
+          </span>;
+        })
+      }
     </>;
   }
 }

@@ -3,10 +3,10 @@ import { setVar } from '../../../systems/vars';
 
 export default {
   name: 'Click Power 1',
-  shortDesc: 'Makes your clicks worth more',
+  shortDesc: 'Makes your clicks more powerful.',
   longDesc: () => <>
     <p>
-      Longer Description.
+      Make your clicks more powerful by generating two Material per click.
     </p>
   </>,
   price: 25,

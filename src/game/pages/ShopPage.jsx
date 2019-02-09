@@ -81,19 +81,6 @@ class MainPage extends Component {
 
     return <div className={c.root}>
       <Paper className={classNames(c.paper, c.list)}>
-        {/* {
-          getPurchasableShopItems().map((item) => {
-            return <span key={item.id}>
-              {item.name} - {item.desc} ({item.price} material)
-
-              {
-                canPurchase(item.id)
-                  ? <a href='#' onClick={() => purchaseShopItem(item.id)}>Buy</a>
-                  : <a href='#'>CANNOT BUY</a>
-              }
-            </span>;
-          })
-        } */}
         <List>
           {
             getPurchasableShopItems().map((item) => {
@@ -132,11 +119,11 @@ class MainPage extends Component {
               <Typography variant='h6'>
                 {selectedItem.name}
               </Typography>
-              <Typography variant='body1' paragraph>
-                {selectedItem.longDesc}
+              <Typography component='div'>
+                <selectedItem.longDesc />
               </Typography>
               <div style={{ flex: 1 }} />
-              <Typography variant='body1' paragraph>
+              <Typography variant='body1'>
                 Price: {selectedItem.price} Material
               </Typography>
             </div>

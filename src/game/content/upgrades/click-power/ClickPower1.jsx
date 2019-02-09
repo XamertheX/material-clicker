@@ -1,9 +1,14 @@
+import React from 'react';
 import { setVar } from '../../../systems/vars';
 
 export default {
   name: 'Click Power 1',
   shortDesc: 'Makes your clicks worth more',
-  longDesc: 'Longer Description!',
+  longDesc: () => <>
+    <p>
+      Longer Description.
+    </p>
+  </>,
   price: 25,
 
   requires: [],

@@ -1,6 +1,11 @@
+//
+// Titlebar used in the electron application.
+//
+
 import React, { Component } from 'react';
 import { withStyles, createStyles, Typography } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
+import { vars } from '../vars';
 
 const styles = (theme) => createStyles({
   root: {
@@ -21,8 +26,16 @@ class Titlebar extends Component {
   render() {
     const { classes: c } = this.props;
 
+    // TODO: Buttons.
     return <div className={c.root}>
-      <Typography className={c.text}>Material Clicker</Typography>
+      <Typography className={c.text}>
+        Material Clicker
+        {
+          vars.material >= 1
+            ? <> - {vars.material} Material</>
+            : null
+        }
+      </Typography>
     </div>;
   }
 }

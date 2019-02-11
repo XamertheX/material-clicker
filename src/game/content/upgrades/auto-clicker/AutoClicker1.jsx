@@ -1,31 +1,20 @@
 import React from 'react';
-import { setVar } from '../../../systems/vars';
-import { createAutoClicker } from '../../../systems/autoclicker';
-
-/** Wrapper around createAutoClicker and setVar to make future upgrades easier to make */
-export function AutoClickerAction(amount) {
-  createAutoClicker('auto-clicker', 1000, () => {
-    setVar('material',
-      typeof amount === 'function'
-        ? amount
-        : x => x + amount
-    );
-  });
-}
+import AutoClickerAction from './AutoClickerAction';
 
 export default {
   name: 'Auto Clicker 1',
-  shortDesc: 'Automatically clicks the button.',
+  shortDesc: 'A constant stream of clicks that never stops!',
   longDesc: () => <>
     <p>
-      TODO: Auto Clicker Long Description
+      <em>Click click click</em>. Are you tired of clicking the button? Well me too,
+      that's why there is an auto clicker than gives you an endless stream of clicks that
+      never stops!
     </p>
   </>,
-  price: 25,
-
+  price: 2500,
   requires: [],
 
   activate() {
-    AutoClickerAction(1);
+    AutoClickerAction(2);
   },
 };

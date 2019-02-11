@@ -6,14 +6,14 @@ export default {
   shortDesc: 'Makes your clicks more powerful.',
   longDesc: () => <>
     <p>
-      Make your clicks more powerful by generating 20 Material per click.
+      Make your clicks EXTRA MOST powerful by generating 20 Material per click.
     </p>
   </>,
-  price: 500,
+  price: 1000,
 
   requires: ['ClickPower3'],
 
   activate() {
-    setVar('materialPerClick', 20);
+    setVar('materialPerClick', 7);
   },
 };

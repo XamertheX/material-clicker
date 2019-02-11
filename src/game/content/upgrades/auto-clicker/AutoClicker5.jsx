@@ -2,19 +2,19 @@ import React from 'react';
 import AutoClickerAction from './AutoClickerAction';
 
 export default {
-  name: 'Auto Clicker 2',
+  name: 'Auto Clicker 5',
   shortDesc: 'A constant stream of clicks that never stops!',
   longDesc: () => <>
     <p>
-      I guess the first level wasn't good enough... heres another one. It gives a little
-      bit more...
+      I can't give these out all day, it's not like we have 124,438,442 upgrade source
+      files.
     </p>
   </>,
-  price: 3500,
+  price: 6500,
 
-  requires: ['AutoClicker1'],
+  requires: ['AutoClicker4'],
 
   activate() {
-    AutoClickerAction(3);
+    AutoClickerAction(6);
   },
 };

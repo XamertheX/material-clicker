@@ -2,18 +2,18 @@ import React from 'react';
 import { setVar } from '../../../systems/vars';
 
 export default {
-  name: 'Click Power 3',
+  name: 'Click Power 5',
   shortDesc: 'Makes your clicks more powerful.',
   longDesc: () => <>
     <p>
-      Make your clicks extra powerful by generating ten Material per click.
+      Make your clicks EXTRA MOST powerful by generating 20 Material per click.
     </p>
   </>,
-  price: 500,
+  price: 2000,
 
-  requires: ['ClickPower2'],
+  requires: ['ClickPower4'],
 
   activate() {
-    setVar('materialPerClick', 5);
+    setVar('materialPerClick', 10);
   },
 };

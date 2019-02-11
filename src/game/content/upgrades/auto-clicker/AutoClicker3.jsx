@@ -2,19 +2,19 @@ import React from 'react';
 import AutoClickerAction from './AutoClickerAction';
 
 export default {
-  name: 'Auto Clicker 2',
+  name: 'Auto Clicker 3',
   shortDesc: 'A constant stream of clicks that never stops!',
   longDesc: () => <>
     <p>
-      I guess the first level wasn't good enough... heres another one. It gives a little
-      bit more...
+      Jeez... you never stop do you? I guess you really like clicks! Don't get too
+      attached to them, you may get addicted!
     </p>
   </>,
-  price: 3500,
+  price: 4500,
 
-  requires: ['AutoClicker1'],
+  requires: ['AutoClicker2'],
 
   activate() {
-    AutoClickerAction(3);
+    AutoClickerAction(4);
   },
 };

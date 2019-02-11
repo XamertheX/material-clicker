@@ -19,6 +19,17 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 let mainWindow;
 
 const createWindow = () => {
+  // If development build (NODE_ENV !== 'production), install the dev tools.
+  if (
+    process.env.NODE_ENV !== 'production'
+    && !BrowserWindow.getDevToolsExtensions()['React Developer Tools']
+  ) {
+    BrowserWindow.addDevToolsExtension(
+      // eslint-disable-next-line no-eval
+      eval('require')('electron-react-devtools').path
+    );
+  }
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,

@@ -5,8 +5,24 @@ let registry = {};
 
 function requireAll(r) {
   r.keys().forEach(path => {
+    const mod = r(path);
+
+    // Skip if not have a few of the required properties.
+    if (
+      !(mod.default !== 'undefined'
+        && mod.default.id !== 'undefined'
+        && mod.default.price !== 'undefined'
+        && mod.default.shortDesc !== 'undefined'
+        && mod.default.longDesc !== 'undefined'
+        && mod.default.requires !== 'undefined'
+        && mod.default.activate !== 'undefined'
+      )
+    ) {
+      return;
+    }
+
     const id = basename(path).substring(0, basename(path).length - 4);
-    registry[id] = r(path).default;
+    registry[id] = mod.default;
     registry[id].id = id;
   });
 }

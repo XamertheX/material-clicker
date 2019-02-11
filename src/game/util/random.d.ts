@@ -2,6 +2,9 @@
 /** Returns a integer number between min and max, inclusive */
 export function randomInt(min: number, max: number): number;
 
+/** Returns true `chance` pecent of the time (100 = always, 0 = never)*/
+export function chance(chance: number): boolean;
+
 /** Returns a random item from the array passed */
 export function randomOf<T>(list: T[]): T;
 

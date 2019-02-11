@@ -2,6 +2,10 @@ export function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+export function chance(percent) {
+  return Math.random() * 100 <= percent;
+}
+
 export function randomOf(list) {
   return list[Math.floor(Math.random() * list.length)];
 }

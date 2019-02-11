@@ -14,7 +14,12 @@ import {
   Button,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { getPurchasableShopItems, getShopItem, purchaseShopItem, canPurchase } from '../systems/shop';
+import {
+  getPurchasableShopItems,
+  getShopItem,
+  purchaseShopItem,
+  canPurchase,
+} from '../systems/shop';
 import classNames from 'classnames';
 import { setVar, vars } from '../systems/vars';
 

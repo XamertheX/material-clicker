@@ -22,6 +22,9 @@ import './systems/shop';
 // Add all the event handlers
 import './content/hooks/button-double';
 
+// Expose global variables
+import './globals';
+
 // Render <Game />
 import React from 'react';
 import { render } from 'react-dom';

@@ -11,7 +11,7 @@ import {
   MuiThemeProvider,
 } from '@material-ui/core';
 import PageHandler from './PageHandler';
-import { varsEmitter } from '../systems/vars';
+import { onAnyVarChange, offAnyVarChange } from '../systems/vars';
 import Titlebar from './Titlebar';
 import NavBar from './NavBar';
 import theme from '../theme';
@@ -40,10 +40,10 @@ class Game extends Component {
     this.setState({ vars });
   }
   componentDidMount() {
-    varsEmitter.on('change', this.handleSetVar);
+    onAnyVarChange(this.handleSetVar);
   }
   componentWillUnmount() {
-    varsEmitter.off('change', this.handleSetVar);
+    offAnyVarChange(this.handleSetVar);
   }
 
   render() {

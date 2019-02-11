@@ -2,7 +2,7 @@
 // Handles what happens when you click the bottom.
 //
 
-import { setVar, vars } from './vars';
+import { setVar, vars, onVarChange } from './vars';
 import EventEmmiter from 'eventemitter3';
 
 export const emitter = new EventEmmiter();
@@ -36,5 +36,7 @@ export function registerButtonWorthHandler(handler) {
 export function registerButtonClickHandler(handler) {
   emitter.on('click', handler);
 }
+
+onVarChange('materialPerClick', refreshNextButtonWorth);
 
 refreshNextButtonWorth();

@@ -1,6 +1,6 @@
 import EventEmmiter from 'eventemitter3';
 
-export const varsEmitter = new EventEmmiter();
+const emitter = new EventEmmiter();
 
 export let vars = {
 
@@ -22,5 +22,22 @@ export function setVar(varname, newvalue) {
       ? newvalue(vars[varname])
       : newvalue,
   };
-  varsEmitter.emit('change', vars);
+  emitter.emit('change', vars);
+  emitter.emit('change:' + varname, vars[varname]);
+}
+
+export function onAnyVarChange(handler) {
+  emitter.on('change', handler);
+}
+
+export function onVarChange(varname, handler) {
+  emitter.on('change:' + varname, handler);
+}
+
+export function offAnyVarChange(handler) {
+  emitter.off('change', handler);
+}
+
+export function offVarChange(varname, handler) {
+  emitter.off('change:' + varname, handler);
 }

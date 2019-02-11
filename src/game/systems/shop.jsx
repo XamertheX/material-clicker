@@ -9,13 +9,8 @@ function requireAll(r) {
 
     // Skip if not have a few of the required properties.
     if (
-      !(mod.default !== 'undefined'
-        && mod.default.id !== 'undefined'
-        && mod.default.price !== 'undefined'
-        && mod.default.shortDesc !== 'undefined'
-        && mod.default.longDesc !== 'undefined'
-        && mod.default.requires !== 'undefined'
-        && mod.default.activate !== 'undefined'
+      !(typeof mod.default === 'object'
+        && typeof mod.default.name === 'string'
       )
     ) {
       return;

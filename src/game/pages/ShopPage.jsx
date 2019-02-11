@@ -11,9 +11,10 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  Button,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { getPurchasableShopItems, getShopItem } from '../systems/shop';
+import { getPurchasableShopItems, getShopItem, purchaseShopItem, canPurchase } from '../systems/shop';
 import classNames from 'classnames';
 import { setVar, vars } from '../systems/vars';
 
@@ -63,6 +64,15 @@ const styles = (theme) => createStyles({
   itemDetailsBottom: {
     height: 64,
   },
+  bottomBar: {
+    display: 'flex',
+  },
+  grow: {
+    flex: 1,
+  },
+  centerVert: {
+    alignSelf: 'center',
+  },
 });
 class MainPage extends Component {
   static id = 'shop';
@@ -72,12 +82,19 @@ class MainPage extends Component {
     setVar('shopItemSelected', id);
   }
 
+  handlePurchase = () => {
+    purchaseShopItem(vars.shopItemSelected);
+    setVar('shopItemSelected', getPurchasableShopItems()[0].id || null);
+  }
+
   render() {
     const { classes: c } = this.props;
 
     const selectedItem = vars.shopItemSelected
       ? getShopItem(vars.shopItemSelected)
       : null;
+
+    const canBuy = selectedItem && canPurchase(selectedItem.id);
 
     return <div className={c.root}>
       <Paper className={classNames(c.paper, c.list)}>
@@ -122,10 +139,20 @@ class MainPage extends Component {
               <Typography component='div'>
                 <selectedItem.longDesc />
               </Typography>
-              <div style={{ flex: 1 }} />
-              <Typography variant='body1'>
-                Price: {selectedItem.price} Material
-              </Typography>
+              <div className={c.grow} />
+              <div className={c.bottomBar}>
+                <Typography variant='body1' className={classNames(c.grow, c.centerVert)}>
+                  Price: {selectedItem.price} Material
+                </Typography>
+                <Button
+                  variant='contained'
+                  color='primary'
+                  disabled={!canBuy}
+                  onClick={this.handlePurchase}
+                >
+                  {canBuy ? 'Purchase' : 'Cannot Purchase'}
+                </Button>
+              </div>
             </div>
         }
       </Paper>

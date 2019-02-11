@@ -5,9 +5,11 @@
 import React, { Component } from 'react';
 import { withStyles, createStyles, Typography, Button } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { vars, setVar } from '../systems/vars';
+import { vars } from '../systems/vars';
 import compact from '../util/number-compact';
-import { chance } from './../util/random';
+import { clickButton } from '../systems/button';
+import classNames from 'classnames';
+import { amber } from '@material-ui/core/colors';
 
 const styles = (theme) => createStyles({
   title: {
@@ -25,22 +27,17 @@ const styles = (theme) => createStyles({
     paddingLeft: '20px',
     paddingRight: '20px',
   },
+  buttonGold: {
+    background: amber[500],
+    '&:hover': {
+      background: amber[600],
+    },
+  },
 });
 
 class MainPage extends Component {
   static id = 'main';
   static display = 'Main';
-
-  handleClick = () => {
-    let toAdd = vars.materialPerClick;
-
-    // 10% chance to get double.
-    if (chance(10)) {
-      toAdd *= 2;
-    }
-
-    setVar('material', m => m + toAdd);
-  }
 
   render() {
     const { classes: c } = this.props;
@@ -51,14 +48,20 @@ class MainPage extends Component {
       </Typography>
       <div>
         <Button
-          className={c.button}
+          className={classNames({
+            [c.button]: true,
+            [c.buttonGold]: vars.nextClickIsGold,
+          })}
+          classes={{
+
+          }}
           variant='contained'
           color='primary'
-          onClick={this.handleClick}
+          onClick={clickButton}
           size='large'
         >
           <Typography variant='h6' className={c.buttonText} color='inherit'>
-            +{vars.materialPerClick}
+            +{vars.nextClickValue}
           </Typography>
         </Button>
       </div>

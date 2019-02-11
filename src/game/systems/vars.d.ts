@@ -11,6 +11,10 @@ interface Variables {
   shopItemsPurchased: string[];
   /** Current Selection in the shop page */
   shopItemSelected: string | null;
+  /** Value of the next button, after through multipliers. */
+  nextClickValue: number;
+  /** If the button displays in gold */
+  nextClickIsGold: boolean;
 }
 type VarName = Variables[keyof Variables]
 

@@ -10,6 +10,9 @@ export let vars = {
   shopItemsPurchased: [],
 
   shopItemSelected: null,
+
+  nextClickValue: 0,
+  nextClickIsGold: false,
 };
 
 export function setVar(varname, newvalue) {

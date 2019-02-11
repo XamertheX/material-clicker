@@ -14,8 +14,13 @@ import { LocationProvider, createHistory, createMemorySource } from '@reach/rout
 let source = createMemorySource('/');
 let history = createHistory(source);
 
-// Load the shop
+// Load core systems
+import './systems/autoclicker';
+import './systems/button';
 import './systems/shop';
+
+// Add all the event handlers
+import './content/hooks/button-double';
 
 // Render <Game />
 import React from 'react';

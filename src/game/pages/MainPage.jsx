@@ -7,7 +7,7 @@ import { withStyles, createStyles, Typography, Button } from '@material-ui/core'
 import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../systems/vars';
 import compact from '../util/number-compact';
-import { randomInclusive } from './../util/random';
+import { randomInt } from './../util/random';
 
 const styles = (theme) => createStyles({
   title: {
@@ -34,7 +34,7 @@ class MainPage extends Component {
   handleClick = () => {
     let toAdd = vars.materialPerClick;
 
-    if(randomInclusive(1, 15) === 15) {
+    if(randomInt(1, 15) === 15) {
       toAdd *= 2;
     }
 

@@ -11,7 +11,7 @@ export default {
   </>,
   price: 5000,
 
-  requires: ['ClickPower5'],
+  requires: ['ClickPower6'],
 
   activate() {
     setVar('materialPerClick', 15);

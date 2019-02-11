@@ -12,7 +12,7 @@ let compactNumberMap = {
 };
 
 export default function compact(number, decimalPlaces = 2) {
-  let numberString = number.toString();
+  let numberString = Math.floor(number).toString();
 
   if (numberString.length < 7) {
     return numberString;

@@ -79,6 +79,7 @@ const styles = (theme) => createStyles({
     alignSelf: 'center',
   },
 });
+
 class MainPage extends Component {
   static id = 'shop';
   static display = 'Shop';
@@ -89,7 +90,12 @@ class MainPage extends Component {
 
   handlePurchase = () => {
     purchaseShopItem(vars.shopItemSelected);
-    setVar('shopItemSelected', getPurchasableShopItems()[0].id || null);
+
+    // Select the most reasonable option to choose next.
+    const item = getShopItem(vars.shopItemSelected);
+    const list = getPurchasableShopItems();
+    const found = list.find((obj) => obj.requires.includes(item.id));
+    setVar('shopItemSelected', found && found.id || list[0].id || null);
   }
 
   render() {
@@ -110,6 +116,7 @@ class MainPage extends Component {
                 button
                 key={item.id}
                 onClick={this.handleSelect(item.id)}
+                selected={item.id === vars.shopItemSelected}
               >
                 <ListItemText
                   primary={item.name}

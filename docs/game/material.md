@@ -1,5 +1,5 @@
 # Material
-Material is the game's "currency". You can buy [Upgrades](/upgrades/) from the 
+Material is the game's "currency". You can buy [Upgrades](/upgrades/) from the
 [Shop](/game/shop/).
 
 Everyone starts out with one Material per click. You can call this level 0 if you wish,

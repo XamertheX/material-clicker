@@ -1,6 +1,6 @@
 //
-// Entrypoint to the web application, renders the <Game> component, and loads all game
-// systems.
+// Entrypoint to the web application, sets up the loading screen and titlebar, and then
+// calls the ./loading.jsx to do the real loading.
 //
 
 // eslint-disable-next-line no-console
@@ -9,32 +9,8 @@ console.log('👋 Hello Material Clcker!');
 // Import Global Styles
 import './global.css';
 
-// Create a @reach/router history source
-import { LocationProvider, createHistory, createMemorySource } from '@reach/router';
-let source = createMemorySource('/');
-let history = createHistory(source);
+// Create a titlebar
+import './titlebar';
 
-// Load core systems
-import './systems/button';
-import './systems/shop';
-import { loadGameSaveData } from './systems/savefile-manager';
-
-// Add all the event handlers
-import './content/hooks/button-double';
-import './content/hooks/anti-cheat';
-import './content/hooks/globals';
-import './content/hooks/save-on-close';
-
-// Render <Game />
-import React from 'react';
-import { render } from 'react-dom';
-import Game from './components/Game';
-
-(async () => {
-  await loadGameSaveData();
-
-  render(<LocationProvider history={history}>
-    <Game />
-  </LocationProvider>, document.getElementById('root'));
-})();
-
+// Split the rest of the game so that the loading code can load itself faster.
+import('./loading');

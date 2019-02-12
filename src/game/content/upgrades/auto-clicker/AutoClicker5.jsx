@@ -6,9 +6,11 @@ export default {
   shortDesc: 'A constant stream of clicks that never stops!',
   longDesc: () => <>
     <p>
-      I can't give these out all day, it's not like we have 124,438,442 upgrade source
-      files.
+      <em>Click click click</em>. Are you tired of clicking the button? Well me too,
+      that's why there is an auto clicker than gives you an endless stream of clicks that
+      never stops!
     </p>
+    <p>This upgrade will give you six clicks per second.</p>
   </>,
   price: 6500,
 

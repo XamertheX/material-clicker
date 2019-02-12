@@ -2,11 +2,11 @@ import React from 'react';
 import { setVar } from '../../../systems/vars';
 
 export default {
-  name: 'Golden Clicks',
+  name: 'Gold Chance 3',
   shortDesc: 'Makes Golden Clicks more often.',
   longDesc: () => <>
     <p>
-      Increases the chance the button will become Gold from 8% to 10%
+      Increases the chance the button will become Gold from 8% to 10%.
     </p>
   </>,
   price: 35000,

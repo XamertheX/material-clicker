@@ -6,8 +6,11 @@ export default {
   shortDesc: 'A constant stream of clicks that never stops!',
   longDesc: () => <>
     <p>
-      Ah! How many do you want. Chill.
+      <em>Click click click</em>. Are you tired of clicking the button? Well me too,
+      that's why there is an auto clicker than gives you an endless stream of clicks that
+      never stops!
     </p>
+    <p>This upgrade will give you five clicks per second.</p>
   </>,
   price: 5500,
 

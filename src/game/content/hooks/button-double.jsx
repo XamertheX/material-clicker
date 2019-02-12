@@ -1,5 +1,5 @@
 //
-// Gives a % chance to get double (or more) clicks when clicking the button.
+// Gives a % chance to get double (or more) material when clicking the button.
 //
 import { registerButtonWorthHandler } from '../../systems/button';
 import { chance } from '../../util/random';

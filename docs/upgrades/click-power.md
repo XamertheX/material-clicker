@@ -2,7 +2,7 @@
 **Click Power** is a type of [Upgrade](/upgrades/) that you can buy with 
 [Material](/game/material.md) from the [Shop](/game/shop.md).
 
-This upgrade makes your regular clicks more powerful (more Material per click). You may 
+This upgrade makes your regular material more powerful (more Material per click). You may 
 be looking for [Gold Power](/upgrades/gold-power.md)
 
 ## Upgrade Data

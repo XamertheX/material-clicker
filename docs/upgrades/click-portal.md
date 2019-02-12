@@ -2,6 +2,8 @@
 The **Click Portal** is a type of [Upgrade](/upgrades/) that you can buy with 
 [Material](/game/material.md) from the [Shop](/game/shop.md).
 
+The Click Portal outputs large amounts of material every 30 seconds.
+
 ## Upgrade Data
 
 | Level | Material Per 30 Seconds | Cost (Material) | Prerequisite(s) |

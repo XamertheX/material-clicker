@@ -1,4 +1,4 @@
-import { vars, setVar } from './systems/vars';
+import { vars, setVar } from '../../systems/vars';
 
 //
 // Exposes global variables in development mode.

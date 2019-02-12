@@ -14,3 +14,5 @@ Object.keys(vars).forEach((key) => {
     },
   });
 });
+
+window.$require = require.context('../../', true, /.jsx?$/);

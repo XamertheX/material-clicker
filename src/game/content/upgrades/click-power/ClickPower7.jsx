@@ -14,6 +14,6 @@ export default {
   requires: ['ClickPower6'],
 
   activate() {
-    setVar('materialPerClick', 15);
+    setVar('materialPerClick', 20);
   },
 };

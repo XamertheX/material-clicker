@@ -15,14 +15,18 @@ let source = createMemorySource('/');
 let history = createHistory(source);
 
 // Load core systems
-import './systems/autoclicker';
 import './systems/button';
 import './systems/shop';
+
+// Load the savefile
+import { loadGameSaveData } from './systems/savefile-manager';
+loadGameSaveData();
 
 // Add all the event handlers
 import './content/hooks/button-double';
 import './content/hooks/anti-cheat';
 import './content/hooks/globals';
+import './content/hooks/save-on-close';
 
 // Render <Game />
 import React from 'react';

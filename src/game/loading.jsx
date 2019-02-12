@@ -21,10 +21,10 @@
   const { loadGameSaveData } = await import('./systems/savefile-manager');
 
   // Add all the event handlers
-  await import('./content/hooks/button-double');
-  await import('./content/hooks/anti-cheat');
-  await import('./content/hooks/globals');
-  await import('./content/hooks/save-on-close');
+  function requireAll(r) {
+    r.keys().map(r);
+  }
+  requireAll(require.context('./content/hooks', true, /\.jsx?$/));
 
   // Render <Game />
   const { default: React } = await import('react');

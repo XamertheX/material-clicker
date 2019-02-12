@@ -21,6 +21,7 @@ import './systems/shop';
 
 // Add all the event handlers
 import './content/hooks/button-double';
+import './content/hooks/anti-cheat';
 
 // Expose global variables
 import './globals';

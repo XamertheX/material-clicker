@@ -14,8 +14,11 @@ import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../systems/vars';
 
 const styles = () => createStyles({
-  root: {
+  paper: {
     WebkitAppRegion: 'drag',
+  },
+  root: {
+    zIndex: 100000,
   },
   noDrag: {
     WebkitAppRegion: 'no-drag',
@@ -48,8 +51,9 @@ class DialogHandler extends Component {
     return (
       <>
         <Dialog
+          className={c.root}
           classes={{
-            paper: c.root,
+            paper: c.paper,
           }}
           open={vars.dialogIsOpen}
           TransitionComponent={this.Transition}

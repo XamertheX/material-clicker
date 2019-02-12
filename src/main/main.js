@@ -39,7 +39,7 @@ const createWindow = () => {
     backgroundColor: '#fefefe',
     frame: false,
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: false,
       // Note: this global is defined by @electron-forge/plugin-webpack
       preload: GAME_PRELOAD_WEBPACK_ENTRY,

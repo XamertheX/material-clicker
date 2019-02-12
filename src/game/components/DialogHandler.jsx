@@ -8,6 +8,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
+  Grow,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars, setVar } from '../systems/vars';
@@ -33,6 +34,10 @@ class DialogHandler extends Component {
     setVar('dialogIsOpen', false);
   };
 
+  Transition = (props) => {
+    return <Grow {...props} />;
+  }
+
   render() {
     if(!vars.dialogData) {
       return null;
@@ -47,6 +52,8 @@ class DialogHandler extends Component {
             paper: c.root,
           }}
           open={vars.dialogIsOpen}
+          TransitionComponent={this.Transition}
+          keepMounted
           onClose={this.handleClose(-1)}
           aria-labelledby='alert-dialog-title'
           aria-describedby='alert-dialog-description'

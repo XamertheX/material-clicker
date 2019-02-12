@@ -9,8 +9,10 @@
   GAME CONTENT REFERENCE
 -->
 * [Upgrades](/upgrades/)
-  * [Click Power](/upgrades/click-power.md)
   * [Auto Clicker](/upgrades/auto-clicker.md)
+  * [Click Power](/upgrades/click-power.md)
+  * [Gold Chance](/upgrades/gold-chance.md)
+  * [Gold Power](/upgrades/gold-power.md)
 <!--
   DEVELOPER DOCUMENTATION
 -->

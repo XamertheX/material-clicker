@@ -5,8 +5,14 @@ The **Upgrade** is a thing that you can buy from the [Shop](/game/shop.md), to m
 
 ## Current Upgrades
 
-|     Name         |                          Action                          |
-|:----------------:|:--------------------------------------------------------:|
-| [Click Power][1] | Increases the amount of Material gained per mouse click. |
+|        Name       |                          Action                          |
+|:-----------------:|:--------------------------------------------------------:|
+| [Auto Clicker][2] |       A constant stream of clicks that never stops!      |
+|  [Click Power][1] | Increases the amount of Material gained per mouse click. |
+|  [Gold Chance][3] |              Makes Golden Clicks more often.             |
+|  [Gold Power][4]  |            Makes Golden Clicks more powerful.            |   
 
 [1]: /upgrades/click-power.md
+[2]: /upgrades/auto-clicker.md
+[3]: /upgrades/gold-chance.md
+[4]: /upgrads/gold-power.md

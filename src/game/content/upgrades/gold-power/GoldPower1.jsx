@@ -2,8 +2,8 @@ import React from 'react';
 import { setVar } from '../../../systems/vars';
 
 export default {
-  name: 'Golden Multiplier',
-  shortDesc: 'Makes Golden Clicks worth more.',
+  name: 'Golden Power',
+  shortDesc: 'Makes Golden Clicks more powerful.',
   longDesc: () => <>
     <p>
       Gold Clicks will be worth 2.5x instead of only double.

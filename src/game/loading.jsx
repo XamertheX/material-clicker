@@ -1,30 +1,39 @@
 //
-// Does the 'actual loading process' of the game.
+// Does the 'actual loading process' of the game. If we use dynamic imports it has a
+// smoother loading bar while loading.
 //
 
-// Create a @reach/router history source
-import { LocationProvider, createHistory, createMemorySource } from '@reach/router';
-let source = createMemorySource('/');
-let history = createHistory(source);
-
-// Load core systems
-import './systems/button';
-import './systems/shop';
-import { loadGameSaveData } from './systems/savefile-manager';
-
-// Add all the event handlers
-import './content/hooks/button-double';
-import './content/hooks/anti-cheat';
-import './content/hooks/globals';
-import './content/hooks/save-on-close';
-
-// Render <Game />
-import React from 'react';
-import { render } from 'react-dom';
-import Game from './components/Game';
-
 (async () => {
+
+  // Create a @reach/router history source
+  const {
+    LocationProvider,
+    createHistory,
+    createMemorySource,
+  } = await import('@reach/router');
+
+  let source = createMemorySource('/');
+  let history = createHistory(source);
+
+  // Load core systems
+  await import('./systems/button');
+  await import('./systems/shop');
+  const { loadGameSaveData } = await import('./systems/savefile-manager');
+
+  // Add all the event handlers
+  await import('./content/hooks/button-double');
+  await import('./content/hooks/anti-cheat');
+  await import('./content/hooks/globals');
+  await import('./content/hooks/save-on-close');
+
+  // Render <Game />
+  const { default: React } = await import('react');
+  const { render } = await import('react-dom');
+  const { default: Game } = await import('./components/Game');
+
   await loadGameSaveData();
+
+  await new Promise(r => setTimeout(r, 400)); // :)
 
   const root = document.getElementById('root');
 

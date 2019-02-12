@@ -27,8 +27,11 @@ body {
 }
 
 /* Loading Screen */
-#root::after {
-  display: block;
+#root + #loader {
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   background: #d4d4d4;
   width: 100%;
@@ -38,7 +41,7 @@ body {
   pointer-events: none;
   transition: opacity 0.5s;
 }
-#root.loaded::after {
+#root.loaded + #loader {
   opacity: 0;
 }
 
@@ -58,4 +61,43 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+/* Circlular Progress Meter
+ * Stolen from https://codepen.io/mape84/pen/Gyqome
+ */
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}
+
+.circular-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  animation: rotate 2s linear infinite both;
+}
+.circular-progress__path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite both;
+  stroke-linecap: round;
 }

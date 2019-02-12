@@ -12,5 +12,11 @@ import './global.css';
 // Create a titlebar
 import './titlebar';
 
+// Set the corrrect color on the circular progress
+import theme from './content/theme';
+
+document.querySelector('.circular-progress__path')
+  .style.stroke = theme.palette.primary.main;
+
 // Split the rest of the game so that the loading code can load itself faster.
 import('./loading');

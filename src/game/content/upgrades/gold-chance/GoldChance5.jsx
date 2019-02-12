@@ -2,18 +2,18 @@ import React from 'react';
 import { setVar } from '../../../systems/vars';
 
 export default {
-  name: 'Gold Chance 1',
+  name: 'Gold Chance 5',
   shortDesc: 'Makes Golden Clicks more often.',
   longDesc: () => <>
     <p>
-      Increases the chance the button will become Gold from 5% to 6.5%.
+      Increases the chance the button will become Gold from 12% to 14%.
     </p>
   </>,
-  price: 5000,
+  price: 75000,
 
-  requires: ['ClickPower3', 'AutoClicker1'],
+  requires: ['GoldChance4'],
 
   activate() {
-    setVar('buttonDoublePercent', 6.5);
+    setVar('buttonDoublePercent', 14);
   },
 };

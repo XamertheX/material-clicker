@@ -19,3 +19,13 @@ and you have to buy the Click Power upgrade to improve that.
 |     5     |         10         |       2000      |  Click Power 4  |
 |     6     |         15         |       2500      |  Click Power 5  |
 |     7     |         20         |       5000      |  Click Power 6  |
+|     8     |         25         |       7500      |  Click Power 7  |
+|     9     |         50         |      10000      |  Click Power 8  |
+|     10    |         75         |      15000      |  Click Power 9  |
+|     11    |         100        |      25000      |  Click Power 10 |
+|     12    |         125        |      35000      |  Click Power 11 |
+|     13    |         150        |      45000      |  Click Power 12 |
+|     14    |         200        |      55000      |  Click Power 13 |
+|     15    |         250        |      75000      |  Click Power 14 |
+|     16    |         300        |      95000      |  Click Power 15 |
+|     17    |         400        |      105000     |  Click Power 16 |

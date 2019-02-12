@@ -2,18 +2,18 @@ import React from 'react';
 import { setVar } from '../../../systems/vars';
 
 export default {
-  name: 'Golden Power 1',
+  name: 'Golden Power 2',
   shortDesc: 'Makes Golden Clicks more powerful.',
   longDesc: () => <>
     <p>
-      Gold Clicks will be worth 2.5x instead of only double.
+      Gold Clicks will be worth 3x instead of 2.5x.
     </p>
   </>,
-  price: 7500,
+  price: 10000,
 
-  requires: ['GoldChance1'],
+  requires: ['GoldPower1'],
 
   activate() {
-    setVar('buttonDoubleMultiplier', 2.5);
+    setVar('buttonDoubleMultiplier', 3);
   },
 };

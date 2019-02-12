@@ -10,6 +10,7 @@ export default {
       that's why there is an auto clicker than gives you an endless stream of clicks that
       never stops!
     </p>
+    <p>This upgrade will give you two clicks per second.</p>
   </>,
   price: 2500,
   requires: [],

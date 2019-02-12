@@ -6,7 +6,7 @@ export default {
   shortDesc: 'Makes your clicks more powerful.',
   longDesc: () => <>
     <p>
-      Make your clicks GODLY by generating 20 Material per click.
+      Make your clicks more powerful by generating 20 Material per click.
     </p>
   </>,
   price: 5000,

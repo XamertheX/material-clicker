@@ -6,7 +6,7 @@ export default {
   shortDesc: 'Makes Golden Clicks more often.',
   longDesc: () => <>
     <p>
-      Increases the chance the button will become Gold from 5% to 6.5%
+      Increases the chance the button will become Gold from 5% to 6.5%.
     </p>
   </>,
   price: 5000,

@@ -14,4 +14,4 @@ export function getPurchasableShopItems(): ShopItem[];
 
 export function canPurchase(id: string): boolean;
 
-export function purchaseShopItem(id: string): undefined;
+export function purchaseShopItem(id: string, check: boolean): undefined;

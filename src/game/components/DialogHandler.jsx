@@ -73,8 +73,8 @@ class DialogHandler extends Component {
                   key={i}
                   className={c.noDrag}
                   onClick={this.handleClose(i)}
-                  color='primary'
-                  variant={btn.type || 'flat'}
+                  color={btn.color || 'primary'}
+                  variant={btn.type || btn.variant || 'text'}
                   autoFocus={btn.default}
                 >
                   {btn.text}

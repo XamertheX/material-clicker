@@ -15,22 +15,26 @@ let source = createMemorySource('/');
 let history = createHistory(source);
 
 // Load core systems
-import './systems/autoclicker';
 import './systems/button';
 import './systems/shop';
+import { loadGameSaveData } from './systems/savefile-manager';
 
 // Add all the event handlers
 import './content/hooks/button-double';
 import './content/hooks/anti-cheat';
-
-// Expose global variables
-import './globals';
+import './content/hooks/globals';
+import './content/hooks/save-on-close';
 
 // Render <Game />
 import React from 'react';
 import { render } from 'react-dom';
 import Game from './components/Game';
 
-render(<LocationProvider history={history}>
-  <Game />
-</LocationProvider>, document.getElementById('root'));
+(async () => {
+  await loadGameSaveData();
+
+  render(<LocationProvider history={history}>
+    <Game />
+  </LocationProvider>, document.getElementById('root'));
+})();
+

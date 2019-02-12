@@ -17,10 +17,7 @@ let history = createHistory(source);
 // Load core systems
 import './systems/button';
 import './systems/shop';
-
-// Load the savefile
 import { loadGameSaveData } from './systems/savefile-manager';
-loadGameSaveData();
 
 // Add all the event handlers
 import './content/hooks/button-double';
@@ -33,6 +30,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import Game from './components/Game';
 
-render(<LocationProvider history={history}>
-  <Game />
-</LocationProvider>, document.getElementById('root'));
+(async () => {
+  await loadGameSaveData();
+
+  render(<LocationProvider history={history}>
+    <Game />
+  </LocationProvider>, document.getElementById('root'));
+})();
+

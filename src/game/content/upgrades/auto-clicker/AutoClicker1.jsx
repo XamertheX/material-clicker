@@ -2,7 +2,7 @@ import React from 'react';
 import AutoClickerAction from './AutoClickerAction';
 
 export default {
-  name: 'Auto Clicker 1',
+  name: 'Auto Clicker',
   shortDesc: 'A constant stream of clicks that never stops!',
   longDesc: () => <>
     <p>

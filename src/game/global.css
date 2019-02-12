@@ -10,7 +10,9 @@
 body {
   margin: 0;
   background: #fefefe;
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
 }
+
 
 #root {
   display: flex;

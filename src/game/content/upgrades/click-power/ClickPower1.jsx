@@ -2,7 +2,7 @@ import React from 'react';
 import { setVar } from '../../../systems/vars';
 
 export default {
-  name: 'Click Power',
+  name: 'Click Power 1',
   shortDesc: 'Makes your clicks more powerful.',
   longDesc: () => <>
     <p>

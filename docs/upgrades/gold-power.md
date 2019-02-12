@@ -1,5 +1,5 @@
 # Gold Power
-Gold Power is a type of [Upgrade](/upgrades/) that you can buy with 
+**Gold Power** is a type of [Upgrade](/upgrades/) that you can buy with 
 [Material](/game/material.md) from the [Shop](/game/shop.md).
 
 This upgrade makes your golden clicks more powerful (it gives you more Material).

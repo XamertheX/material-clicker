@@ -1,5 +1,5 @@
 # Gold Chance
-Gold Chance is a type of [Upgrade](/upgrades/) that you can buy with 
+**Gold Chance** is a type of [Upgrade](/upgrades/) that you can buy with 
 [Material](/game/material.md) from the [Shop](/game/shop.md).
 
 This upgrade increases the chances that a golden click will appear.

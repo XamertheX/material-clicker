@@ -95,7 +95,7 @@ class MainPage extends Component {
     const item = getShopItem(vars.shopItemSelected);
     const list = getPurchasableShopItems();
     const found = list.find((obj) => obj.requires.includes(item.id));
-    setVar('shopItemSelected', found && found.id || list[0].id || null);
+    setVar('shopItemSelected', found && found.id || list && list[0].id || null);
   }
 
   render() {

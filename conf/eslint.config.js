@@ -2,7 +2,7 @@ module.exports = {
   parser: 'babel-eslint',
   extends: 'dave/react',
   globals: {
-
+    $About: true,
   },
   rules: {
     'max-len': ['error', { code: 90 }],

@@ -45,7 +45,7 @@ export function canPurchase(id) {
   return true;
 }
 
-export function purchaseShopItem(id, check) {
+export function purchaseShopItem(id, check = true) {
   if (check) {
     if(!canPurchase(id)) {
       return;

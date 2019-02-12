@@ -3,10 +3,11 @@
 //
 import { registerButtonWorthHandler } from '../../systems/button';
 import { chance } from '../../util/random';
+import { vars } from '../../systems/vars';
 
 registerButtonWorthHandler((ev) => {
-  if(chance(7.5)) {
-    ev.material *= 2;
+  if(chance(vars.buttonDoublePercent)) {
+    ev.material *= vars.buttonDoubleMultiplier;
     ev.isGold = true;
   }
 });

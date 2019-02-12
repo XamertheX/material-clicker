@@ -11,6 +11,11 @@ interface Variables {
   nextClickValue: number;
   /** If the button displays in gold */
   nextClickIsGold: boolean;
+
+  /** Percentage chance the button will become gold */
+  buttonDoublePercent: 5,
+  /** Multiplier of the button when it's gold */
+  buttonDoubleMultiplier: 2,
 }
 
 /** Non-Global Global Variables */

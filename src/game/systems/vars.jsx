@@ -13,6 +13,9 @@ export let vars = {
 
   nextClickValue: 0,
   nextClickIsGold: false,
+
+  buttonDoublePercent: 5,
+  buttonDoubleMultiplier: 2,
 };
 
 export function setVar(varname, newvalue) {

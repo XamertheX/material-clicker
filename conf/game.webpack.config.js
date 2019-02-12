@@ -22,6 +22,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(wav|mp3|webm)?$/,
+        use: ['file-loader'],
+      },
     ],
   },
   resolve: {

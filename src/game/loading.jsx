@@ -16,6 +16,7 @@
   let history = createHistory(source);
 
   // Load core systems
+  await import('./systems/audio');
   await import('./systems/button');
   await import('./systems/shop');
   const { loadGameSaveData } = await import('./systems/savefile-manager');

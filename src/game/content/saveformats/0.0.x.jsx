@@ -1,10 +1,14 @@
 import { writeData, readData } from '../../systems/data-manager';
 import { setVar, vars } from '../../systems/vars';
+import { purchaseShopItem } from '../../systems/shop';
 
 // Function called to load the savefile.
 export async function load() {
   const data = await readData('data');
   setVar('material', data.material);
+  data.shopItemsPurchased.forEach(id => {
+    purchaseShopItem(id, false);
+  });
 }
 
 // Function called to save the savefile.

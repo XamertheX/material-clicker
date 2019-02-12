@@ -45,11 +45,13 @@ export function canPurchase(id) {
   return true;
 }
 
-export function purchaseShopItem(id) {
-  if(!canPurchase(id)) {
-    return;
+export function purchaseShopItem(id, check) {
+  if (check) {
+    if(!canPurchase(id)) {
+      return;
+    }
+    setVar('material', (m) => m - getShopItem(id).price);
   }
-  setVar('material', (m) => m - getShopItem(id).price);
   setVar('shopItemsPurchased', (array) => [...array, id]);
   getShopItem(id).activate();
 }

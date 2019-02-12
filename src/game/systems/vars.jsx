@@ -16,6 +16,9 @@ export let vars = {
 
   buttonDoublePercent: 5,
   buttonDoubleMultiplier: 2,
+
+  dialogData: null,
+  dialogIsOpen: false,
 };
 
 export function setVar(varname, newvalue) {

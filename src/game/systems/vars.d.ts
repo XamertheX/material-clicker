@@ -16,6 +16,11 @@ interface Variables {
   buttonDoublePercent: 5,
   /** Multiplier of the button when it's gold */
   buttonDoubleMultiplier: 2,
+
+  /** Data for the DialogHandler */
+  dialogData: any,
+  /** Data for the DialogHandler */
+  dialogIsOpen: boolean,
 }
 
 /** Non-Global Global Variables */

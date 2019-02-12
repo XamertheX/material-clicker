@@ -15,6 +15,7 @@ import { onAnyVarChange, offAnyVarChange } from '../systems/vars';
 import Titlebar from './Titlebar';
 import NavBar from './NavBar';
 import theme from '../theme';
+import DialogHandler from './DialogHandler';
 
 const styles = () => createStyles({
   main: {
@@ -25,20 +26,12 @@ const styles = () => createStyles({
 });
 
 class Game extends Component {
-  state = {
-    vars: {
-
-      material: 0,
-      materialPerClick: 1,
-
-      shopItemsPurchased: [],
-
-    },
-  }
+  state = {vars: null}
 
   handleSetVar = (vars) => {
     this.setState({ vars });
   }
+
   componentDidMount() {
     onAnyVarChange(this.handleSetVar);
   }
@@ -58,6 +51,10 @@ class Game extends Component {
             component to navigate between pages.*/}
         <PageHandler />
       </div>
+
+      {/* DialogHandler handles the pop up alert dialogs, it doesn't matter where we
+          mount this component, so lets do it here. */}
+      <DialogHandler />
     </MuiThemeProvider>;
   }
 }

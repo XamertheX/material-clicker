@@ -11,6 +11,7 @@ body {
   margin: 0;
   background: #fefefe;
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  user-select: none;
 }
 
 #root {

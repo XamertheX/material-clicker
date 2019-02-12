@@ -36,7 +36,7 @@ const createWindow = () => {
     height: 600,
     minHeight: 375,
     minWidth: 470,
-    backgroundColor: '#fefefe',
+    backgroundColor: '#e7e7e7',
     frame: false,
     webPreferences: {
       nodeIntegration: true,

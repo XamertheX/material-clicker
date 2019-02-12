@@ -35,13 +35,9 @@ registerButtonClickHandler(() => {
 
   if(clickInterval === lastClickInterval) {
     if(!shouldCountSuspicion) {
-      // eslint-disable-next-line no-console
-      console.log('Suspicion mode activated!');
       shouldCountSuspicion = true;
     }
 
-    // eslint-disable-next-line no-console
-    console.log('Suspicion increased!');
     suspicion++;
     if(suspicion >= 5) {
       AlertDialog(
@@ -65,8 +61,6 @@ registerButtonClickHandler(() => {
     if(clicksBetweenSuspicion >= 15) {
       clicksBetweenSuspicion = 0;
       if(suspicion !== 0) {
-        // eslint-disable-next-line no-console
-        console.log('Suspicion lowered!');
         suspicion--;
       }
     }

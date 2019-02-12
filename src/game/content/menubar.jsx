@@ -43,10 +43,7 @@ export default Menu.buildFromTemplate([
             [
               { text: 'Okay', default: true },
             ]
-          ).then((selection) => {
-            // eslint-disable-next-line no-console
-            console.log('done', selection);
-          });
+          );
         },
       },
       {

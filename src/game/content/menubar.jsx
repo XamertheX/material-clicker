@@ -1,6 +1,7 @@
 import React from 'react';
 import { remote, shell } from 'electron';
 import { AlertDialog } from '../systems/dialog';
+import { formatDate } from '../util/date';
 const { Menu } = remote;
 
 export default Menu.buildFromTemplate([
@@ -27,10 +28,11 @@ export default Menu.buildFromTemplate([
         click: () => {
           AlertDialog(
             'About Material Clicker',
-            <span style={{ minWidth: '500px' }}>
-              <strong>Version</strong>: TODO Version <br/>
-              <strong>Compiled On</strong>: TODO Date <br/>
+            <span style={{ minWidth: '360px', display: 'block' }}>
+              <strong>Version</strong>: {$About.Version} <br/>
+              <strong>Compiled On</strong>: {formatDate(new Date($About.CompileTime))}
 
+              <br/>
               <br/>
 
               <strong>Chrome Version</strong>: {process.versions.chrome} <br/>

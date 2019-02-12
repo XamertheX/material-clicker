@@ -6,6 +6,9 @@ module.exports = {
       // Some package within or used by @material-ui/core uses
       // `global` instead of `window`.
       global: 'window',
+
+      '$About.CompileTime': JSON.stringify(Date.now()),
+      '$About.Version': JSON.stringify(require('../package.json').version),
     }),
   ],
   module: {

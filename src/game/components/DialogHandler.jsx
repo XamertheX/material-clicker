@@ -43,8 +43,9 @@ class DialogHandler extends Component {
     return (
       <>
         <Dialog
-          className={c.root}
-          style={{ }}
+          classes={{
+            paper: c.root,
+          }}
           open={vars.dialogIsOpen}
           onClose={this.handleClose(-1)}
           aria-labelledby='alert-dialog-title'

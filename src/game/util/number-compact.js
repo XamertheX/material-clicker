@@ -11,18 +11,16 @@ let compactNumberMap = {
   34: 'D', // 1,000,000,000,000,000,000,000,000,000,000,000 -> 1D
 };
 
-export default function compact(number, decimalPlaces = 2) {
-  let numberString = Math.floor(number).toString();
+import commaNumber from 'comma-number';
 
-  if (numberString.length < 7) {
-    return numberString;
+export default function compact(num) {
+  if(Math.floor(num) < 10000000) {
+    return commaNumber(Math.round(num * 10) / 10);
   }
 
-  let stringLength = numberString.length;
-  let mappedValue = Math.floor((stringLength - 1) / 3) * 3 + 1;
+  let letter = compactNumberMap[
+    Math.floor((Math.round(num).toString().length - 1) / 3) * 3 + 1
+  ];
 
-  let whole = numberString.substring(0, stringLength - (mappedValue - 1));
-  let decimal = numberString.substring(whole.length).substring(0, decimalPlaces);
-
-  return `${whole}.${decimal}${compactNumberMap[mappedValue]}`;
+  return commaNumber(num, '.').substring(0, 4).replace(/\.$/, '') + letter;
 }

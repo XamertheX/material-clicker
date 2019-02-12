@@ -40,6 +40,7 @@
     "@material-ui/icons": "^3.0.2",
     "@reach/router": "^1.2.1",
     "classnames": "^2.2.6",
+    "comma-number": "^2.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "eventemitter3": "^3.1.0",
     "path-browserify": "^1.0.0",

@@ -12,16 +12,13 @@ import {
 } from '@material-ui/core';
 import PageHandler from './PageHandler';
 import { onAnyVarChange, offAnyVarChange } from '../systems/vars';
-import Titlebar from './Titlebar';
 import NavBar from './NavBar';
-import theme from '../theme';
+import theme from '../content/theme';
 import DialogHandler from './DialogHandler';
 
 const styles = () => createStyles({
   main: {
     flex: 1,
-  },
-  appBar: {
   },
 });
 
@@ -43,7 +40,6 @@ class Game extends Component {
     const c = this.props.classes;
 
     return <MuiThemeProvider theme={theme}>
-      <Titlebar />
       <NavBar />
 
       <div className={c.main}>

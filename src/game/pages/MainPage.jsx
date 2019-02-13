@@ -33,6 +33,15 @@ const styles = (theme) => createStyles({
       background: amber[600],
     },
   },
+  content: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  spacer: {
+    height: theme.spacing.unit * 3 + 30 + 48,
+  },
 });
 
 class MainPage extends Component {
@@ -42,7 +51,7 @@ class MainPage extends Component {
   render() {
     const { classes: c } = this.props;
 
-    return <>
+    return <div className={c.content}>
       <Typography variant='h3' className={c.title}>
         {compact(vars.material)} Material
       </Typography>
@@ -52,9 +61,6 @@ class MainPage extends Component {
             [c.button]: true,
             [c.buttonGold]: vars.nextClickIsGold,
           })}
-          classes={{
-
-          }}
           variant='contained'
           color='primary'
           onClick={clickButton}
@@ -65,7 +71,8 @@ class MainPage extends Component {
           </Typography>
         </Button>
       </div>
-    </>;
+      <div className={c.spacer}></div>
+    </div>;
   }
 }
 

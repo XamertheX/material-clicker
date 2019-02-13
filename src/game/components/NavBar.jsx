@@ -13,7 +13,7 @@ import {
 import { hot } from 'react-hot-loader/root';
 import { Link, Location } from '@reach/router';
 
-import Pages from '../pages/_pages';
+import Pages from '../content/page-order';
 
 const styles = (theme) => createStyles({
   root: {

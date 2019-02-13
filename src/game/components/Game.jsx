@@ -15,6 +15,7 @@ import { onAnyVarChange, offAnyVarChange } from '../systems/vars';
 import NavBar from './NavBar';
 import theme from '../content/theme';
 import DialogHandler from './DialogHandler';
+import SettingsPageContainer from './SettingsPageContainer';
 
 const styles = () => createStyles({
   main: {
@@ -46,6 +47,8 @@ class Game extends Component {
         {/* PageHandler handles routing and everything, which will use a <Link/>
             component to navigate between pages.*/}
         <PageHandler />
+
+        <SettingsPageContainer />
       </div>
 
       {/* DialogHandler handles the pop up alert dialogs, it doesn't matter where we

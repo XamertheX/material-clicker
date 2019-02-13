@@ -4,7 +4,7 @@
 
 export default [
 
-  require('./MainPage'),
-  require('./ShopPage'),
+  require('../pages/MainPage'),
+  require('../pages/ShopPage'),
 
 ].map(page => page.default);

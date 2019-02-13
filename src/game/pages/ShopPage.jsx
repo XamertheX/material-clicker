@@ -80,7 +80,7 @@ const styles = (theme) => createStyles({
   },
 });
 
-class MainPage extends Component {
+class ShopPage extends Component {
   static id = 'shop';
   static display = 'Shop';
 
@@ -172,4 +172,4 @@ class MainPage extends Component {
   }
 }
 
-export default hot(withStyles(styles)(MainPage));
+export default hot(withStyles(styles)(ShopPage));

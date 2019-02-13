@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Router } from '@reach/router';
 
-import Pages from '../pages/_pages';
+import Pages from '../content/page-order';
 
 class PageHandler extends Component {
   render() {

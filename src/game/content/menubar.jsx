@@ -2,7 +2,12 @@ import React from 'react';
 import { remote, shell } from 'electron';
 import { AlertDialog } from '../systems/dialog';
 import { formatDate } from '../util/date';
+import { setVar } from '../systems/vars';
 const { Menu } = remote;
+
+function defocusMenu() {
+  document.querySelector('[tabindex="-1"][role="group"]').focus();
+}
 
 export default Menu.buildFromTemplate([
   {
@@ -11,7 +16,8 @@ export default Menu.buildFromTemplate([
       {
         label: 'Settings',
         click: () => {
-
+          defocusMenu();
+          setVar('settingsPageOpen', true);
         },
       },
       {
@@ -26,6 +32,8 @@ export default Menu.buildFromTemplate([
       {
         label: 'About',
         click: () => {
+          defocusMenu();
+
           AlertDialog(
             'About Material Clicker',
             <span style={{ minWidth: '360px', display: 'block' }}>
@@ -52,12 +60,14 @@ export default Menu.buildFromTemplate([
       {
         label: 'GitHub',
         click: () => {
+          defocusMenu();
           shell.openExternal('https://github.com/WeAreDevs/material-clicker');
         },
       },
       {
         label: 'Documentation',
         click: () => {
+          defocusMenu();
           shell.openExternal('https://wearedevs.github.io/material-clicker');
         },
       },

@@ -13,8 +13,7 @@ function openDevTools() {
 const warn = console.warn;
 console.warn = (...args) => {
   if (!/^%cElectron Security Warning/.test(args[0])
-    && args[0].includes('The Web Audio autoplay policy will be re-enabled in Chrome 70'
-    + ' (October 2018). Please check that your website is compatible with it.')) {
+    && args[0].includes('The Web Audio autoplay policy will be')) {
     Reflect.apply(warn, console, args);
     openDevTools();
   }

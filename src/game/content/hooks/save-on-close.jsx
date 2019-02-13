@@ -1,5 +1,8 @@
 import { saveGameSaveData } from '../../systems/savefile-manager';
+import { vars } from '../../systems/vars';
 
 window.addEventListener('beforeunload', () => {
-  saveGameSaveData();
+  if (!vars.isResettingGame) {
+    saveGameSaveData();
+  }
 });

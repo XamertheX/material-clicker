@@ -21,6 +21,12 @@ interface Variables {
   dialogData: any,
   /** Data for the DialogHandler */
   dialogIsOpen: boolean,
+
+  /** True if the full screen settings page is opened */
+  settingsPageOpen: boolean;
+
+  /** True if resetting game save data; used by the save on quit hook */
+  isResettingGame: boolean,
 }
 
 /** Non-Global Global Variables */

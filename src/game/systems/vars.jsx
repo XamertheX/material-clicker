@@ -19,6 +19,10 @@ export let vars = {
 
   dialogData: null,
   dialogIsOpen: false,
+
+  settingsPageOpen: false,
+
+  isResettingGame: false,
 };
 
 export function setVar(varname, newvalue) {

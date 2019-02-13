@@ -22,7 +22,7 @@ export let vars = {
 
   settingsPageOpen: false,
 
-  isResettingGame: false,
+  isResettingGame: true,
 };
 
 export function setVar(varname, newvalue) {

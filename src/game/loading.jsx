@@ -32,15 +32,15 @@
   const { render } = await import('react-dom');
   const { default: Game } = await import('./components/Game');
 
-  await loadGameSaveData();
-
-  await new Promise(r => setTimeout(r, 400)); // :)
-
   const root = document.getElementById('root');
 
   render(<LocationProvider history={history}>
     <Game />
   </LocationProvider>, root);
+
+  await loadGameSaveData();
+
+  await new Promise(r => setTimeout(r, 400)); // :)
 
   root.classList.add('loaded');
 })();

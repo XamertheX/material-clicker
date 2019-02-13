@@ -3,6 +3,7 @@ import { remote, shell } from 'electron';
 import { AlertDialog } from '../systems/dialog';
 import { formatDate } from '../util/date';
 import { setVar } from '../systems/vars';
+import { exitApp } from '../systems/graceful-exit';
 const { Menu } = remote;
 
 function defocusMenu() {
@@ -22,7 +23,7 @@ export default Menu.buildFromTemplate([
       },
       {
         label: 'Exit',
-        click: () => remote.getCurrentWindow().close(),
+        click: () => exitApp(),
       },
     ],
   },

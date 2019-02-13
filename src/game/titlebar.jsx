@@ -1,6 +1,8 @@
 import theme from './content/theme';
 import { Titlebar, Color } from 'custom-electron-titlebar';
 import MenuBar from './content/menubar';
+import { exitApp } from './systems/graceful-exit';
+import { remote } from 'electron';
 
 // Fix the fullscreen handler.
 Titlebar.prototype.onDidChangeFullscreen = function(full) {
@@ -25,5 +27,12 @@ spacer.style.flex = '1';
 spacer.style.webkitAppRegion = 'drag';
 spacer.style.height = '100%';
 titlebar.titlebar.insertBefore(spacer, titlebar.title.nextSibling);
+
+// Override it's close function to go through the graceful exit
+const win = remote.getCurrentWindow();
+titlebar.currentWindow = {
+  ...win,
+  close: () => exitApp(),
+};
 
 export default titlebar;

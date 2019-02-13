@@ -2,7 +2,7 @@ import { writeJSON, readJSON, remove } from 'fs-extra';
 import { join } from 'path';
 import { remote } from 'electron';
 import { setVar } from './vars';
-import { ExitWait } from './graceful-exit';
+import { ExitWait, reloadApp } from './graceful-exit';
 
 const configFolder = remote.app.getPath('userData');
 
@@ -50,5 +50,5 @@ export async function resetData() {
 
   wait.resolve();
 
-  location.reload();
+  reloadApp();
 }

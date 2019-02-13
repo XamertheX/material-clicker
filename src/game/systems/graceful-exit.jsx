@@ -1,5 +1,6 @@
 import { remote } from 'electron';
 import EventEmitter from 'eventemitter3';
+import { addShortcut } from './keyboard';
 
 const emitter = new EventEmitter();
 
@@ -34,6 +35,15 @@ export async function exitApp() {
 
   remote.getCurrentWindow().close();
 }
+export async function reloadApp() {
+  emitter.emit('beforeclose');
+
+  while (hasWaits()) {
+    await waitForPendingActions();
+  }
+
+  remote.getCurrentWindow().reload();
+}
 
 export function onBeforeClose(handler) {
   emitter.on('beforeclose', handler);
@@ -44,11 +54,11 @@ export function offBeforeClose(handler) {
 
 // Command+Q on Mac, Alt+F4 on Windows and Linux
 if(process.platform === 'darwin') {
-  remote.globalShortcut.register('Command+Q', () => {
+  addShortcut('Command+Q', () => {
     exitApp();
   });
 } else {
-  remote.globalShortcut.register('Alt+F4', () => {
+  addShortcut('Alt+F4', () => {
     exitApp();
   });
 }

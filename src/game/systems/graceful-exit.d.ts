@@ -3,5 +3,6 @@ export class ExitWait {
 }
 
 export function exitApp(): Promise<undefined>;
+export function reloadApp(): Promise<undefined>;
 export function onBeforeClose(handler: () => undefined): undefined;
 export function offBeforeClose(handler: () => undefined): undefined;

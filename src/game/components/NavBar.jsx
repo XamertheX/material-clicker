@@ -38,13 +38,20 @@ class NavBar extends Component {
           value={pathname.substring(1) || Pages[0].id}
         >
           {
-            Pages.map(Page => {
+            Pages.map((Page, i) => {
+              const val = pathname.substring(1) || Pages[0].id;
+              const next = val === Pages[i === 0 ? Pages.length - 1 : i - 1].id;
+              const prev = val === Pages[i === Pages.length - 1 ? 0 : i + 1].id;
+
               return <Tab
                 label={Page.display}
                 component={Link}
                 to={Page.id}
                 key={Page.id}
                 value={Page.id}
+
+                data-nav-next={next}
+                data-nav-prev={prev}
               />;
             })
           }

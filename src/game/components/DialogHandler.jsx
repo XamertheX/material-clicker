@@ -59,14 +59,12 @@ class DialogHandler extends Component {
           TransitionComponent={this.Transition}
           keepMounted
           onClose={this.handleClose(-1)}
-          aria-labelledby='alert-dialog-title'
-          aria-describedby='alert-dialog-description'
         >
           <DialogTitle>
             {vars.dialogData.title}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id='alert-dialog-description'>
+            <DialogContentText>
               {vars.dialogData.description}
             </DialogContentText>
           </DialogContent>

@@ -9,6 +9,8 @@ interface ShopItem {
   longDesc: () => string;
   /** Amount of material needed */
   price: number;
+  /** Shop Items you need purchased before this one is unlocked */
+  requires: string[]
   /** Handler to activate this item's actions */
   action: () => undefined;
 }

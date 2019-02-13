@@ -11,9 +11,9 @@ Titlebar.prototype.onDidChangeFullscreen = function(full) {
 const titlebar = new Titlebar({
   backgroundColor: Color.fromHex(theme.palette.primary[900]),
   icon: null,
+  menu: MenuBar,
 });
 titlebar.updateTitle('Material Clicker');
-titlebar.updateMenu(MenuBar);
 titlebar.title.style.position = 'absolute';
 titlebar.title.style.width = '100%';
 titlebar.title.style.textAlign = 'center';

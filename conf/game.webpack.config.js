@@ -7,10 +7,17 @@ module.exports = {
       // `global` instead of `window`.
       global: 'window',
 
+      // Environment
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+
+      // Version information on about page
       '$About.CompileTime': JSON.stringify(Date.now()),
       '$About.Version': JSON.stringify(require('../package.json').version),
     }),
   ],
+  output: {
+    publicPath: '../',
+  },
   module: {
     rules: [
       {

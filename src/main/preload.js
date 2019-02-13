@@ -4,8 +4,10 @@
 //
 
 function openDevTools() {
-  require('electron').remote.getCurrentWebContents().openDevTools();
-  require('electron').remote.getCurrentWebContents().devToolsWebContents.focus();
+  if(process.env.NODE_ENV !== 'production') {
+    require('electron').remote.getCurrentWebContents().openDevTools();
+    require('electron').remote.getCurrentWebContents().devToolsWebContents.focus();
+  }
 }
 
 // Remove Electron Security Warnings

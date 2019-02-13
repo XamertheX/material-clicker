@@ -27,7 +27,8 @@ npm start
 ## NPM Scripts
 - **`npm start`**: Runs a development server and electron window.
 <!-- FIXME: Explain what electron forge commands do -->
-- **`npm run package`**: Runs electron-forge's package command.
+- **`npm run package`**: Creates a production version you can test to make sure the game
+  works properly.
 - **`npm run make`**: Runs electron-forge's make command.
 - **`npm run publish`**: Runs electron-forge's publish command.
 

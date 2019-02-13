@@ -9,12 +9,9 @@
   },
   "scripts": {
     "start": "electron-forge start",
-    "env-production": "run-script-os",
-    "env-production:win32": "SET NODE_ENV=production && npm run package:start",
-    "env-production:linux:darwin": "export NODE_ENV=production && npm run package:start",
-    "package": "npm run env-production && electron-forge package",
-    "make": "npm run env-production && electron-forge make",
-    "publish": "npm run env-production && electron-forge publish",
+    "package": "cross-env NODE_ENV=production electron-forge package",
+    "make": "cross-env NODE_ENV=production electron-forge make",
+    "publish": "cross-env NODE_ENV=production && electron-forge publish",
     "lint": "eslint . --ext js,jsx",
     "cloc": "cloc src conf",
     "docs": "docsify serve docs"
@@ -69,6 +66,7 @@
     "@electron-forge/plugin-webpack": "^6.0.0-beta.22",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "docsify-cli": "^4.3.0",
     "electron": "4.0.4",
@@ -76,6 +74,7 @@
     "eslint": "^5.13.0",
     "eslint-config-dave": "^1.0.2",
     "file-loader": "^3.0.1",
+    "run-script-os": "^1.0.5",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.3"
   }

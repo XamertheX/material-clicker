@@ -5,6 +5,7 @@
 * [Game](/game/)
   * [Material](/game/material.md)
   * [Shop](/game/shop.md)
+  * [Keyboard Shortcuts](/game/keyboard-shortcuts.md)
 <!--
   GAME CONTENT REFERENCE
 -->

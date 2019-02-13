@@ -35,7 +35,7 @@ export function getPurchasableShopItems() {
     return registry[id].requires.find((find) => {
       return !vars.shopItemsPurchased.includes(find);
     }) === undefined;
-  }).map(id => registry[id]);
+  }).map(id => registry[id]).sort((a, b) => a.price - b.price);
 }
 
 export function canPurchase(id) {

@@ -41,3 +41,14 @@ export function onBeforeClose(handler) {
 export function offBeforeClose(handler) {
   emitter.off('beforeclose', handler);
 }
+
+// Command+Q on Mac, Alt+F4 on Windows and Linux
+if(process.platform === 'darwin') {
+  remote.globalShortcut.register('Command+Q', () => {
+    exitApp();
+  });
+} else {
+  remote.globalShortcut.register('Alt+F4', () => {
+    exitApp();
+  });
+}

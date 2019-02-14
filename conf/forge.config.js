@@ -2,15 +2,10 @@ module.exports = {
   packagerConfig: { },
   makers: [
     {
-      name: '@electron-forge/maker-squirrel',
-      config: {
-        name: 'material_clicker',
-      },
-    },
-    {
       name: '@electron-forge/maker-zip',
       platforms: [
         'darwin',
+        'win32',
       ],
     },
     {

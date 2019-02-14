@@ -36,7 +36,10 @@ module.exports = {
         }],
       },
     }],
+    // Custom Plugins
     new (require('../src/plugins/electron-forge-delete-plugin'))({}),
+    new (require('../src/plugins/electron-forge-compact-json-plugin'))({}),
+    // Run ASAR Packaging last
     new (require('../src/plugins/electron-forge-asar-plugin.js'))({}),
   ],
 };

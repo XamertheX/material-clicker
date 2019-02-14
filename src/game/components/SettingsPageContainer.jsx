@@ -9,7 +9,7 @@ import { vars } from '../systems/vars';
 import SettingsPage from '../pages/SettingsPage';
 import classNames from 'classnames';
 
-const styles = (theme) => createStyles({
+const styles = () => createStyles({
   root: {
     position: 'absolute',
     width: '100%',
@@ -18,7 +18,7 @@ const styles = (theme) => createStyles({
     zIndex: 1500,
   },
   closed: {
-    pointerEvents: 'none'
+    pointerEvents: 'none',
   },
   page: {
     background: '#fafafa',

@@ -21,12 +21,13 @@ module.exports = class AsarPlugin extends PluginBase {
         return new Promise((done) => {
           // 1. asar the /resources/app to resources/
           asar.createPackage(appDir, path.join(appDir, '../app.asar'), async function () {
+            // 2. delete the original /resources/app folder
             await fs.remove(appDir);
             done();
           });
         });
       };
     }
-    return;
+    return undefined;
   }
 };

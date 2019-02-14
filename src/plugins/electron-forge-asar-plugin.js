@@ -7,6 +7,12 @@ const path = require('path');
 const fs = require('fs-extra');
 
 module.exports = class AsarPlugin extends PluginBase {
+  constructor() {
+    super();
+    this.name = 'Asar Plugin';
+    this.startLogic = undefined;
+  }
+
   init() {}
 
   getHook(hookName) {
@@ -21,6 +27,6 @@ module.exports = class AsarPlugin extends PluginBase {
         });
       };
     }
-    return undefined;
+    return;
   }
 };

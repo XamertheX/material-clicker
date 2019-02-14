@@ -36,5 +36,7 @@ module.exports = {
         }],
       },
     }],
+    new (require('../src/plugins/electron-forge-delete-plugin'))({}),
+    new (require('../src/plugins/electron-forge-asar-plugin.js'))({}),
   ],
 };

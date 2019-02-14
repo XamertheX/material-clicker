@@ -1,5 +1,4 @@
 # Upgrade
-<!-- TODO: Shop Link and Material Link -->
 The **Upgrade** is a thing that you can buy from the [Shop](/game/shop.md), to make the obtaining
 [Material](/game/material.md) easier.
 

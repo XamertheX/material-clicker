@@ -4,7 +4,6 @@
 //
 
 (async () => {
-
   // Create a @reach/router history source
   const {
     LocationProvider,
@@ -17,11 +16,19 @@
 
   // Load core systems
   await import('./systems/keyboard');
-  await import('./systems/graceful-exit');
   await import('./systems/audio');
   await import('./systems/button');
   await import('./systems/shop');
+  await import('./systems/update');
+  const { reloadApp } = await import('./systems/graceful-exit');
   const { loadGameSaveData } = await import('./systems/savefile-manager');
+  const { checkUpdates } = await import('./systems/update');
+
+  // Do update checking
+  if (await checkUpdates()) {
+    reloadApp();
+    return;
+  }
 
   // Add all the event handlers
   function requireAll(r) {

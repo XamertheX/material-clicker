@@ -1,3 +1,5 @@
+import { remote } from 'electron';
+
 //
 // Script loaded in the renderer process before all other code, and has access
 // to all Node APIs.
@@ -5,8 +7,11 @@
 
 function openDevTools() {
   if (process.env.NODE_ENV !== 'production') {
-    require('electron').remote.getCurrentWebContents().openDevTools();
-    require('electron').remote.getCurrentWebContents().devToolsWebContents.focus();
+    const web = remote.getCurrentWebContents();
+    web.openDevTools();
+    if (web.devToolsWebContents) {
+      web.devToolsWebContents.focus();
+    }
   }
 }
 

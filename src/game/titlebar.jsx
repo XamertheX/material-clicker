@@ -15,6 +15,7 @@ const titlebar = new Titlebar({
   icon: null,
   menu: MenuBar,
 });
+
 titlebar.updateTitle('Material Clicker');
 titlebar.title.style.position = 'absolute';
 titlebar.title.style.width = '100%';
@@ -31,8 +32,11 @@ titlebar.titlebar.insertBefore(spacer, titlebar.title.nextSibling);
 // Override it's close function to go through the graceful exit
 const win = remote.getCurrentWindow();
 titlebar.currentWindow = {
-  ...win,
   close: () => exitApp(),
+  isMaximized: win.isMaximized,
+  maximize: win.maximize,
+  unmaximize: win.unmaximize,
+  minimize: win.minimize,
 };
 
 export default titlebar;

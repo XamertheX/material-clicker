@@ -14,5 +14,3 @@ export function AlertDialog(title, description, buttons) {
     setVar('dialogIsOpen', true);
   });
 }
-
-window.AlertDialog = AlertDialog;

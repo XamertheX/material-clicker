@@ -3,7 +3,7 @@
 //
 
 /* global GAME_PRELOAD_WEBPACK_ENTRY:readable, GAME_WEBPACK_ENTRY:readable */
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 
 // This fixes some problems on my linux machine, I hope this wont cause problems
 // anywhere else.
@@ -46,7 +46,7 @@ const createWindow = () => {
   mainWindow.loadURL(GAME_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -54,6 +54,26 @@ const createWindow = () => {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+  });
+
+  // Handle events before window closes or reloads
+  let isReadyToClose = false;
+  mainWindow.on('close', (ev) => {
+    if (isReadyToClose) {
+      return;
+    }
+
+    ev.preventDefault();
+    mainWindow.webContents.send('cleanup');
+  });
+  ipcMain.on('close', () => {
+    isReadyToClose = true;
+    mainWindow.close();
+  });
+  ipcMain.on('relaunch', () => {
+    isReadyToClose = true;
+    app.relaunch();
+    app.exit(0);
   });
 };
 
@@ -66,6 +86,3 @@ app.on('ready', createWindow);
 app.on('window-all-closed', () => {
   app.quit();
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.

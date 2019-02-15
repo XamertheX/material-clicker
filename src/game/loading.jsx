@@ -15,7 +15,6 @@
   let history = createHistory(source);
 
   // Load core systems
-  await import('./systems/keyboard');
   await import('./systems/audio');
   await import('./systems/button');
   await import('./systems/shop');

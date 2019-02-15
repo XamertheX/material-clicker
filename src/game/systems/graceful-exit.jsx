@@ -1,6 +1,5 @@
-import { remote } from 'electron';
+import { remote, ipcRenderer } from 'electron';
 import EventEmitter from 'eventemitter3';
-import { addShortcut } from './keyboard';
 
 const emitter = new EventEmitter();
 
@@ -33,7 +32,7 @@ export async function exitApp() {
     await waitForPendingActions();
   }
 
-  remote.getCurrentWindow().close();
+  ipcRenderer.send('close');
 }
 export async function reloadApp() {
   emitter.emit('beforeclose');
@@ -51,8 +50,7 @@ export async function restartApp() {
     await waitForPendingActions();
   }
 
-  remote.app.relaunch();
-  remote.app.exit(0);
+  ipcRenderer.send('relaunch');
 }
 
 export function onBeforeClose(handler) {
@@ -62,13 +60,13 @@ export function offBeforeClose(handler) {
   emitter.off('beforeclose', handler);
 }
 
-// Command+Q on Mac, Alt+F4 on Windows and Linux
-if(process.platform === 'darwin') {
-  addShortcut('Command+Q', () => {
-    exitApp();
-  });
-} else {
-  addShortcut('Alt+F4', () => {
-    exitApp();
-  });
-}
+ipcRenderer.on('cleanup', () => {
+  exitApp();
+});
+
+window.addEventListener('keydown', (ev) => {
+  if(ev.ctrlKey && ev.key.toLowerCase() === 'r') {
+    ev.preventDefault();
+    reloadApp();
+  }
+});

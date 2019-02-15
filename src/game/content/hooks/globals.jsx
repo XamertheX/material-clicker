@@ -24,8 +24,10 @@ if(process.env.NODE_ENV !== 'production') {
     .filter(key => !key.includes('pages/'))
     .filter(key => key !== './index.jsx')
     .filter(key => key !== './loading.jsx')
+    .filter(key => key !== './updater-index.jsx')
     .map(key => [key, key.substring(2, key.length - 4)])
     .map(([key, id]) => [key, id.replace(/\//g, '_')])
+    .map(([key, id]) => [key, id.replace(/-/g, '_')])
     .reduce((prev, [key, id]) => ({ ...prev, [id]: context(key)}), {});
 }
 

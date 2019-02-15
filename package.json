@@ -10,13 +10,12 @@
   "scripts": {
     "start": "electron-forge start",
     "as-prod": "cross-env NODE_ENV=production",
-    "package": "npm run as-prod -- electron-forge package",
     "publish": "npm run as-prod -- && electron-forge publish",
-    "make": "run-script-os",
     "make:win32": "npm run as-prod -- electron-forge make -p win32 -a x64,ia32",
     "make:darwin": "npm run as-prod -- electron-forge make -p darwin -a x64",
     "make:linux": "npm run as-prod -- electron-forge make -p linux -a x64,ia32",
-    "make:": "npm run as-prod -- electron-forge make",
+    "make": "npm run as-prod -- electron-forge make",
+    "asar": "npm run as-prod -- cross-env ASAR_ONLY=yes electron-forge make",
     "lint": "eslint . --ext js,jsx",
     "cloc": "cloc src conf",
     "docs": "docsify serve docs"

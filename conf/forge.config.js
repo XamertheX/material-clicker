@@ -1,21 +1,30 @@
 module.exports = {
   packagerConfig: { },
   makers: [
-    {
-      name: '@electron-forge/maker-zip',
-      platforms: [
-        'darwin',
-        'win32',
+    ...process.env.ASAR_ONLY === undefined ?
+      [
+        {
+          name: '@electron-forge/maker-zip',
+          platforms: [
+            'darwin',
+            'win32',
+          ],
+        },
+        {
+          name: '@electron-forge/maker-deb',
+          config: {},
+        },
+        {
+          name: '@electron-forge/maker-rpm',
+          config: {},
+        },
+      ]
+      : [
+        {
+          name: require.resolve('../src/plugins/electron-forge-maker-asar'),
+          config: {},
+        },
       ],
-    },
-    {
-      name: '@electron-forge/maker-deb',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {},
-    },
   ],
   plugins: [
     ['@electron-forge/plugin-webpack', {

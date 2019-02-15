@@ -16,6 +16,8 @@ import NavBar from './NavBar';
 import theme from '../content/theme';
 import DialogHandler from './DialogHandler';
 import SettingsPageContainer from './SettingsPageContainer';
+import { Location } from '@reach/router';
+import { vars } from '../systems/vars';
 
 const styles = () => createStyles({
   main: {
@@ -42,6 +44,9 @@ class Game extends Component {
     const c = this.props.classes;
 
     return <MuiThemeProvider theme={theme}>
+      <Location>{({ location: { pathname}}) => {
+        vars.selectedPage = pathname.substring(1);
+      }}</Location>
       <NavBar />
 
       <div className={c.main}>

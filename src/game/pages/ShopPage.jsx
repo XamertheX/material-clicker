@@ -42,6 +42,7 @@ const styles = (theme) => createStyles({
     width: 300,
     height: '100%',
     overflowY: 'auto',
+    position: 'relative',
   },
   details: {
     flex: 10,
@@ -112,16 +113,30 @@ class ShopPage extends Component {
 
     const canBuy = selectedItem && selectedItem.id && canPurchase(selectedItem.id);
 
+    const items = getPurchasableShopItems();
+
     return <div className={c.root}>
       <Paper className={classNames(c.paper, c.list)}>
         <List>
           {
-            getPurchasableShopItems().map((item) => {
+            items.map((item, i) => {
+              const val = vars.shopItemSelected;
+              let next, prev;
+              if(val) {
+                next = val === items[i === 0 ? items.length - 1 : i - 1].id;
+                prev = val === items[i === items.length - 1 ? 0 : i + 1].id;
+              } else {
+                next = i === 0;
+                prev = i === items.length - 1;
+              }
+
               return <ListItem
                 button
                 key={item.id}
                 onClick={this.handleSelect(item.id)}
                 selected={item.id === vars.shopItemSelected}
+                data-shop-next={next}
+                data-shop-prev={prev}
               >
                 <ListItemText
                   primary={item.name}
@@ -166,6 +181,7 @@ class ShopPage extends Component {
                   color='primary'
                   disabled={!canBuy}
                   onClick={this.handlePurchase}
+                  data-shop-buy={true}
                 >
                   {canBuy ? 'Purchase' : 'Cannot Purchase'}
                 </Button>

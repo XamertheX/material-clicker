@@ -26,7 +26,10 @@ interface Variables {
   settingsPageOpen: boolean;
 
   /** True if resetting game save data; used by the save on quit hook */
-  isResettingGame: boolean,
+  isResettingGame: boolean;
+
+  /** Selected Page. special; read only */
+  selectedPage: string;
 }
 
 /** Non-Global Global Variables */
@@ -36,7 +39,6 @@ export function setVar<T extends keyof Variables>(
   varname: T,
   newvalue: Variables[T]
 ): undefined;
-
 
 export function onAnyVarChange(handler: () => undefined): undefined
 export function onVarChange(varname: keyof Variables, handler: () => undefined): undefined

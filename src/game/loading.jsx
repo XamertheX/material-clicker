@@ -20,15 +20,9 @@
   await import('./systems/button');
   await import('./systems/shop');
   await import('./systems/update');
-  const { reloadApp } = await import('./systems/graceful-exit');
+  const { restartApp } = await import('./systems/graceful-exit');
   const { loadGameSaveData } = await import('./systems/savefile-manager');
   const { checkUpdates } = await import('./systems/update');
-
-  // Do update checking
-  if (await checkUpdates()) {
-    reloadApp();
-    return;
-  }
 
   // Add all the event handlers
   function requireAll(r) {
@@ -46,6 +40,12 @@
   render(<LocationProvider history={history}>
     <Game />
   </LocationProvider>, root);
+
+  // Do update checking
+  if (await checkUpdates()) {
+    await restartApp();
+    return;
+  }
 
   await loadGameSaveData();
 

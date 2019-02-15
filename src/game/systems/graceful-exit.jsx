@@ -44,6 +44,16 @@ export async function reloadApp() {
 
   remote.getCurrentWindow().reload();
 }
+export async function restartApp() {
+  emitter.emit('beforeclose');
+
+  while (hasWaits()) {
+    await waitForPendingActions();
+  }
+
+  remote.app.relaunch();
+  remote.app.exit(0);
+}
 
 export function onBeforeClose(handler) {
   emitter.on('beforeclose', handler);

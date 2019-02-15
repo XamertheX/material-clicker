@@ -6,6 +6,7 @@ import semver from 'semver';
 import http from 'http';
 import fs from 'fs-extra';
 import path from 'path';
+import { AlertDialog } from './dialog';
 import { app as realApp, remote } from 'electron';
 
 // Figure out remote app or real app.
@@ -20,15 +21,23 @@ const CurrentAsarPath = app.getAppPath();
 
 export function applyUpdatePatch(version) {
   return new Promise((done) => {
-    const filePath = UpdateTempStorage(version);
-    const fileStream = fs.createWriteStream(filePath);
-    http.get(UpdateAsarURI(version), (res) => {
-      res.pipe(fileStream);
-      res.on('end', async() => {
-        await fs.move(filePath, CurrentAsarPath);
-        done();
+    AlertDialog(
+      'Updating',
+      'Downloading update ' + version + ' for Material Clicker.',
+      []
+    );
+
+    setTimeout(() => {
+      const filePath = UpdateTempStorage(version);
+      const fileStream = fs.createWriteStream(filePath);
+      http.get(UpdateAsarURI(version), (res) => {
+        res.pipe(fileStream);
+        res.on('end', async() => {
+          await fs.move(filePath, CurrentAsarPath);
+          done();
+        });
       });
-    });
+    }, 1000);
   });
 }
 

@@ -40,6 +40,8 @@ const styles = (theme) => createStyles({
   },
   list: {
     width: 300,
+    height: '100%',
+    overflowY: 'auto',
   },
   details: {
     flex: 10,

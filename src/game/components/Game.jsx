@@ -20,6 +20,7 @@ import SettingsPageContainer from './SettingsPageContainer';
 const styles = () => createStyles({
   main: {
     flex: 1,
+    height: 1, // Setting a height here fixes everything.
   },
 });
 

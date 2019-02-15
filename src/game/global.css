@@ -93,3 +93,15 @@ body {
     stroke-dashoffset: -124;
   }
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #00000045;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}

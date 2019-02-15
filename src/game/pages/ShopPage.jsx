@@ -95,7 +95,10 @@ class ShopPage extends Component {
     const item = getShopItem(vars.shopItemSelected);
     const list = getPurchasableShopItems();
     const found = list.find((obj) => obj.requires.includes(item.id));
-    setVar('shopItemSelected', found && found.id || list && list[0].id || null);
+    setVar(
+      'shopItemSelected',
+      found && found.id || list && list[0] && list[0].id || null
+    );
   }
 
   render() {
@@ -105,7 +108,7 @@ class ShopPage extends Component {
       ? getShopItem(vars.shopItemSelected)
       : null;
 
-    const canBuy = selectedItem && canPurchase(selectedItem.id);
+    const canBuy = selectedItem && selectedItem.id && canPurchase(selectedItem.id);
 
     return <div className={c.root}>
       <Paper className={classNames(c.paper, c.list)}>

@@ -13,7 +13,7 @@ function requireAll(r) {
     registry[id] = sound;
   });
 }
-requireAll(require.context('../content/audio', true, /\.(wav|mp3|webm)?$/));
+requireAll(require.context('../../res/audio', true, /\.(wav|mp3|webm)?$/));
 
 export function playSound(id) {
   if(id in registry) {

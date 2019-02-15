@@ -7,9 +7,9 @@
 First, make sure you have [NodeJS](https://nodejs.org) and [NPM](https://npmjs.com)
 installed.
 
-On windows and mac, npm should be bundled in nodejs. If you install NodeJS using `apt` on
-linux, you will need to install npm using `sudo apt install npm`. Then you should make
-sure npm is up to date by running `sudo npm i -g npm@latest` and restarting the terminal.
+> On windows and mac, npm should be bundled in nodejs. If you install NodeJS using `apt` on
+> linux, you will need to install npm using `sudo apt install npm`. Then you should make
+> sure npm is up to date by running `sudo npm i -g npm@latest` and restarting the terminal.
 
 Next, do the following
 ```sh
@@ -25,19 +25,29 @@ npm start
 ```
 
 ## NPM Scripts
+### Developing
 - **`npm start`**: Runs a development server and electron window.
-<!-- FIXME: Explain what electron forge commands do -->
 - **`npm run package`**: Creates a production version you can test to make sure the game
-  works properly.
-- **`npm run make`**: Runs electron-forge's make command.
-- **`npm run publish`**: Runs electron-forge's publish command.
-
+  works properly. Do not distribute this one!
 - **`npm run lint`**: Runs ESLint on the project.
 - **`npm run cloc`**: Runs CLoC (Count Lines of Code) on the project.
-
 - **`npm run docs`**: Runs a Docsify development server to work on the documentation.
 
-- **`npm run env-production`**: Sets the NODE_ENV to production, used in other scripts.
+### ASAR Export
+- **`npm run asar`** Exports a ASAR file which is pushed to the update server.
+
+### Windows Export:
+- Make sure you are on a windows machine, or have wine setup
+- Install INNO Setup
+- **`npm run make:win32`** This only packages files, and does not create installers
+- Compile INNO Script `./src/setup-win32-x64.iss`
+- Compile INNO Script `./src/setup-win32-x86.iss`
+
+### Mac Export
+- **`npm run make:darwin`** Makes `zip` archive with `material-clicker.app`
+
+### Linux
+- **`npm run make:linux`** Makes `deb` and `rpm` packages for linux.
 
 ## Code Structure
 TODO: Code Structure

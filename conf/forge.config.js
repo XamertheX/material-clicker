@@ -4,9 +4,6 @@ module.exports = {
     ...process.env.ASAR_ONLY === undefined ?
       [
         {
-          name: '@electron-forge/maker-wix',
-        },
-        {
           name: '@electron-forge/maker-zip',
           platforms: [
             'darwin',

@@ -24,6 +24,7 @@ module.exports = class AsarPlugin extends PluginBase {
           description: json.description,
           version: json.version,
           main: json.main,
+          license: json.license,
         });
       };
     }

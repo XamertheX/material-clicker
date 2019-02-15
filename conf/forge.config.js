@@ -4,10 +4,12 @@ module.exports = {
     ...process.env.ASAR_ONLY === undefined ?
       [
         {
+          name: '@electron-forge/maker-wix',
+        },
+        {
           name: '@electron-forge/maker-zip',
           platforms: [
             'darwin',
-            'win32',
           ],
         },
         {
@@ -33,7 +35,9 @@ module.exports = {
         config: './conf/game.webpack.config.js',
         entryPoints: [{
           html: './src/game/index.html',
-          js: './src/game/index.jsx',
+          js: process.env.UPDATER_ONLY
+            ? './src/game/updater-index.jsx'
+            : './src/game/index.jsx',
           preload: {
             js: './src/main/preload.js',
           },

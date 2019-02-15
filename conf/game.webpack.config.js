@@ -12,7 +12,11 @@ module.exports = {
 
       // Version information on about page
       '$About.CompileTime': JSON.stringify(Date.now()),
-      '$About.Version': JSON.stringify(require('../package.json').version),
+      '$About.Version': JSON.stringify(
+        process.env.UPDATER_ONLY
+          ? '0.0.0'
+          : require('../package.json').version
+      ),
     }),
   ],
   output: {

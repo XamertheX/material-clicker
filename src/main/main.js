@@ -9,6 +9,8 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 // anywhere else.
 app.commandLine.appendSwitch('force-color-profile', 'srgb');
 
+var path = require('path');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -40,6 +42,7 @@ const createWindow = () => {
       preload: GAME_PRELOAD_WEBPACK_ENTRY,
     },
     autoHideMenuBar: true,
+    // icon: path.join(__dirname, 'src/game/res/img/icon.png'),
   });
 
   // Note: this global is defined by @electron-forge/plugin-webpack

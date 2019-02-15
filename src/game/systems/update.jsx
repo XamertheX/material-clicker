@@ -12,8 +12,8 @@ import { app as realApp, remote } from 'electron';
 // Figure out remote app or real app.
 let app = realApp || remote.app;
 
-// const UpdateBaseURI = 'https://dave.imfast.io/software/material-clicker';
-const UpdateBaseURI = 'http://localhost:8080';
+const UpdateBaseURI = 'https://dave.imfast.io/software/material-clicker';
+// const UpdateBaseURI = 'http://localhost:8080';
 const UpdateInfoURI = () => `${UpdateBaseURI}/package.json`;
 const UpdateAsarURI = (ver) => `${UpdateBaseURI}/material-clicker-${ver}.asar`;
 const UpdateTempStorage = (ver) => path.join(app.getPath('temp'), `${ver}.asar.update`);

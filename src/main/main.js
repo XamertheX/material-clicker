@@ -12,11 +12,6 @@ app.commandLine.appendSwitch('force-color-profile', 'srgb');
 
 var path = require('path');
 
-console.log(AppIcon);
-console.log(AppIcon);
-console.log(__dirname);
-console.log(__dirname);
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;

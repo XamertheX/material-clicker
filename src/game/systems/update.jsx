@@ -3,7 +3,7 @@
 //
 import fetch from 'node-fetch';
 import semver from 'semver';
-import http from 'http';
+import https from 'https';
 import fs from 'fs-extra';
 import path from 'path';
 import { AlertDialog } from './dialog';
@@ -30,7 +30,7 @@ export function applyUpdatePatch(version) {
     setTimeout(() => {
       const filePath = UpdateTempStorage(version);
       const fileStream = fs.createWriteStream(filePath);
-      http.get(UpdateAsarURI(version), (res) => {
+      https.get(UpdateAsarURI(version), (res) => {
         res.pipe(fileStream);
         res.on('end', async() => {
           await fs.move(filePath, CurrentAsarPath);

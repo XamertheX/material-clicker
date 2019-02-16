@@ -3,6 +3,7 @@ import { Titlebar, Color } from 'custom-electron-titlebar';
 import MenuBar from './content/menubar';
 import { exitApp } from './systems/graceful-exit';
 import { remote } from 'electron';
+import TitleBarIcon from '../res/img/icon-titlebar.png';
 
 // Fix the fullscreen handler.
 Titlebar.prototype.onDidChangeFullscreen = function(full) {
@@ -12,7 +13,7 @@ Titlebar.prototype.onDidChangeFullscreen = function(full) {
 
 const titlebar = new Titlebar({
   backgroundColor: Color.fromHex(theme.palette.primary[900]),
-  icon: null,
+  icon: TitleBarIcon,
   menu: MenuBar,
 });
 

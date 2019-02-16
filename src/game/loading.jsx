@@ -19,15 +19,11 @@
   await import('./systems/button');
   await import('./systems/shop');
   await import('./systems/update');
+  const { AlertDialog } = await import('./systems/dialog');
   const { restartApp } = await import('./systems/graceful-exit');
   const { loadGameSaveData } = await import('./systems/savefile-manager');
+  const { resetData } = await import('./systems/data-manager');
   const { checkUpdates } = await import('./systems/update');
-
-  // Add all the event handlers
-  function requireAll(r) {
-    r.keys().map(r);
-  }
-  requireAll(require.context('./content/hooks', true, /\.jsx?$/));
 
   // Render <Game />
   const { default: React } = await import('react');
@@ -46,7 +42,31 @@
     return;
   }
 
-  await loadGameSaveData();
+  try {
+    await loadGameSaveData();
+  } catch (error) {
+    await AlertDialog(
+      'Savefile Corrupt!',
+      'We could not load your savefile, you need to start your game over.',
+      [
+        {
+          text: 'Delete Savefile',
+          color: 'secondary',
+        },
+      ],
+      {
+        dismissable: false,
+      }
+    );
+    await resetData();
+    return;
+  }
+
+  // Add all the event handlers
+  function requireAll(r) {
+    r.keys().map(r);
+  }
+  requireAll(require.context('./content/hooks', true, /\.jsx?$/));
 
   await new Promise(r => setTimeout(r, 400)); // :)
 

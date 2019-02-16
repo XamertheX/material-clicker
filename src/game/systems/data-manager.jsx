@@ -38,7 +38,7 @@ export async function writeData(id, data) {
 export async function resetData() {
   const wait = new ExitWait();
 
-  const data = await readData('data-manager');
+  const data = await readData('data-manager', {tracking:[]});
 
   for (let i = 0; i < data.tracking.length; i++) {
     const id = data.tracking[i];

@@ -1,6 +1,6 @@
 <style>
   .cover-main a {
-    background: white !important; 
+    background: white !important;
     color: var(--theme-color, #42b983) !important;
   }
   .cover-main blockquote {
@@ -12,6 +12,6 @@
 > A clicker game made in Electron using Material UI.
 
 [GitHub](https://github.com/WeAreDevs/material-clicker/)
-<!-- [Download](#) -->
+[Download](#downloads)
 
 ![color](#2196f3)

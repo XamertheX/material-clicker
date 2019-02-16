@@ -28,13 +28,16 @@ export let vars = {
   settingsPageOpen: false,
 
   isResettingGame: true,
+  isCheating: false,
 };
 
 let backupVars = JSON.parse(JSON.stringify(vars));
 
 export function setVar(varname, newvalue) {
+  if (vars.isCheating) {
+    return;
+  }
   if (backupVars[varname] !== vars[varname]) {
-    vars.isResettingGame = true;
     AlertDialog(
       'Using Cheat Engine?',
       'or some other memory replacement program, because something here'
@@ -48,6 +51,8 @@ export function setVar(varname, newvalue) {
     ).then(() => {
       reloadApp();
     });
+    vars.isCheating = true;
+    vars.isResettingGame = true;
     return;
   }
 

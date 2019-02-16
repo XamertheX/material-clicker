@@ -23,7 +23,7 @@ module.exports = {
 
       '$verifyKey': JSON.stringify(
         fs.existsSync(keyPath)
-          ? fs.readFileSync().toString()
+          ? fs.readFileSync(keyPath).toString()
           // eslint-disable-next-line no-console
           : console.warn(
             '\nWARNING: Your savefile may be corrupt due to missing the $verifyKey file.'

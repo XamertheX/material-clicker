@@ -2,6 +2,7 @@ import React from 'react';
 import { vars } from './../../systems/vars';
 import { registerButtonClickHandler } from '../../systems/button';
 import { AlertDialog } from '../../systems/dialog';
+import { reloadApp } from '../../systems/graceful-exit';
 
 let clickTime;
 let clickInterval;
@@ -47,11 +48,14 @@ registerButtonClickHandler(() => {
           that off. Not using an auto clicker? I guess we were wrong.
         </span>,
         [
-          { text: 'Okay', default: true },
-        ]
-      );
-
-      // Delete save file maybe.
+          { text: 'Reload your Savefile' },
+        ],
+        {
+          dismissable: false,
+        }
+      ).then(() => {
+        reloadApp();
+      });
     }
   }
 

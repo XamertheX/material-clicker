@@ -1,4 +1,9 @@
 import EventEmmiter from 'eventemitter3';
+import { AlertDialog } from './dialog';
+import { reloadApp } from './graceful-exit';
+import { saveGameSaveData } from './savefile-manager';
+
+let nextVarSave = Date.now() + 1000 * 60 * 3;
 
 const emitter = new EventEmmiter();
 
@@ -25,15 +30,42 @@ export let vars = {
   isResettingGame: true,
 };
 
+let backupVars = JSON.parse(JSON.stringify(vars));
+
 export function setVar(varname, newvalue) {
+  if (backupVars[varname] !== vars[varname]) {
+    vars.isResettingGame = true;
+    AlertDialog(
+      'Using Cheat Engine?',
+      'or some other memory replacement program, because something here'
+      + 'doesn\'t seem right',
+      [
+        { text: 'Reload your Savefile' },
+      ],
+      {
+        dismissable: false,
+      }
+    ).then(() => {
+      reloadApp();
+    });
+    return;
+  }
+
   vars = {
     ...vars,
     [varname]: typeof newvalue === 'function'
       ? newvalue(vars[varname])
       : newvalue,
   };
+  backupVars[varname] = vars[varname];
+
   emitter.emit('change', vars);
   emitter.emit('change:' + varname, vars[varname]);
+
+  if (Date.now() > nextVarSave) {
+    saveGameSaveData();
+    nextVarSave = Date.now() + 1000 * 60 * 8;
+  }
 }
 
 export function onAnyVarChange(handler) {

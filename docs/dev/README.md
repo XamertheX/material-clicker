@@ -1,7 +1,6 @@
 # Developer Documention
 
 <!-- TODO: Introduction to Developer Documentation -->
-<!-- FIXME: Should the New VS Old Go Here? -->
 
 ## Getting Started
 First, make sure you have [NodeJS](https://nodejs.org) and [NPM](https://npmjs.com)

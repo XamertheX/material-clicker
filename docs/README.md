@@ -10,9 +10,11 @@
 - **[Linux (32 bit) (deb)](https://github.com/WeAreDevs/material-clicker/releases/download/latest/material-clicker-linux-i386.deb)**
 - **[Linux (32 bit) (rpm)](https://github.com/WeAreDevs/material-clicker/releases/download/latest/material-clicker-linux-i386.rpm)**
 
+[View Changelog](CHANGELOG.md)
+
 > See the [release page](https://github.com/WeAreDevs/material-clicker/releases/tag/latest) for more information, mainly if installing one of the RPM builds.
 
-## Goal of this Project
+## Goal
 The original goal of this project was to use as many components from
 [Material Design Components](https://material.io/develop/web/) as we could, starting with
 this new version of the game, we will no longer be using those components and TypeScript,

@@ -52,7 +52,6 @@ class SettingsPage extends Component {
         { text: 'Yes, Delete', color: 'secondary', type: 'contained' },
       ]
     );
-    console.log(option);
     if(option === 1) {
       resetData();
     }

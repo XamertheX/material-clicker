@@ -17,6 +17,9 @@ const styles = () => createStyles({
   paper: {
     WebkitAppRegion: 'drag',
   },
+  content: {
+    overflowX: 'hidden',
+  },
   root: {
     zIndex: 100000,
   },
@@ -67,7 +70,7 @@ class DialogHandler extends Component {
           <DialogTitle>
             {vars.dialogData.title}
           </DialogTitle>
-          <DialogContent>
+          <DialogContent className={c.content}>
             <DialogContentText>
               {vars.dialogData.description}
             </DialogContentText>

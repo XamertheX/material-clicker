@@ -3,6 +3,7 @@ module.exports = {
   extends: 'dave/react',
   globals: {
     $About: true,
+    $verifyKey: true,
   },
   rules: {
     'max-len': ['error', { code: 90 }],

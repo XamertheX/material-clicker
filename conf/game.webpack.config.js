@@ -1,4 +1,7 @@
 const webpack = require('webpack');
+const fs = require('fs');
+const path = require('path');
+const keyPath = path.join(__dirname, '$verifyKey');
 
 module.exports = {
   plugins: [
@@ -16,6 +19,15 @@ module.exports = {
         process.env.UPDATER_ONLY
           ? '0.0.0'
           : require('../package.json').version
+      ),
+
+      '$verifyKey': JSON.stringify(
+        fs.existsSync(keyPath)
+          ? fs.readFileSync().toString()
+          // eslint-disable-next-line no-console
+          : console.warn(
+            '\nWARNING: Your savefile may be corrupt due to missing the $verifyKey file.'
+          ) || 'no key.'
       ),
     }),
   ],

@@ -34,7 +34,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(wav|mp3|webm)?$/,
+        test: /\.(wav|mp3|webm|png|svg)?$/,
         use: ['file-loader'],
       },
     ],

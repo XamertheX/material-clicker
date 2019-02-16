@@ -4,12 +4,18 @@
 
 /* global GAME_PRELOAD_WEBPACK_ENTRY:readable, GAME_WEBPACK_ENTRY:readable */
 import { app, BrowserWindow, ipcMain } from 'electron';
+import AppIcon from '../res/img/icon.png';
 
 // This fixes some problems on my linux machine, I hope this wont cause problems
 // anywhere else.
 app.commandLine.appendSwitch('force-color-profile', 'srgb');
 
 var path = require('path');
+
+console.log(AppIcon);
+console.log(AppIcon);
+console.log(__dirname);
+console.log(__dirname);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -35,6 +41,7 @@ const createWindow = () => {
     minWidth: 470,
     backgroundColor: '#e7e7e7',
     frame: false,
+    icon: path.join(__dirname, AppIcon),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

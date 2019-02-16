@@ -1,6 +1,8 @@
 # Material Clicker
 > A clicker game using Electron and Material UI.
 
+![Screenshot](res/img/screenshot.png)
+
 ## Downloads
 - **[Windows (64 bit)](https://github.com/WeAreDevs/material-clicker/releases/download/latest/material-clicker-windows-x64.exe)**
 - **[Windows (32 bit)](https://github.com/WeAreDevs/material-clicker/releases/download/latest/material-clicker-windows-x86.exe)**

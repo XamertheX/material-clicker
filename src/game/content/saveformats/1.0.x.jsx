@@ -4,7 +4,7 @@ import { purchaseShopItem } from '../../systems/shop';
 
 // Function called to load the savefile.
 export async function load() {
-  const data = await readData('data');
+  const data = readData('data');
   setVar('material', data.material);
   data.shopItemsPurchased.forEach(id => {
     purchaseShopItem(id, false);
@@ -13,7 +13,7 @@ export async function load() {
 
 // Function called to save the savefile.
 export async function save() {
-  await writeData('data', {
+  writeData('data', {
     material: vars.material,
     shopItemsPurchased: vars.shopItemsPurchased,
   });

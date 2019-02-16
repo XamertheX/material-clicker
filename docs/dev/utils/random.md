@@ -11,7 +11,7 @@
   - Returns an array of random items provided.
   - `list`: array, The list of items that could be randomly added to the array.
   - `items?`: number, The length of array to generate.
-  - `requiredValues?`: array, Any values that should be in the generated array at least once. 
+  - `requiredValues?`: array, Any values that should be in the generated array at least once.
 
 ## Usage
 1. Import the utility.

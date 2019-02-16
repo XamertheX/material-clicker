@@ -1,7 +1,7 @@
 {
   "name": "material-clicker",
   "productName": "material-clicker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Clicker Game using Material Design",
   "main": "./.webpack/main",
   "directories": {

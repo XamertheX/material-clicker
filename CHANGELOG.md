@@ -7,4 +7,9 @@ follow these rules
     older versions
   - Patch increases when any non breaking change is added such as bug fixing.
 
-## 0.0.1 [UNRELEASED]
+## 1.0.2
+Initial Public Release
+- Fixed the shop not actually working
+
+## 1.0.0
+Initial Release

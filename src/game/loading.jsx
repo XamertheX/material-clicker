@@ -14,16 +14,24 @@
   let source = createMemorySource('/');
   let history = createHistory(source);
 
-  // Load core systems
-  await import('./systems/audio');
-  await import('./systems/button');
-  await import('./systems/shop');
-  await import('./systems/update');
-  const { AlertDialog } = await import('./systems/dialog');
-  const { restartApp } = await import('./systems/graceful-exit');
-  const { loadGameSaveData } = await import('./systems/savefile-manager');
-  const { resetData } = await import('./systems/data-manager');
-  const { checkUpdates } = await import('./systems/update');
+  // Load a ton of stuff, i'm not exactly sure why, but some stuff breaks
+  // if I don't do this.
+  const context = require.context('./', true, /.jsx$/);
+  context.keys()
+    .filter(key => !key.includes('content/'))
+    .filter(key => !key.includes('components/'))
+    .filter(key => !key.includes('pages/'))
+    .filter(key => key !== './index.jsx')
+    .filter(key => key !== './titlebar.jsx')
+    .filter(key => key !== './loading.jsx')
+    .filter(key => key !== './updater-index.jsx')
+    .forEach(key => context(key));
+
+  const { AlertDialog } = require('./systems/dialog');
+  const { restartApp } = require('./systems/graceful-exit');
+  const { loadGameSaveData } = require('./systems/savefile-manager');
+  const { resetData } = require('./systems/data-manager');
+  const { checkUpdates } = require('./systems/update');
 
   // Render <Game />
   const { default: React } = await import('react');

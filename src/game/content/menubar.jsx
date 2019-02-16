@@ -51,7 +51,7 @@ export default Menu.buildFromTemplate([
             </span>,
             [
               { text: 'Okay', default: true },
-            ]
+            ],
           );
         },
       },

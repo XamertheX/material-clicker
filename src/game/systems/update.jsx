@@ -24,7 +24,10 @@ export function applyUpdatePatch(version) {
     AlertDialog(
       'Updating',
       'Downloading update ' + version + ' for Material Clicker.',
-      []
+      [],
+      {
+        dismissable: false,
+      }
     );
 
     setTimeout(() => {

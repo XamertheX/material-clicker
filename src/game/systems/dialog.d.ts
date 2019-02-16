@@ -8,4 +8,5 @@ export function AlertDialog(
   title: string,
   description: string | HTMLFactory<any>,
   buttons: Array<{text:string, variant?: string, color?: string}>,
+  extra?: { dismissable: boolean },
 ): Promise<number>;

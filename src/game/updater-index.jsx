@@ -52,7 +52,10 @@ document.querySelector('.circular-progress__path')
       {
         text: 'Retry',
       },
-    ]
+    ],
+    {
+      dismissable: false,
+    }
   );
   if(choice === 1) {
     await reloadApp();

@@ -31,6 +31,10 @@ class DialogHandler extends Component {
   };
 
   handleClose = answer => () => {
+    if (answer === -1 && !vars.dialogData.extra.dismissable) {
+      return;
+    }
+
     if (vars.dialogData && vars.dialogData.handler) {
       vars.dialogData.handler(answer);
     }

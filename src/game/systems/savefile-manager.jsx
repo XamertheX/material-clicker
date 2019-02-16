@@ -52,7 +52,10 @@ export async function loadGameSaveData() {
       [
         { text: 'Delete Savefile', color: 'secondary' },
         { text: 'Exit Material Clicker', type: 'contained', default: true },
-      ]
+      ],
+      {
+        dismissable: false,
+      }
     );
     if (btn === 0) {
       resetData();

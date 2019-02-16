@@ -1,6 +1,4 @@
 import EventEmmiter from 'eventemitter3';
-import { AlertDialog } from './dialog';
-import { reloadApp } from './graceful-exit';
 import { saveGameSaveData } from './savefile-manager';
 
 let nextVarSave = Date.now() + 1000 * 60 * 3;
@@ -31,13 +29,14 @@ export let vars = {
   isCheating: false,
 };
 
-let backupVars = JSON.parse(JSON.stringify(vars));
+// let backupVars = JSON.parse(JSON.stringify(vars));
 
 export function setVar(varname, newvalue) {
   if (vars.isCheating) {
     return;
   }
-  if (backupVars[varname] !== vars[varname]) {
+  /* eslint-disable indent */
+  // if (backupVars[varname] !== vars[varname]) {
     // FIXME: Doesn't work when buying shop stuff
     // Disabling
     // AlertDialog(
@@ -54,9 +53,10 @@ export function setVar(varname, newvalue) {
     //   reloadApp();
     // });
     // vars.isCheating = true;
-    vars.isResettingGame = true;
-    return;
-  }
+    // vars.isResettingGame = true;
+    // return;
+  // }
+  /* eslint-enable indent */
 
   vars = {
     ...vars,
@@ -64,7 +64,7 @@ export function setVar(varname, newvalue) {
       ? newvalue(vars[varname])
       : newvalue,
   };
-  backupVars[varname] = vars[varname];
+  // backupVars[varname] = vars[varname];
 
   emitter.emit('change', vars);
   emitter.emit('change:' + varname, vars[varname]);

@@ -38,20 +38,22 @@ export function setVar(varname, newvalue) {
     return;
   }
   if (backupVars[varname] !== vars[varname]) {
-    AlertDialog(
-      'Using Cheat Engine?',
-      'or some other memory replacement program, because something here'
-      + 'doesn\'t seem right',
-      [
-        { text: 'Reload your Savefile' },
-      ],
-      {
-        dismissable: false,
-      }
-    ).then(() => {
-      reloadApp();
-    });
-    vars.isCheating = true;
+    // FIXME: Doesn't work when buying shop stuff
+    // Disabling
+    // AlertDialog(
+    //   'Using Cheat Engine?',
+    //   'or some other memory replacement program, because something here'
+    //   + 'doesn\'t seem right',
+    //   [
+    //     { text: 'Reload your Savefile' },
+    //   ],
+    //   {
+    //     dismissable: false,
+    //   }
+    // ).then(() => {
+    //   reloadApp();
+    // });
+    // vars.isCheating = true;
     vars.isResettingGame = true;
     return;
   }

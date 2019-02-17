@@ -1,9 +1,9 @@
 import { vars, setVar } from '../../systems/vars';
 import { createAutoClicker } from '../../systems/autoclicker';
 
-let lastPerSeconds = [vars.material];
+let lastPerSeconds = [];
 
-let last = 0;
+let last = vars.material;
 createAutoClicker('persecond-calc', 100, () => {
   lastPerSeconds.push(vars.material - last);
   last = vars.material;

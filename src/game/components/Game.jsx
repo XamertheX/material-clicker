@@ -11,7 +11,7 @@ import {
   MuiThemeProvider,
 } from '@material-ui/core';
 import PageHandler from './PageHandler';
-import { onAnyVarChange, offAnyVarChange } from '../systems/vars';
+import { onAnyVarChange, offAnyVarChange, __pageVarChanged } from '../systems/vars';
 import NavBar from './NavBar';
 import theme from '../content/theme';
 import DialogHandler from './DialogHandler';
@@ -29,8 +29,8 @@ const styles = () => createStyles({
 class Game extends Component {
   state = {vars: null}
 
-  handleSetVar = (vars) => {
-    this.setState({ vars });
+  handleSetVar = (newvars) => {
+    this.setState({ vars: newvars });
   }
 
   componentDidMount() {
@@ -45,7 +45,11 @@ class Game extends Component {
 
     return <MuiThemeProvider theme={theme}>
       <Location>{({ location: { pathname}}) => {
+        const prevPage = vars.selectedPage;
         vars.selectedPage = pathname.substring(1);
+        if (prevPage !== vars.selectedPage) {
+          __pageVarChanged();
+        }
       }}</Location>
       <NavBar />
 

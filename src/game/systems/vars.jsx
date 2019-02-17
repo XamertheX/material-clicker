@@ -24,6 +24,7 @@ export let vars = {
   dialogData: null,
   dialogIsOpen: false,
 
+  selectedPage: null,
   settingsPageOpen: false,
 
   isResettingGame: true,
@@ -65,4 +66,8 @@ export function offAnyVarChange(handler) {
 
 export function offVarChange(varname, handler) {
   emitter.off('change:' + varname, handler);
+}
+
+export function __pageVarChanged() {
+  emitter.emit('change:selectedPage', vars.selectedPage);
 }

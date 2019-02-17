@@ -21,7 +21,7 @@ const styles = () => createStyles({
   number: {
     position: 'fixed',
     transform: 'translate(-50%,-50%)',
-    animation: 'fade 0.7s linear 0s both',
+    animation: 'fade 0.8s linear 0s both',
     fontWeight: 'bold',
     color: 'white',
     textShadow: '0 0 4px black',

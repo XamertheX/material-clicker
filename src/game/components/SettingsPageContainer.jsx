@@ -16,6 +16,8 @@ const styles = () => createStyles({
     height: '100%',
     top: 0,
     zIndex: 1500,
+    display: 'flex',
+    flexDirection: 'column',
   },
   closed: {
     pointerEvents: 'none',

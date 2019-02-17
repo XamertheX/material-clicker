@@ -1,6 +1,11 @@
 import { registerButtonClickHandler } from '../../systems/button';
 import { playSound } from '../../systems/audio';
+import { vars } from '../../systems/vars';
 
 registerButtonClickHandler(() => {
-  playSound('click.default');
+  if(!vars.nextClickIsGold) {
+    playSound('click.default');
+  }else {
+    playSound('click.gold');
+  }
 });

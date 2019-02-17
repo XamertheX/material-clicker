@@ -1,5 +1,6 @@
 import { basename } from 'path-browserify';
 import { vars, setVar } from './vars';
+import { playSound } from './audio';
 
 let registry = {};
 
@@ -51,6 +52,8 @@ export function purchaseShopItem(id, check = true) {
       return;
     }
     setVar('material', (m) => m - getShopItem(id).price);
+
+    playSound('ui.purchase');
   }
   setVar('shopItemsPurchased', (array) => [...array, id]);
   getShopItem(id).activate();

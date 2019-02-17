@@ -76,6 +76,9 @@ class SettingsPage extends Component {
             Material Clicker Settings
           </Typography>
           <Typography variant='h5' className={c.catagory}>Customization</Typography>
+          <Typography>
+            Coming Soon
+          </Typography>
           <Typography variant='h5' className={c.catagory}>Savefile</Typography>
           <Button
             color='secondary'
@@ -84,6 +87,9 @@ class SettingsPage extends Component {
             Delete Game Savefile
           </Button>
           <Typography variant='h5' className={c.catagory}>Auto Updater</Typography>
+          <Typography>
+            Coming Soon
+          </Typography>
         </div>
       </div>
     </div>;

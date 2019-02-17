@@ -24,14 +24,12 @@
     .filter(key => key !== './index.jsx')
     .filter(key => key !== './titlebar.jsx')
     .filter(key => key !== './loading.jsx')
-    .filter(key => key !== './updater-index.jsx')
     .forEach(key => context(key));
 
   const { AlertDialog } = require('./systems/dialog');
   const { restartApp } = require('./systems/graceful-exit');
   const { loadGameSaveData } = require('./systems/savefile-manager');
   const { resetData } = require('./systems/data-manager');
-  const { checkUpdates } = require('./systems/update');
 
   // Render <Game />
   const { default: React } = await import('react');
@@ -43,12 +41,6 @@
   render(<LocationProvider history={history}>
     <Game />
   </LocationProvider>, root);
-
-  // Do update checking
-  if (await checkUpdates()) {
-    await restartApp();
-    return;
-  }
 
   try {
     await loadGameSaveData();

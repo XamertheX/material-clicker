@@ -20,7 +20,7 @@ module.exports = class AsarPlugin extends PluginBase {
       return async function packageAfterPrune(conf, appDir) {
         const json = await fs.readJSON(path.join(appDir, 'package.json'));
         await fs.writeJSON(path.join(appDir, 'package.json'), {
-          name: json.name,
+          name: 'material-clicker',
           description: json.description,
           version: json.version,
           main: json.main,

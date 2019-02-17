@@ -1,29 +1,18 @@
 {
-  "name": "material-clicker",
+  "name": "material-clicker-dev",
   "productName": "material-clicker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Clicker Game using Material Design",
   "main": "./.webpack/main",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
     "start": "electron-forge start",
     "as-prod": "cross-env NODE_ENV=production",
-    "as-updater": "cross-env UPDATER_ONLY=true",
     "package": "npm run as-prod -- && electron-forge package",
-    "publish": "npm run as-prod -- && electron-forge publish",
-    "make:win32": "npm run as-prod -- npm run as-updater -- electron-forge package -p win32 -a x64,ia32",
-    "make:darwin": "npm run as-prod -- npm run as-updater -- electron-forge make -p darwin -a x64",
-    "make:linux": "npm run as-prod -- npm run as-updater -- electron-forge make -p linux -a x64,ia32",
-    "make:all": "npm run make:win32 && npm run make:darwin && npm run make:linux",
-    "make": "run-script-os",
     "asar": "npm run as-prod -- cross-env ASAR_ONLY=yes electron-forge make",
     "lint": "eslint . --ext js,jsx",
     "cloc": "cloc src conf",
     "docs": "docsify serve docs"
   },
-  "keywords": [],
   "author": "WeAreDevs",
   "contributors": [
     {

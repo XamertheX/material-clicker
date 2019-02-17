@@ -32,21 +32,8 @@ npm start
 - **`npm run cloc`**: Runs CLoC (Count Lines of Code) on the project.
 - **`npm run docs`**: Runs a Docsify development server to work on the documentation.
 
-### ASAR Export
+### Export
 - **`npm run asar`** Exports a ASAR file which is pushed to the update server.
-
-### Windows Export:
-- Make sure you are on a windows machine, or have wine setup
-- Install INNO Setup
-- **`npm run make:win32`** This only packages files, and does not create installers
-- Compile INNO Script `./src/setup-win32-x64.iss`
-- Compile INNO Script `./src/setup-win32-x86.iss`
-
-### Mac Export
-- **`npm run make:darwin`** Makes `zip` archive with `material-clicker.app`
-
-### Linux
-- **`npm run make:linux`** Makes `deb` and `rpm` packages for linux.
 
 ## Code Structure
 ### Simple file placement rules

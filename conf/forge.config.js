@@ -1,29 +1,10 @@
 module.exports = {
   packagerConfig: { },
   makers: [
-    ...process.env.ASAR_ONLY === undefined ?
-      [
-        {
-          name: '@electron-forge/maker-zip',
-          platforms: [
-            'darwin',
-          ],
-        },
-        {
-          name: '@electron-forge/maker-deb',
-          config: {},
-        },
-        {
-          name: '@electron-forge/maker-rpm',
-          config: {},
-        },
-      ]
-      : [
-        {
-          name: require.resolve('../src/plugins/electron-forge-maker-asar'),
-          config: {},
-        },
-      ],
+    {
+      name: require.resolve('../src/plugins/electron-forge-maker-asar'),
+      config: {},
+    },
   ],
   plugins: [
     ['@electron-forge/plugin-webpack', {
@@ -32,9 +13,7 @@ module.exports = {
         config: './conf/game.webpack.config.js',
         entryPoints: [{
           html: './src/game/index.html',
-          js: process.env.UPDATER_ONLY
-            ? './src/game/updater-index.jsx'
-            : './src/game/index.jsx',
+          js: './src/game/index.jsx',
           preload: {
             js: './src/main/preload.js',
           },

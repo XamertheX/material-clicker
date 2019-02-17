@@ -13,6 +13,9 @@ follow these exact rules:
 Initial Release, contains the core systems and pages of the game, as well as some
 starting upgrades and a few keyboard shortcuts.
 
+### 1.0.3 (2019-02-16)
+- Modify how auto updater works, and fix most of it's problems.
+
 ### 1.0.2 (2019-02-16)
 - Initial Public Release
 - Fixed the shop not actually working

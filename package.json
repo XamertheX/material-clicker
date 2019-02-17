@@ -68,7 +68,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "docsify-cli": "^4.3.0",
-    "electron": "4.0.4",
+    "electron": "4.0.5",
     "electron-react-devtools": "^0.5.3",
     "electron-wix-msi": "^2.1.1",
     "eslint": "^5.13.0",

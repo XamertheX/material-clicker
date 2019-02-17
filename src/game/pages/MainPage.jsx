@@ -29,8 +29,9 @@ const styles = (theme) => createStyles({
     borderRadius: '50px',
   },
   buttonText: {
-    paddingLeft: '20px',
-    paddingRight: '20px',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    fontSize: '35px',
   },
   buttonGold: {
     background: amber[500],

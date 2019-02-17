@@ -10,4 +10,7 @@ export function createFadeNumber(x, y, value) {
   elem.style.left = x + 'px';
   elem.style.top = y + 'px';
   mountNumber(elem);
+  setTimeout(() => {
+    elem.remove();
+  }, 1000);
 }

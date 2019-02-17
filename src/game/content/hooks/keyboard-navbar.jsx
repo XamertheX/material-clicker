@@ -9,11 +9,11 @@ window.addEventListener('keydown', (ev) => {
     if(!ev.shiftKey) {
       // Forwards
       document.querySelector('[data-nav-next="true"]').click();
+      playSound('game.tab-change');
     } else {
       // Backwards
       document.querySelector('[data-nav-prev="true"]').click();
+      playSound('game.tab-change');
     }
   }
-
-  playSound('game.tab-change');
 });

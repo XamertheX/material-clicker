@@ -14,8 +14,6 @@
 
 [View Changelog](CHANGELOG.md)
 
-> See the [release page](https://github.com/WeAreDevs/material-clicker/releases/tag/latest) for more information, mainly if installing one of the RPM builds.
-
 ## Goal
 The original goal of this project was to use as many components from
 [Material Design Components](https://material.io/develop/web/) as we could, starting with

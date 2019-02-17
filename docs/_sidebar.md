@@ -29,7 +29,6 @@
     * [Number Compactor](/dev/utils/number-compact.md)
     * [Date Formatter](/dev/utils/date.md)
   * [Systems](/dev/#systems)
-    * [Page System](/dev/systems/page.md)
     * [Audio System](/dev/systems/audio.md)
     * [Auto Clicker System](/dev/systems/autoclicker.md)
     * [Button System](/dev/systems/button.md)

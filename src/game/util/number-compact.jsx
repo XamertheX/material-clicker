@@ -1,5 +1,5 @@
 let compactNumberMap = {
-  7: 'M', // 1,000,000 -> 1M
+  7: 'M',  // 1,000,000 -> 1M
   10: 'B', // 1,000,000,000 -> 1B
   13: 'T', // 1,000,000,000,000 -> 1T
   16: 'Q', // 1,000,000,000,000,000 -> 1Q
@@ -14,6 +14,10 @@ let compactNumberMap = {
 import commaNumber from 'comma-number';
 
 export default function compact(num) {
+  if(typeof num !== 'number') {
+    return 'NaN';
+  }
+
   if(Math.floor(num) < 10000000) {
     return commaNumber(Math.round(num * 10) / 10);
   }

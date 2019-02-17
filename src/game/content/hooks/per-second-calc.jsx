@@ -1,11 +1,16 @@
 import { vars, setVar } from '../../systems/vars';
+import { createAutoClicker } from '../../systems/autoclicker';
 
 let lastPerSeconds = [vars.material];
 
-setInterval(() => {
-  lastPerSeconds.push(vars.material - lastPerSeconds[lastPerSeconds.length - 1]);
-  if(lastPerSeconds.length > 5) {
+let last = 0;
+createAutoClicker('persecond-calc', 100, () => {
+  lastPerSeconds.push(vars.material - last);
+  last = vars.material;
+
+  if(lastPerSeconds.length > 10) {
     lastPerSeconds.shift();
   }
-  setVar('');
-}, 1000);
+  const calc = lastPerSeconds.reduce((a, b) => a + b) / lastPerSeconds.length;
+  setVar('materialPerSecond', Math.max(calc * 10, 0));
+});

@@ -19,7 +19,7 @@ export async function save() {
   });
 }
 
-// Function called to convert a 0.0.X savefile to
+// Function called to convert a 1.0.X savefile to
 // the next newest one.
 export async function upgradeSavefile() {
   // Normally this would convert a savefile from this version (0.0.X) to

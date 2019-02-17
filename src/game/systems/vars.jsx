@@ -9,6 +9,7 @@ export let vars = {
 
   material: 0,
   materialPerClick: 1,
+  materialPerSecond: 0,
 
   shopItemsPurchased: [],
 
@@ -29,34 +30,10 @@ export let vars = {
   isCheating: false,
 };
 
-// let backupVars = JSON.parse(JSON.stringify(vars));
-
 export function setVar(varname, newvalue) {
   if (vars.isCheating) {
     return;
   }
-  /* eslint-disable indent */
-  // if (backupVars[varname] !== vars[varname]) {
-    // FIXME: Doesn't work when buying shop stuff
-    // Disabling
-    // AlertDialog(
-    //   'Using Cheat Engine?',
-    //   'or some other memory replacement program, because something here'
-    //   + 'doesn\'t seem right',
-    //   [
-    //     { text: 'Reload your Savefile' },
-    //   ],
-    //   {
-    //     dismissable: false,
-    //   }
-    // ).then(() => {
-    //   reloadApp();
-    // });
-    // vars.isCheating = true;
-    // vars.isResettingGame = true;
-    // return;
-  // }
-  /* eslint-enable indent */
 
   vars = {
     ...vars,
@@ -64,7 +41,6 @@ export function setVar(varname, newvalue) {
       ? newvalue(vars[varname])
       : newvalue,
   };
-  // backupVars[varname] = vars[varname];
 
   emitter.emit('change', vars);
   emitter.emit('change:' + varname, vars[varname]);

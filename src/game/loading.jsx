@@ -27,7 +27,6 @@
     .forEach(key => context(key));
 
   const { AlertDialog } = require('./systems/dialog');
-  const { restartApp } = require('./systems/graceful-exit');
   const { loadGameSaveData } = require('./systems/savefile-manager');
   const { resetData } = require('./systems/data-manager');
 

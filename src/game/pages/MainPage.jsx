@@ -14,8 +14,13 @@ import { amber } from '@material-ui/core/colors';
 const styles = (theme) => createStyles({
   title: {
     marginTop: theme.spacing.unit * 3,
-    marginBottom: theme.spacing.unit * 3,
     textAlign: 'center',
+  },
+  persecond: {
+    textAlign: 'center',
+    fontWeight: 'normal',
+    opacity: 0.5,
+    marginBottom: theme.spacing.unit * 3,
   },
   button: {
     padding: theme.spacing.unit * 4,
@@ -55,6 +60,10 @@ class MainPage extends Component {
       <Typography variant='h3' className={c.title}>
         {compact(vars.material)} Material
       </Typography>
+      <Typography variant='h6' className={c.persecond}>
+        {compact(vars.materialPerSecond)} Per Second
+      </Typography>
+
       <div>
         <Button
           className={classNames({

@@ -30,6 +30,8 @@ const styles = () => createStyles({
   '@keyframes fade': {
     from: {
       transform: 'translate(-50%,-50%) translateY(0)',
+    },
+    '35%': {
       opacity: 1,
     },
     to: {
@@ -39,7 +41,7 @@ const styles = () => createStyles({
   },
 });
 
-class FadeNumberHandler extends Component {
+class FloatingNumberHandler extends Component {
   containerDidMount = (div) => {
     containerDiv = div;
   }
@@ -52,4 +54,4 @@ class FadeNumberHandler extends Component {
   }
 }
 
-export default hot(withStyles(styles)(FadeNumberHandler));
+export default hot(withStyles(styles)(FloatingNumberHandler));

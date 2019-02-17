@@ -1,5 +1,5 @@
 import { registerButtonClickHandler } from '../../systems/button';
-import { createFadeNumber } from '../../systems/fadenumber';
+import { createFadeNumber } from '../../systems/floating-number';
 import { vars } from '../../systems/vars';
 
 registerButtonClickHandler((ev) => {

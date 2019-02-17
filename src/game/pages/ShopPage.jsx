@@ -22,6 +22,7 @@ import {
 } from '../systems/shop';
 import classNames from 'classnames';
 import { setVar, vars } from '../systems/vars';
+import { createFadeNumber } from '../systems/floating-number';
 
 const styles = (theme) => createStyles({
   root: {
@@ -91,11 +92,13 @@ class ShopPage extends Component {
     setVar('shopItemSelected', id);
   }
 
-  handlePurchase = () => {
+  handlePurchase = (ev) => {
     purchaseShopItem(vars.shopItemSelected);
 
-    // Select the most reasonable option to choose next.
     const item = getShopItem(vars.shopItemSelected);
+    createFadeNumber(ev.clientX, ev.clientY - 3, - item.price);
+
+    // Select the most reasonable option to choose next.
     const list = getPurchasableShopItems();
     const found = list.find((obj) => obj.requires.includes(item.id));
     setVar(

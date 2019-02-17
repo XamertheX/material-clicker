@@ -18,7 +18,7 @@ import DialogHandler from './DialogHandler';
 import SettingsPageContainer from './SettingsPageContainer';
 import { Location } from '@reach/router';
 import { vars } from '../systems/vars';
-import FadeNumberHandler from './FadeNumberHandler';
+import FloatingNumberHandler from './FloatingNumberHandler';
 
 const styles = () => createStyles({
   main: {
@@ -67,7 +67,7 @@ class Game extends Component {
       <DialogHandler />
 
       {/* FadeNumberHandler handles fading popup numbers */}
-      <FadeNumberHandler />
+      <FloatingNumberHandler />
     </MuiThemeProvider>;
   }
 }

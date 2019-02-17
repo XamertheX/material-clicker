@@ -1,9 +1,13 @@
 import compact from '../util/number-compact';
-import { mountNumber } from '../components/FadeNumberHandler';
+import { mountNumber } from '../components/FloatingNumberHandler';
 
 export function createFadeNumber(x, y, value) {
   if(typeof value === 'number') {
-    value = '+' + compact(value);
+    if (value < 0) {
+      value = compact(value);
+    } else {
+      value = '+' + compact(value);
+    }
   }
   const elem = document.createElement('div');
   elem.innerText = value;

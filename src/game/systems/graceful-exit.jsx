@@ -4,6 +4,7 @@ import EventEmitter from 'eventemitter3';
 const emitter = new EventEmitter();
 
 let waits = [];
+let devSkipWait = false;
 
 export class ExitWait {
   constructor() {
@@ -18,6 +19,9 @@ export class ExitWait {
 }
 
 function hasWaits() {
+  if (devSkipWait) {
+    return false;
+  }
   return waits.length > 0;
 }
 
@@ -26,7 +30,9 @@ function waitForPendingActions() {
 }
 
 export async function exitApp() {
-  emitter.emit('beforeclose');
+  if (!devSkipWait) {
+    emitter.emit('beforeclose');
+  }
 
   while (hasWaits()) {
     await waitForPendingActions();
@@ -35,7 +41,9 @@ export async function exitApp() {
   ipcRenderer.send('close');
 }
 export async function reloadApp() {
-  emitter.emit('beforeclose');
+  if (!devSkipWait) {
+    emitter.emit('beforeclose');
+  }
 
   while (hasWaits()) {
     await waitForPendingActions();
@@ -44,10 +52,24 @@ export async function reloadApp() {
   remote.getCurrentWindow().reload();
 }
 export async function restartApp() {
-  emitter.emit('beforeclose');
+  if (!devSkipWait) {
+    emitter.emit('beforeclose');
+  }
 
   while (hasWaits()) {
     await waitForPendingActions();
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    document.body.style.opacity = '0.35';
+    document.body.style.pointerEvents = 'none';
+    // eslint-disable-next-line no-console
+    console.error('Error: Cannot call restartApp() in developer mode!');
+    // eslint-disable-next-line no-console
+    console.error('Please close (Alt + F4, Command + Q) or reload (Ctrl + R)'
+      + 'the app window.');
+    devSkipWait = true;
+    return;
   }
 
   ipcRenderer.send('relaunch');

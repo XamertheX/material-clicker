@@ -24,7 +24,7 @@ body {
   height: 100%;
 }
 /* `root > div > div` will target react router's root */
-#root > div > div {
+#root > div > div[role="group"] {
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -19,12 +19,12 @@ export function refreshNextButtonWorth() {
   setVar('nextClickIsGold', event.isGold);
 }
 
-export function clickButton() {
+export function clickButton(clickEvent) {
   // Add the next button's worth
   setVar('material', m => m + vars.nextClickValue);
 
   // Emit `click`
-  emitter.emit('click', vars.material);
+  emitter.emit('click', clickEvent);
 
   // Calculate what the next button is worth
   refreshNextButtonWorth();

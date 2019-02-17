@@ -70,31 +70,48 @@ class SettingsPage extends Component {
       return;
     }
     const betaStatus = this.state.betaStatus;
+    if (!betaStatus) {
+      const choice = await AlertDialog(
+        'Beta warning',
+        'Beta builds can be unstable, and you sometimes may lose your savefile'
+        + ' in some cases, are you sure you want to enable beta builds.',
+        [
+          { text: 'Cancel' },
+          { text: 'Enable Beta', type: 'contained' },
+        ],
+      );
+      if(choice !== 1) {
+        return;
+      }
+    } else {
+      const choice = await AlertDialog(
+        'Beta warning',
+        'If you go back to the latest build, your savefile may become corrupt.',
+        [
+          { text: 'Cancel' },
+          { text: 'Disable Beta', type: 'contained' },
+        ],
+      );
+      if (choice !== 1) {
+        return;
+      }
+    }
     this.setState({
       betaStatus: !betaStatus,
     });
     const configFolder = remote.app.getPath('userData');
 
     await writeJSON(join(configFolder, 'update-config.json'), {
-      updateTrack: betaStatus === true ? 'nightly' : 'latest',
+      updateTrack: betaStatus === false ? 'nightly' : 'latest',
     });
+
     try {
       require('fs').unlinkSync(join(configFolder, 'app.asar'));
     } catch (error) {
       // if this fails thats probably okay.
     }
 
-    const choice = await AlertDialog(
-      'Restart to update?',
-      'To apply this change, you need to restart Material Clicker',
-      [
-        { text: 'Later' },
-        { text: 'Restart Now', type: 'contained' },
-      ],
-    );
-    if (choice === 1) {
-      restartApp();
-    }
+    restartApp();
   }
 
   componentDidMount() {
@@ -147,7 +164,7 @@ class SettingsPage extends Component {
           >
             Delete Game Savefile
           </Button>
-          <Typography variant='h5' className={c.catagory}>Auto Updater</Typography>
+          <Typography variant='h5' className={c.catagory}>Game Updates</Typography>
           <FormControlLabel
             control={
               <Checkbox

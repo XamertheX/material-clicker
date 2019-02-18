@@ -12,7 +12,7 @@ export default {
     <p>This upgrade will give you between 150 and 200 material every 10 seconds.</p>
   </>,
   price: 5000,
-  requires: ['ClickMiner2'],
+  requires: ['MaterialMiner2'],
 
   activate() {
     MaterialMinerAction(200, 150);

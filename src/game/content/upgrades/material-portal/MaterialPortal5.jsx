@@ -11,7 +11,7 @@ export default {
     <p>This upgrade will give you 100,000 Material per 30 seconds.</p>
   </>,
   price: 1000000,
-  requires: ['ClickPortal4'],
+  requires: ['MaterialPortal4'],
 
   activate() {
     MaterialPortalAction(100000);

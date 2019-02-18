@@ -96,7 +96,7 @@ class ShopPage extends Component {
     purchaseShopItem(vars.shopItemSelected);
 
     const item = getShopItem(vars.shopItemSelected);
-    createFadeNumber(ev.clientX, ev.clientY - 3, - item.price);
+    createFadeNumber(ev.clientX, ev.clientY - 3, - item.price, 'red');
 
     // Select the most reasonable option to choose next.
     const list = getPurchasableShopItems();

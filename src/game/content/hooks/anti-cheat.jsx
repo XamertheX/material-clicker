@@ -36,7 +36,8 @@ registerButtonClickHandler(async() => {
   lastClickInterval = clickInterval;
   clickInterval = clickTime - lastClickTime;
 
-  if(clickInterval === lastClickInterval) {
+  console.log(clickInterval)
+  if(clickInterval === lastClickInterval || clickInterval < 20) {
     if(!shouldCountSuspicion) {
       shouldCountSuspicion = true;
     }

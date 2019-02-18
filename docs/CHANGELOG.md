@@ -20,12 +20,14 @@ follow these exact rules:
 - New sounds!
   - Shop buy sound plays when you buy a shop item.
   - Golden click sound!
+- Color parameter on Floating Numbers.
 
 #### Fixes
 - Fixed `Shift + Tab` not working to switch tabs.
 
 #### Changes
 - Refactored the Click Miner and Click Portal upgrades to use Material Miner and Material Portal.
+- The floating number when you buy something is red.
 
 ---
 

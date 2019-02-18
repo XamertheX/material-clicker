@@ -1,9 +1,9 @@
 import React from 'react';
-import ClickMinerAction from './ClickMinerAction';
+import MaterialMinerAction from './MaterialMinerAction';
 
 export default {
-  name: 'Click Miner 5',
-  shortDesc: 'Gives you a random amount of material between a range.',
+  name: 'Material Miner 5',
+  shortDesc: 'Gives you a random amount of Material between a range.',
   longDesc: () => <>
     <p>
       Gives a random amount of material between a certain maximum and minimum amount of
@@ -15,6 +15,6 @@ export default {
   requires: ['ClickMiner4'],
 
   activate() {
-    ClickMinerAction(500, 250);
+    MaterialMinerAction(500, 250);
   },
 };

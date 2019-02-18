@@ -1,8 +1,8 @@
-# Click Factory
-The **Click Factory** is a type of [Upgrade](/upgrades/) that you can buy with 
+# Material Factory
+The **Material Factory** is a type of [Upgrade](/upgrades/) that you can buy with 
 [Material](/game/material.md) from the [Shop](/game/shop.md).
 
-The Click Factory will output a somewhat high amount of Material every 20 seconds.
+The Material Factory will output a somewhat high amount of Material every 20 seconds.
 
 ## Upgrade Data
 

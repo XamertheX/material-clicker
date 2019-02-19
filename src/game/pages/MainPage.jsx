@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { withStyles, createStyles, Typography, Button } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars } from '../systems/vars';
-import compact from '../util/number-compact';
+import { compact } from '../util/number-compact';
 import { clickButton } from '../systems/button';
 import classNames from 'classnames';
 import { amber } from '@material-ui/core/colors';

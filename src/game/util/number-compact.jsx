@@ -1,4 +1,5 @@
 let compactNumberMap = {
+  4: 'K', // 1,000 -> 1K (only in compactMini)
   7: 'M', // 1,000,000 -> 1M
   10: 'B', // 1,000,000,000 -> 1B
   13: 'T', // 1,000,000,000,000 -> 1T
@@ -13,7 +14,7 @@ let compactNumberMap = {
 
 import commaNumber from 'comma-number';
 
-export default function compact(num, zeroDecimal) {
+export function compact(num, zeroDecimal) {
   if(typeof num !== 'number') {
     return 'NaN';
   }
@@ -36,4 +37,20 @@ export default function compact(num, zeroDecimal) {
   ];
 
   return commaNumber(num, '.').substring(0, 4).replace(/\.$/, '') + letter;
+}
+
+export function compactMini(num) {
+  if(typeof num !== 'number') {
+    return 'NaN';
+  }
+
+  if(Math.floor(num) < 1000) {
+    return num.toString();
+  }
+
+  let letter = compactNumberMap[
+    Math.floor((Math.round(num).toString().length - 1) / 3) * 3 + 1
+  ];
+
+  return commaNumber(num, '.').substring(0, 3).replace(/\.$/, '') + letter;
 }

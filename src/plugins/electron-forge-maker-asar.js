@@ -18,7 +18,8 @@ module.exports.default = class AsarMaker extends MakerBase {
 
   async make(options) {
     const packageJSON = options.packageJSON;
-    const asarName = `${packageJSON.productName}-${packageJSON.version}.asar`;
+    const productName = packageJSON.productName.replace('-dev', '');
+    const asarName = `${productName}-${packageJSON.version}.asar`;
     const asarPath = path.join(options.makeDir, asarName);
     if(await fs.exists(asarPath)) {
       return;

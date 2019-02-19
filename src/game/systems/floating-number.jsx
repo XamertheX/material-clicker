@@ -1,4 +1,4 @@
-import compact from '../util/number-compact';
+import { compact } from '../util/number-compact';
 import { mountNumber } from '../components/FloatingNumberHandler';
 import { randomInt } from '../util/random';
 

@@ -3,7 +3,7 @@ import { vars, setVar } from './../../systems/vars';
 import { registerButtonClickHandler } from '../../systems/button';
 import { AlertDialog } from '../../systems/dialog';
 import { reloadApp } from '../../systems/graceful-exit';
-import compact from '../../util/number-compact';
+import { compact } from '../../util/number-compact';
 import { saveGameSaveData } from '../../systems/savefile-manager';
 
 let clickTime;

@@ -10,7 +10,7 @@
 1. Import the utility.
 
 ```js
-import compact from 'util/number-compact';
+import { compact } from 'util/number-compact';
 ```
 
 2. Use It
@@ -18,7 +18,7 @@ import compact from 'util/number-compact';
 ```js
 // Example
 
-import compact from 'util/number-compact';
+import { compact } from 'util/number-compact';
 
 console.log(compact(1000000));
 // Expected output: "1M"

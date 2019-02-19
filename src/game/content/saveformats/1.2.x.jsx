@@ -14,12 +14,14 @@ export async function load() {
   setVar('currentMilestone', data.currentMilestone);
 
   // Stats
-  setVar('statsClicks', data.stats.clicks);
-  setVar('statsGameTime', data.stats.gameTime);
-  setVar('statsHighestMaterial', data.stats.highestMaterial);
-  setVar('statsMaterialSpent', data.stats.materialSpent);
-  setVar('statsTotalMaterial', data.stats.totalMaterial);
-  setVar('statsUpgradesBought', data.stats.upgradesBought);
+  if(data.stats) {
+    setVar('statsClicks', data.stats.clicks);
+    setVar('statsGameTime', data.stats.gameTime);
+    setVar('statsHighestMaterial', data.stats.highestMaterial);
+    setVar('statsMaterialSpent', data.stats.materialSpent);
+    setVar('statsTotalMaterial', data.stats.totalMaterial);
+    setVar('statsUpgradesBought', data.stats.upgradesBought);
+  }
 
   data.shopItemsPurchased.forEach(id => {
     purchaseShopItem(id, false);

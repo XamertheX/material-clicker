@@ -8,6 +8,13 @@ export async function load() {
   setVar('material', data.material);
   setVar('materialUntilMilestone', data.materialUntilMilestone);
   setVar('currentMilestone', data.currentMilestone);
+
+  // Stats
+  setVar('clicks', data.clicks);
+  setVar('lifetimeMaterial', data.lifetimeMaterial);
+  setVar('lifetimeMaterialSpent', data.lifetimeMaterialSpent);
+  setVar('upgradesBought', data.upgradesBought);
+
   data.shopItemsPurchased.forEach(id => {
     purchaseShopItem(id, false);
   });
@@ -20,6 +27,10 @@ export async function save() {
     shopItemsPurchased: vars.shopItemsPurchased,
     materialUntilMilestone: vars.materialUntilMilestone,
     currentMilestone: vars.currentMilestone,
+    clicks: vars.clicks,
+    lifetimeMaterial: vars.lifetimeMaterial,
+    lifetimeMaterialSpent: vars.lifetimeMaterialSpent,
+    upgradesBought: vars.upgradesBought,
   });
 }
 

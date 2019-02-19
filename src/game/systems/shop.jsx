@@ -54,7 +54,10 @@ export function purchaseShopItem(id, check = true) {
 
     let itemPrice = getShopItem(id).price;
     setVar('material', (m) => m - itemPrice);
+
+    // Stats
     setVar('lifetimeMaterialSpent', vars.lifetimeMaterialSpent + itemPrice);
+    setVar('upgradesBought', vars.upgradesBought + 1);
 
     playSound('ui.purchase');
   }

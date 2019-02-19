@@ -11,11 +11,12 @@
 -->
 * [Upgrades](/upgrades/)
   * [Auto Clicker](/upgrades/auto-clicker.md)
-  * [Click Miner](/upgrades/click-miner.md)
-  * [Click Portal](/upgrades/click-portal.md)
   * [Click Power](/upgrades/click-power.md)
   * [Gold Chance](/upgrades/gold-chance.md)
   * [Gold Power](/upgrades/gold-power.md)
+  * [Material Factory](/upgrades/material-factory.md)
+  * [Material Miner](/upgrades/material-miner.md)
+  * [Material Portal](/upgrades/material-portal.md)
 <!--
   DEVELOPER DOCUMENTATION
 -->

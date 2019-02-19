@@ -45,7 +45,7 @@ export function compactMini(num) {
   }
 
   if(Math.floor(num) < 1000) {
-    return num.toString();
+    return Math.floor(num).toString();
   }
 
   let letter = compactNumberMap[

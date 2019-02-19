@@ -42,6 +42,7 @@ export async function saveGameSaveData() {
 export async function loadGameSaveData() {
   let version = (await readData('savefile-manager')).version;
   let needsUpgrade = false;
+  console.log(version);
   // No savefile, ignore.
   if(version === undefined) {
     setVar('isResettingGame', false);
@@ -69,14 +70,13 @@ export async function loadGameSaveData() {
   }
   // Figure out which handler to use, and upgrade the savefile.
   let exactHandler = getSavefileHandlers(version);
+  const latestHandler = getSavefileHandlers();
   // Don't attempt upgrading if the same handler but different versions.
-  if (exactHandler !== getSavefileHandlers($About.Version)) {
-    while (semver.lt(version, $About.Version)) {
-      needsUpgrade = true;
-      version = await getSavefileHandlers(version).upgradeSavefile();
+  while (exactHandler.id !== latestHandler.id) {
+    needsUpgrade = true;
+    version = await exactHandler.upgradeSavefile();
 
-      exactHandler = getSavefileHandlers(version);
-    }
+    exactHandler = getSavefileHandlers(version);
   }
   // Actually load the savefile
   await exactHandler.load();

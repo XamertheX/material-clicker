@@ -44,6 +44,7 @@
   try {
     await loadGameSaveData();
   } catch (error) {
+    console.error(error);
     await AlertDialog(
       'Savefile Corrupt!',
       'We could not load your savefile, you need to start your game over.',

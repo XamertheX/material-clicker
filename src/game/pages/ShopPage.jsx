@@ -88,6 +88,10 @@ class ShopPage extends Component {
   static id = 'shop';
   static display = 'Shop';
 
+  static getBadge() {
+    return getPurchasableShopItems().filter(x => canPurchase(x.id)).length;
+  }
+
   handleSelect = id => () => {
     setVar('shopItemSelected', id);
   }

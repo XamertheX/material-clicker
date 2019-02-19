@@ -9,6 +9,7 @@ import {
   AppBar,
   Tabs,
   Tab,
+  Badge,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { Link, Location } from '@reach/router';
@@ -21,6 +22,11 @@ const styles = (theme) => createStyles({
   },
   tabIndicator: {
     background: 'white',
+  },
+  badge: {
+    background: 'white',
+    color: theme.palette.primary[900],
+    lineHeight: '20px',
   },
 });
 
@@ -42,9 +48,25 @@ class NavBar extends Component {
               const val = pathname.substring(1) || Pages[0].id;
               const next = val === Pages[i === 0 ? Pages.length - 1 : i - 1].id;
               const prev = val === Pages[i === Pages.length - 1 ? 0 : i + 1].id;
-
+              const badgeValue =
+                Page.getBadge
+                && typeof Page.getBadge === 'function'
+                && Page.getBadge()
+                || 0;
               return <Tab
-                label={Page.display}
+                label={
+                  badgeValue > 0
+                    ? <Badge
+                      color='primary'
+                      badgeContent={badgeValue}
+                      classes={{
+                        badge: c.badge,
+                      }}
+                    >
+                      {Page.display}&nbsp;&nbsp;&nbsp;
+                    </Badge>
+                    : Page.display
+                }
                 component={Link}
                 to={Page.id}
                 key={Page.id}

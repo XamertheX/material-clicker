@@ -29,6 +29,9 @@ export let vars = {
 
   isResettingGame: true,
   isCheating: false,
+
+  currentMilestone: 0,
+  materialUntilMilestone: null,
 };
 
 export function setVar(varname, newvalue) {

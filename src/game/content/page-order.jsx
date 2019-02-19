@@ -6,5 +6,6 @@ export default [
 
   require('../pages/MainPage'),
   require('../pages/ShopPage'),
+  require('../pages/MilestonePage'),
 
 ].map(page => page.default);

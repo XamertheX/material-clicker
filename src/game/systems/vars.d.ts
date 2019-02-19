@@ -33,6 +33,9 @@ interface Variables {
 
   /** Selected Page. special; read only */
   selectedPage: string;
+
+  /** Material until milestone. */
+  materialUntilMilestone: 1000,
 }
 
 /** Non-Global Global Variables */

@@ -25,7 +25,9 @@ requireAll(require.context('../content/saveformats/', true, /\.jsx?$/));
 
 function getSavefileHandlers(version = $About.Version) {
   // Find an exact match
-  const exactModule = registry.find(({ id }) => semver.satisfies(version, id));
+  const exactModule = registry.find(({ id }) => {
+    return semver.satisfies(version, id);
+  });
   if (exactModule) {
     return exactModule;
   }
@@ -71,7 +73,7 @@ export async function loadGameSaveData() {
   if (exactHandler !== getSavefileHandlers($About.Version)) {
     while (semver.lt(version, $About.Version)) {
       needsUpgrade = true;
-      version = getSavefileHandlers(version).upgradeSavefile();
+      version = await getSavefileHandlers(version).upgradeSavefile();
 
       exactHandler = getSavefileHandlers(version);
     }

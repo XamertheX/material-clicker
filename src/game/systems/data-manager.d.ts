@@ -1,3 +1,3 @@
-export function writeData(id: string, data: object): Promise<undefined>;
-export function readData(id: string, defaultData?: object): Promise<object>;
-export function resetData(): Promise<undefined>;
+export function writeData(id: string, data: object): undefined;
+export function readData(id: string, defaultData?: object): object;
+export function resetData(): undefined;

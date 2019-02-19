@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import classNames from 'classnames';
-import compact from '../util/number-compact';
+import { compact } from '../util/number-compact';
 import { vars } from '../systems/vars';
 
 const styles = (theme) => createStyles({

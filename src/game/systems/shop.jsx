@@ -51,7 +51,10 @@ export function purchaseShopItem(id, check = true) {
     if(!canPurchase(id)) {
       return;
     }
-    setVar('material', (m) => m - getShopItem(id).price);
+
+    let itemPrice = getShopItem(id).price;
+    setVar('material', (m) => m - itemPrice);
+    setVar('lifetimeMaterialSpent', vars.lifetimeMaterialSpent + itemPrice);
 
     playSound('ui.purchase');
   }

@@ -32,6 +32,10 @@ export let vars = {
 
   currentMilestone: 0,
   materialUntilMilestone: null,
+
+  clicks: 0,
+  lifetimeMaterial: 0,
+  lifetimeMaterialSpent: 0,
 };
 
 export function setVar(varname, newvalue) {

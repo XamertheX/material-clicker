@@ -56,8 +56,8 @@ export function purchaseShopItem(id, check = true) {
     setVar('material', (m) => m - itemPrice);
 
     // Stats
-    setVar('lifetimeMaterialSpent', vars.lifetimeMaterialSpent + itemPrice);
-    setVar('upgradesBought', vars.upgradesBought + 1);
+    // FIXME: Create a shop onUpgrade to use in hooks.
+    setVar('upgradesBought', x => x + 1);
 
     playSound('ui.purchase');
   }

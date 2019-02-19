@@ -34,10 +34,13 @@ export let vars = {
   materialUntilMilestone: null,
 
   // Stats
-  clicks: 0,
-  lifetimeMaterial: 0,
-  lifetimeMaterialSpent: 0,
-  upgradesBought: 0,
+  statsClicks: 0,
+  statsTotalMaterial: 0,
+  statsMaterialSpent: 0,
+  statsUpgradesBought: 0,
+  statsHighestMaterial: 0,
+  statsHighestMPS: 0,
+  statsGameTime: 0,
 };
 
 export function setVar(varname, newvalue) {

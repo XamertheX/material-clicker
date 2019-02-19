@@ -13,3 +13,9 @@ export function compactMini(
   number : number,
   zeroDecimal?: boolean
 ) : string;
+/**
+ * Creates a time from seconds to words.
+ */
+export function compactTime(
+  number : number,
+) : string;

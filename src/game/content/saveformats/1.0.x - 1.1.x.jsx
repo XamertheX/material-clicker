@@ -24,8 +24,20 @@ export async function save() {
 export async function upgradeSavefile() {
   // Add new fields
   const data = readData('data');
+
   data.materialUntilMilestone = null;
   data.currentMilestone = 0;
+
+  // NOTE: The `vars` object has default counts, so we can use those as the defaults.
+  data.stats = {
+    clicks: vars.statsClicks,
+    gameTime: vars.statsGameTime,
+    highestMaterial: vars.statsHighestMaterial,
+    materialSpent: vars.statsMaterialSpent,
+    totalMaterial: vars.statsTotalMaterial,
+    upgradesBought: vars.statsUpgradesBought,
+  };
+
   writeData('data', data);
 
   // Upgrades to version 1.2.0.

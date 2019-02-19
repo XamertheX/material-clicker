@@ -1,4 +1,4 @@
-import { setVar, vars } from '../../../systems/vars';
+import { setVar } from '../../../systems/vars';
 import { createAutoClicker } from '../../../systems/autoclicker';
 import { randomInt } from '../../../util/random';
 import { createRandomFadeNumber } from '../../../systems/floating-number';
@@ -9,7 +9,6 @@ export default function MaterialMinerAction(highAmount, lowAmount) {
   createAutoClicker('click-miner', 10000, () => {
     const amount = randomInt(lowAmount, highAmount);
     setVar('material', m => m + amount);
-    setVar('lifetimeMaterial', vars.lifetimeMaterial + amount);
     createRandomFadeNumber(amount);
 
   });

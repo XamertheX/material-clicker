@@ -12,5 +12,7 @@ createAutoClicker('persecond-calc', 50, () => {
     lastPerSeconds.shift();
   }
   const calc = lastPerSeconds.reduce((a, b) => a + b) / lastPerSeconds.length;
-  setVar('materialPerSecond', Math.max(calc * 20, 0));
+  if (vars.materialPerSecond !== calc) {
+    setVar('materialPerSecond', Math.max(calc * 20, 0));
+  }
 });

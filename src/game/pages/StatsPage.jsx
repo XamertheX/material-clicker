@@ -9,14 +9,30 @@ import {
   Typography,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { compact } from '../util/number-compact';
+import { compact, compactTime } from '../util/number-compact';
 import { vars } from '../systems/vars';
 
-const styles = createStyles({
+const styles = (theme) => createStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
     padding: '10px',
+  },
+  title: {
+    marginTop: theme.spacing.unit * 3,
+    textAlign: 'center',
+  },
+  list: {
+    fontSize: 25,
+    margin: 'auto',
+    marginTop: theme.spacing.unit * 3,
+  },
+  statname: {
+    fontWeight: '600',
+    opacity: 0.8,
+  },
+  statvalue: {
+    color: theme.palette.primary[500],
   },
 });
 
@@ -27,29 +43,27 @@ class StatsPage extends Component {
   render() {
     const { classes: c } = this.props;
 
+    const statsItems = [
+      ['Time Spent in Game', compactTime(vars.statsGameTime) ],
+      ['Total Material', compact(vars.statsTotalMaterial) + ' Material' ],
+      ['Highest Material', compact(vars.statsHighestMaterial) + ' Material' ],
+      ['Highest Material Per Second', compact(vars.statsHighestMPS) + ' Material' ],
+      ['Spent Material', compact(vars.statsMaterialSpent) + ' Material' ],
+      ['Button Clicks', compact(vars.statsClicks) + ' Material' ],
+      ['Upgrades Bought', compact(vars.statsUpgradesBought) + ' Material' ],
+    ];
     return <div className={c.root}>
       <Typography variant='h4' className={c.title}>
-        Stats
+        Current Game Stats
       </Typography>
-      <ul>
-        <li>
-          <Typography paragraph>
-            Total Amount of Mouse Clicks: {compact(vars.clicks)}
-          </Typography>
-        </li>
-        <li>
-          <Typography paragraph>
-            Lifetime Material Gained: {compact(vars.lifetimeMaterial)}
-          </Typography>
-        </li>
-        <li>
-          <Typography paragraph>
-            Lifetime Material Spent: {compact(vars.lifetimeMaterialSpent)}
-          </Typography>
-        </li>
-        <li>
-          <Typography paragraph>Upgrades Bought: {vars.upgradesBought}</Typography>
-        </li>
+      <ul className={c.list}>
+        {statsItems.map(([name, value], i) => {
+          return <li key={i}>
+            <span className={c.statname}>{name}</span>: <span className={c.statvalue}>
+              {value}
+            </span>
+          </li>;
+        })}
       </ul>
     </div>;
   }

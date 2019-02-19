@@ -1,4 +1,4 @@
-import { setVar, vars } from '../../../systems/vars';
+import { setVar } from '../../../systems/vars';
 import { createAutoClicker } from '../../../systems/autoclicker';
 import { createRandomFadeNumber } from '../../../systems/floating-number';
 
@@ -6,7 +6,6 @@ import { createRandomFadeNumber } from '../../../systems/floating-number';
 export default function MaterialPortalAction(amount) {
   createAutoClicker('click-portal', 30000, () => {
     setVar('material', m => m + amount);
-    setVar('lifetimeMaterial', vars.lifetimeMaterial + amount);
 
     createRandomFadeNumber(amount);
   });

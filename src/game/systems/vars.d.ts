@@ -36,6 +36,14 @@ interface Variables {
 
   /** Material until milestone. */
   materialUntilMilestone: 1000,
+
+  statsClicks: number,
+  statsTotalMaterial: number,
+  statsMaterialSpent: number,
+  statsUpgradesBought: number,
+  statsHighestMaterial: number,
+  statsGameTime: number,
+  statsHighestMPS: number,
 }
 
 /** Non-Global Global Variables */

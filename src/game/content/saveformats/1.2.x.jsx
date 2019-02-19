@@ -5,15 +5,21 @@ import { purchaseShopItem } from '../../systems/shop';
 // Function called to load the savefile.
 export async function load() {
   const data = readData('data');
+
+  // Material
   setVar('material', data.material);
+
+  // Milestone information
   setVar('materialUntilMilestone', data.materialUntilMilestone);
   setVar('currentMilestone', data.currentMilestone);
 
   // Stats
-  setVar('clicks', data.clicks);
-  setVar('lifetimeMaterial', data.lifetimeMaterial);
-  setVar('lifetimeMaterialSpent', data.lifetimeMaterialSpent);
-  setVar('upgradesBought', data.upgradesBought);
+  setVar('statsClicks', data.stats.clicks);
+  setVar('statsGameTime', data.stats.gameTime);
+  setVar('statsHighestMaterial', data.stats.highestMaterial);
+  setVar('statsMaterialSpent', data.stats.materialSpent);
+  setVar('statsTotalMaterial', data.stats.totalMaterial);
+  setVar('statsUpgradesBought', data.stats.upgradesBought);
 
   data.shopItemsPurchased.forEach(id => {
     purchaseShopItem(id, false);
@@ -27,10 +33,14 @@ export async function save() {
     shopItemsPurchased: vars.shopItemsPurchased,
     materialUntilMilestone: vars.materialUntilMilestone,
     currentMilestone: vars.currentMilestone,
-    clicks: vars.clicks,
-    lifetimeMaterial: vars.lifetimeMaterial,
-    lifetimeMaterialSpent: vars.lifetimeMaterialSpent,
-    upgradesBought: vars.upgradesBought,
+    stats: {
+      clicks: vars.statsClicks,
+      gameTime: vars.statsGameTime,
+      highestMaterial: vars.statsHighestMaterial,
+      materialSpent: vars.statsMaterialSpent,
+      totalMaterial: vars.statsTotalMaterial,
+      upgradesBought: vars.statsUpgradesBought,
+    },
   });
 }
 

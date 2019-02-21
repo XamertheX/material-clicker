@@ -6,5 +6,6 @@ import { compactMini } from '../../util/number-compact';
 import titlebar from '../../titlebar';
 
 onVarChange('material', () => {
-  titlebar.updateTitle('Material Clicker - ' + compactMini(vars.material));
+  titlebar.counter.innerText = compactMini(vars.material);
 });
+titlebar.counter.innerText = compactMini(vars.material);

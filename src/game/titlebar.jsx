@@ -30,6 +30,14 @@ spacer.style.webkitAppRegion = 'drag';
 spacer.style.height = '100%';
 titlebar.titlebar.insertBefore(spacer, titlebar.title.nextSibling);
 
+const counter = document.createElement('div');
+counter.style.flex = '0 1 0%';
+counter.style.webkitAppRegion = 'drag';
+counter.style.paddingRight = '10px';
+counter.style.height = '100%';
+titlebar.titlebar.insertBefore(counter, titlebar.appIcon.nextSibling);
+titlebar.counter = counter;
+
 // Override it's close function to go through the graceful exit
 const win = remote.getCurrentWindow();
 titlebar.currentWindow = {

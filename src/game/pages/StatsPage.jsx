@@ -50,7 +50,7 @@ class StatsPage extends Component {
       ['Highest Material Per Second', compact(vars.statsHighestMPS) + ' Material' ],
       ['Spent Material', compact(vars.statsMaterialSpent) + ' Material' ],
       ['Button Clicks', compact(vars.statsClicks) + ' Material' ],
-      ['Upgrades Bought', compact(vars.statsUpgradesBought) ],
+      ['Upgrades Bought', compact(vars.statsUpgradesBought) + ' Upgrades' ],
     ];
     return <div className={c.root}>
       <Typography variant='h4' className={c.title}>

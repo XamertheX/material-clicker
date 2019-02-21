@@ -23,6 +23,10 @@ export async function load() {
     setVar('statsUpgradesBought', data.stats.upgradesBought);
   }
 
+  if (data.i_owe_you) {
+    setVar('todoRecieveItems', data.i_owe_you);
+  }
+
   data.shopItemsPurchased.forEach(id => {
     purchaseShopItem(id, false);
   });
@@ -43,6 +47,8 @@ export async function save() {
       totalMaterial: vars.statsTotalMaterial,
       upgradesBought: vars.statsUpgradesBought,
     },
+    // eslint-disable-next-line camelcase
+    i_owe_you: vars.todoRecieveItems.length > 0 ? vars.todoRecieveItems : undefined,
   });
 }
 

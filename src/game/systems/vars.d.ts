@@ -44,6 +44,8 @@ interface Variables {
   statsHighestMaterial: number,
   statsGameTime: number,
   statsHighestMPS: number,
+
+  todoRecieveItems: string[],
 }
 
 /** Non-Global Global Variables */

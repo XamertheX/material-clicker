@@ -41,6 +41,8 @@ export let vars = {
   statsHighestMaterial: 0,
   statsHighestMPS: 0,
   statsGameTime: 0,
+
+  todoRecieveItems: [],
 };
 
 export function setVar(varname, newvalue) {

@@ -44,6 +44,7 @@
   try {
     await loadGameSaveData();
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     await AlertDialog(
       'Savefile Corrupt!',

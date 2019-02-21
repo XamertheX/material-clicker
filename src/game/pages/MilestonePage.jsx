@@ -55,10 +55,14 @@ class MilestonePage extends Component {
       <div className={c.progressContainer}>
         <LinearProgress
           variant='determinate'
+          // eslint-disable-next-line max-len
           value={100 * (1 - vars.materialUntilMilestone / Milestones[vars.currentMilestone].material)}
           className={c.progress}
         />
       </div>
+      <Typography variant='h6' className={c.subtitle}>
+        Reward: {Milestones[vars.currentMilestone].description}
+      </Typography>
     </div>;
   }
 }

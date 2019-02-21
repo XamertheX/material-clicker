@@ -57,7 +57,7 @@ export function purchaseShopItem(id, check = true) {
 
     // Stats
     // FIXME: Create a shop onUpgrade to use in hooks.
-    setVar('upgradesBought', x => x + 1);
+    setVar('statsUpgradesBought', x => x + 1);
 
     playSound('ui.purchase');
   }

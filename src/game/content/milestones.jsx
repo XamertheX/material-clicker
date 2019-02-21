@@ -7,21 +7,21 @@ import { todoGive } from '../systems/todo-recieve';
 export default [
   {
     material: 5000,
-    description: '2000 Clicks',
+    description: '2000 Material',
     activate() {
       setVar('material', x => x + 2000);
     },
   },
   {
     material: 10000,
-    description: '3500 Clicks',
+    description: '3500 Material',
     activate() {
       setVar('material', x => x + 2000);
     },
   },
   {
     material: 20000,
-    description: '5000 Clicks',
+    description: '5000 Material',
     activate() {
       setVar('material', x => x + 5000);
     },

@@ -48,6 +48,8 @@ interface Variables {
   todoRecieveItems: string[],
 
   configLowDetail: boolean;
+
+  clickSound: string;
 }
 
 /** Non-Global Global Variables */

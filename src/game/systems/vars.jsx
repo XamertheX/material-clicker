@@ -46,6 +46,8 @@ export let vars = {
   todoRecieveItems: [],
 
   configLowDetail: false,
+
+  clickSound: 'default',
 };
 
 export function setVar(varname, newvalue) {

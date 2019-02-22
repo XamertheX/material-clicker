@@ -28,7 +28,7 @@ onVarChange('material', () => {
       milestoneRewarding = false;
       setVar('currentMilestone', x => x + 1);
       vars.materialUntilMilestone = Milestones[vars.currentMilestone].material;
-      playSound('milestone.get');
+      playSound('ui.milestone');
       setVar('statsMilestonesReached', x => x + 1);
     }
   }

@@ -4,8 +4,8 @@ import { vars } from '../../systems/vars';
 
 registerButtonClickHandler(() => {
   if(!vars.nextClickIsGold) {
-    playSound('click.default');
+    playSound(`click.${vars.clickSound}`, 'click.default');
   } else {
-    playSound('click.gold');
+    playSound(`click.${vars.clickSound}.gold`, 'click.default.gold');
   }
 });

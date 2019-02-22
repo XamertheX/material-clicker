@@ -12,7 +12,7 @@
 - **[Linux (32 bit) (deb)](https://github.com/WeAreDevs/material-clicker/releases/download/latest/material-clicker-linux-i386.deb)**
 - **[Linux (32 bit) (rpm)](https://github.com/WeAreDevs/material-clicker/releases/download/latest/material-clicker-linux-i386.rpm)**
 
-[View Changelog](CHANGELOG.md)
+[View Changelog](https://wearedevs.github.io/material-clicker/#/CHANGELOG.md)
 
 ## Goal
 The original goal of this project was to use as many components from

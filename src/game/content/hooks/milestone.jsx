@@ -1,6 +1,7 @@
 import { onVarChange } from '../../systems/vars';
 import { vars } from '../../systems/vars';
 import { setVar } from '../../systems/vars';
+import { playSound } from '../../systems/audio';
 
 import Milestones from '../milestones';
 import { Notification } from '../../systems/notification';
@@ -27,6 +28,8 @@ onVarChange('material', () => {
       milestoneRewarding = false;
       setVar('currentMilestone', x => x + 1);
       vars.materialUntilMilestone = Milestones[vars.currentMilestone].material;
+      playSound('milestone.get');
+      setVar('statsMilestonesReached', x => x + 1);
     }
   }
   last = vars.material;

@@ -21,7 +21,7 @@ export async function load() {
     setVar('statsMaterialSpent', data.stats.materialSpent);
     setVar('statsTotalMaterial', data.stats.totalMaterial);
     setVar('statsUpgradesBought', data.stats.upgradesBought);
-    setVar('statsMilestonesReached', data.stats.milestonesReached);
+    setVar('statsMilestonesReached', data.stats.statsMilestonesReached);
   }
 
   if (data.i_owe_you) {

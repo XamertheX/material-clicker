@@ -21,6 +21,7 @@ export async function load() {
     setVar('statsMaterialSpent', data.stats.materialSpent);
     setVar('statsTotalMaterial', data.stats.totalMaterial);
     setVar('statsUpgradesBought', data.stats.upgradesBought);
+    setVar('statsMilestonesReached', data.stats.milestonesReached);
   }
 
   if (data.i_owe_you) {
@@ -46,6 +47,7 @@ export async function save() {
       materialSpent: vars.statsMaterialSpent,
       totalMaterial: vars.statsTotalMaterial,
       upgradesBought: vars.statsUpgradesBought,
+      statsMilestonesReached: vars.statsMilestonesReached,
     },
     // eslint-disable-next-line camelcase
     i_owe_you: vars.todoRecieveItems.length > 0 ? vars.todoRecieveItems : undefined,

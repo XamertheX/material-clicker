@@ -41,6 +41,7 @@ export let vars = {
   statsHighestMaterial: 0,
   statsHighestMPS: 0,
   statsGameTime: 0,
+  statsMilestonesReached: 0,
 
   todoRecieveItems: [],
 };

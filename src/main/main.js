@@ -96,19 +96,37 @@ import NotificationHTMLFile from 'url-loader!../game/notification.html';
 
 let notifWindow;
 ipcMain.on('notification', (event, data) => {
-  const { width, height } = screen.getPrimaryDisplay().size;
-  notifWindow = new BrowserWindow({
-    alwaysOnTop: true,
-    transparent: true,
-    frame: false,
-    hasShadow: true,
-    fullscreenable: false,
-    width: 420,
-    height: 170,
-    focusable: true,
-    x: width,
-    y: height,
-  });
+  if (mainWindow.isFocused()) {
+    const [x, y] = mainWindow.getPosition();
+    const [w, h] = mainWindow.getSize();
+
+    notifWindow = new BrowserWindow({
+      alwaysOnTop: true,
+      transparent: true,
+      frame: false,
+      hasShadow: true,
+      fullscreenable: false,
+      width: 420,
+      height: 170,
+      focusable: true,
+      x: x + w - 420,
+      y: y + h - 170,
+    });
+  } else {
+    const { height, width } = screen.getPrimaryDisplay().size;
+    notifWindow = new BrowserWindow({
+      alwaysOnTop: true,
+      transparent: true,
+      frame: false,
+      hasShadow: true,
+      fullscreenable: false,
+      width: 420,
+      height: 170,
+      focusable: true,
+      x: width,
+      y: height,
+    });
+  }
 
   notifWindow.loadURL(NotificationHTMLFile);
 

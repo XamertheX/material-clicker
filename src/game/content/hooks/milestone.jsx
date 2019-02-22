@@ -18,7 +18,8 @@ onVarChange('material', () => {
     if (vars.materialUntilMilestone <= 0) {
       Notification({
         title: 'Milestone Achieved',
-        content: 'You completed the milestone and got ' + Milestones[vars.currentMilestone].description,
+        content: 'You completed the milestone and got '
+          + Milestones[vars.currentMilestone].description,
         focus: 'milestone',
       });
       milestoneRewarding = true;

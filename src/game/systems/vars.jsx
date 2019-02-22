@@ -43,6 +43,8 @@ export let vars = {
   statsGameTime: 0,
 
   todoRecieveItems: [],
+
+  configLowDetail: false,
 };
 
 export function setVar(varname, newvalue) {

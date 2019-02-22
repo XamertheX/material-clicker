@@ -42,7 +42,6 @@ export async function saveGameSaveData() {
 export async function loadGameSaveData() {
   let version = (await readData('savefile-manager')).version;
   let needsUpgrade = false;
-  console.log(version);
   // No savefile, ignore.
   if(version === undefined) {
     setVar('isResettingGame', false);

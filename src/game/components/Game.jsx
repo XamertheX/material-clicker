@@ -29,7 +29,6 @@ const styles = () => createStyles({
 
 let nav;
 export function setPage(name) {
-  console.log(name);
   nav('/' + name);
 }
 

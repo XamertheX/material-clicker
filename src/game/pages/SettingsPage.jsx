@@ -13,7 +13,7 @@ import {
   Checkbox,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { setVar } from '../systems/vars';
+import { setVar, vars } from '../systems/vars';
 import { resetData } from '../systems/data-manager';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { AlertDialog } from '../systems/dialog';
@@ -153,6 +153,16 @@ class SettingsPage extends Component {
           <Typography variant='h4' className={c.title} paragraph>
             Material Clicker Settings
           </Typography>
+          <Typography variant='h5' className={c.catagory}>Visuals</Typography>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={vars.configLowDetail}
+                onChange={(event, checked) => setVar('configLowDetail', checked)}
+              />
+            }
+            label='Reduce Floating Numbers (Enable if game slows down)'
+          />
           <Typography variant='h5' className={c.catagory}>Customization</Typography>
           <Typography>
             Coming Soon

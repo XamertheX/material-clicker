@@ -46,6 +46,8 @@ interface Variables {
   statsHighestMPS: number,
 
   todoRecieveItems: string[],
+
+  configLowDetail: boolean;
 }
 
 /** Non-Global Global Variables */

@@ -9,7 +9,52 @@ follow these exact rules:
 
 ---
 
-## Unreleased 1.1.x
+## 1.2.x
+### 1.2.6 Unreleased
+#### Addtions
+- Notification sound for milestones.
+- A playSound fallback, incase the requested sound doesn't exist.
+
+#### Changes
+- Changed Golden Click sound to be less annoying.
+- Refactored sound names.
+
+#### Fixes
+- Fixed milestone page not loading.
+
+### 1.2.5
+#### Fixes
+- Fixed milestones page.
+- Milestone notification.
+- Reduce floating number option.
+
+### 1.2.4
+#### Fixes
+- Fixed save loading.
+
+### 1.2.3
+#### Fixes
+- Fixed stat loading.
+
+### 1.2.2
+### Fixes
+- Fixed Save loading.
+
+### 1.2.1
+### Additions
+- Weighted Random.
+- Badges on tabs to signify available upgrades to buy.
+- Milestones base.
+
+### 1.2.0
+### Additions
+- New save format.
+
+## 1.1.x
+### 1.1.1
+#### Changes
+- Updated Electron
+
 ### 1.1.0
 #### Additions
 - Material Factory upgrade.

@@ -3,7 +3,7 @@
 //
 
 /* global GAME_PRELOAD_WEBPACK_ENTRY:readable, GAME_WEBPACK_ENTRY:readable */
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, screen } from 'electron';
 import AppIcon from '../res/img/icon.png';
 
 // This fixes some problems on my linux machine, I hope this wont cause problems
@@ -90,4 +90,51 @@ app.on('ready', createWindow);
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   app.quit();
+});
+
+import NotificationHTMLFile from 'url-loader!../game/notification.html';
+
+let notifWindow;
+ipcMain.on('notification', (event, data) => {
+  if (mainWindow.isFocused()) {
+    const [x, y] = mainWindow.getPosition();
+    const [w, h] = mainWindow.getSize();
+
+    notifWindow = new BrowserWindow({
+      alwaysOnTop: true,
+      transparent: true,
+      frame: false,
+      hasShadow: true,
+      fullscreenable: false,
+      width: 420,
+      height: 170,
+      focusable: true,
+      x: x + w - 420,
+      y: y + h - 170,
+    });
+  } else {
+    const { height, width } = screen.getPrimaryDisplay().size;
+    notifWindow = new BrowserWindow({
+      alwaysOnTop: true,
+      transparent: true,
+      frame: false,
+      hasShadow: true,
+      fullscreenable: false,
+      width: 420,
+      height: 170,
+      focusable: true,
+      x: width,
+      y: height,
+    });
+  }
+
+  notifWindow.loadURL(NotificationHTMLFile);
+
+  ipcMain.once('notif-ready', () => {
+    notifWindow.webContents.send('data', data);
+  });
+});
+ipcMain.on('notif-click', (event, focus) => {
+  mainWindow.focus();
+  mainWindow.webContents.send('focus-tab', focus);
 });

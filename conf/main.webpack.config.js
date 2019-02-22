@@ -8,6 +8,18 @@ module.exports = {
         test: /\.(wav|mp3|webm|png|svg)?$/,
         use: ['file-loader'],
       },
+      {
+        test: /\.html$/,
+        use: [
+          'extract-loader',
+          {
+            loader: 'html-loader',
+            options: {
+              attrs: ['script:src', 'link:href'],
+              minimize: true,
+            },
+          }],
+      },
     ],
   },
   plugins: [

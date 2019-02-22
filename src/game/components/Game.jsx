@@ -27,6 +27,12 @@ const styles = () => createStyles({
   },
 });
 
+let nav;
+export function setPage(name) {
+  console.log(name);
+  nav('/' + name);
+}
+
 class Game extends Component {
   state = {vars: null}
 
@@ -45,7 +51,8 @@ class Game extends Component {
     const c = this.props.classes;
 
     return <MuiThemeProvider theme={theme}>
-      <Location>{({ location: { pathname}}) => {
+      <Location>{({ location: { pathname }, navigate }) => {
+        nav = navigate;
         const prevPage = vars.selectedPage;
         vars.selectedPage = pathname.substring(1);
         if (prevPage !== vars.selectedPage) {

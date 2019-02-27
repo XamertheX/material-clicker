@@ -14,6 +14,8 @@ follow these exact rules:
 #### Addtions
 - Notification sound for milestones.
 - A playSound fallback, incase the requested sound doesn't exist.
+- Case "API".
+- Material Case to give you Material.
 
 #### Changes
 - Changed Golden Click sound to be less annoying.

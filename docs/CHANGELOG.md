@@ -10,6 +10,7 @@ follow these exact rules:
 ---
 
 ## 1.2.x
+This update adds in Milestones, Cases and the Stats Page, and a couple more settings.
 ### 1.2.8 [UNRELEASED]
 #### Additions
 
@@ -40,17 +41,9 @@ These versions were tracked incorrectly, so they are grouped together
 - Milestone notification.
 - Reduce floating number option.
 
-### 1.2.4
+### 1.2.2 - 1.2.4
 #### Fixes
 - Fixed save loading.
-
-### 1.2.3
-#### Fixes
-- Fixed stat loading.
-
-### 1.2.2
-### Fixes
-- Fixed Save loading.
 
 ### 1.2.1
 ### Additions

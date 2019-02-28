@@ -100,7 +100,7 @@ class ShopPage extends Component {
     purchaseShopItem(vars.shopItemSelected);
 
     const item = getShopItem(vars.shopItemSelected);
-    createFadeNumber(ev.clientX, ev.clientY - 3, - item.price, 'red');
+    createFadeNumber(ev.clientX, ev.clientY - 3, - item.price * vars.shopDiscount, 'red');
 
     // Select the most reasonable option to choose next.
     const list = getPurchasableShopItems();
@@ -148,12 +148,29 @@ class ShopPage extends Component {
                 <ListItemText
                   primary={item.name}
                   secondary={
-                    item.shortDesc
-                      ? <>
-                        {item.shortDesc} <br />
-                        <span className={c.price}>{item.price} Material</span>
-                      </>
-                      : <span className={c.price}>{item.price} Material</span>
+                    vars.shopDiscount === 0
+                      ? item.shortDesc
+                        ? <>
+                            {item.shortDesc} <br />
+                            <span className={c.price}>
+                              {item.price} Material
+                            </span>
+                          </>
+                        : <span className={c.price}>
+                          {item.price} Material
+                        </span>
+                      : item.shortDesc
+                        ? <>
+                            {item.shortDesc} <br />
+                            <span className={c.price}>
+                              <s>
+                                {item.price}
+                              </s> {item.price * vars.shopDiscount} Material
+                            </span>
+                          </>
+                        : <span className={c.price}>
+                          <s>{item.price}</s> {item.price * vars.shopDiscount} Material
+                        </span>
                   }
                 />
               </ListItem>;
@@ -181,7 +198,15 @@ class ShopPage extends Component {
               <div className={c.grow} />
               <div className={c.bottomBar}>
                 <Typography variant='body1' className={classNames(c.grow, c.centerVert)}>
-                  Price: {selectedItem.price} Material
+                  Price: {
+                    vars.shopDiscount === 0
+                      ? selectedItem.price
+                      : <span>
+                        <s>
+                          {selectedItem.price}
+                        </s> {selectedItem.price * vars.shopDiscount}
+                      </span>
+                  } Material
                 </Typography>
                 <Button
                   variant='contained'

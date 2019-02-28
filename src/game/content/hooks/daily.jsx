@@ -9,7 +9,7 @@ let dayMap = ['Sunday',
   'Friday',
   'Saturday',
 ];
-let dayNumber = new Date().getDay();
+let dayNumber = 5
 export let day = dayMap[dayNumber];
 
 if(dayNumber === 1) {
@@ -60,13 +60,15 @@ if(dayNumber === 1) {
   // );
 }else if(dayNumber === 5) {
   // Reduced Upgrade Price
-  // AlertDialog(
-  //   'Welcome!',
-  //   `Today is ${day}, and that means all the upgrades in shop are 15% off!`,
-  //   [
-  //     { text: 'Okay' },
-  //   ],
-  // );
+  setVar('shopDiscount', 0.85);
+
+  AlertDialog(
+    'Welcome!',
+    `Today is ${day}, and that means all the upgrades in shop are 15% off!`,
+    [
+      { text: 'Okay' },
+    ],
+  );
 }else if(dayNumber === 6) {
   // More Golden Material
   // AlertDialog(

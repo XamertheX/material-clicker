@@ -10,6 +10,8 @@ interface Variables {
 
   /** List of all Shop Item IDs that have been purchased, and in their order. */
   shopItemsPurchased: string[];
+  // How much the items should be discounted.
+  shopDiscount: number;
   /** Current Selection in the shop page */
   shopItemSelected: string | null;
   /** Value of the next button, after through multipliers. */

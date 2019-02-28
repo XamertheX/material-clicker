@@ -13,6 +13,7 @@ export let vars = {
   materialPerSecond: 0,
 
   shopItemsPurchased: [],
+  shopDiscount: 1,
 
   shopItemSelected: null,
 

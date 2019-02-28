@@ -16,10 +16,11 @@ This update adds in Milestones, Cases and the Stats Page, and a couple more sett
 #### Additions
 - Daily Events
   - Monday: Double Material Per Click
-  <!-- - Tuesday: Increased Golden Click Chance -->
-  <!-- - Wednesday: Powerups Last Twice as Long -->
-  <!-- - Thursday: Upgrade Price Reduction -->
-  <!-- - Friday: More Golden Material -->
+  - Tuesday: Increased Golden Click Chance
+  <!-- - Wednesday: Wednesday Case Prize -->
+  <!-- - Thursday: Powerups Last Twice as Long -->
+  - Friday: Upgrades 15% Off
+  <!-- Saturday: More Golden Material -->
 
 ### 1.2.6 + 1.2.7
 These versions were tracked incorrectly, so they are grouped together

@@ -36,11 +36,13 @@ export function getPurchasableShopItems() {
     return registry[id].requires.find((find) => {
       return !vars.shopItemsPurchased.includes(find);
     }) === undefined;
-  }).map(id => registry[id]).sort((a, b) => a.price - b.price);
+  }).map(id => registry[id]).sort((a, b) =>
+    a.price * vars.shopDiscount - b.price * vars.shopDiscount
+  );
 }
 
 export function canPurchase(id) {
-  if (getShopItem(id).price > vars.material) {
+  if (getShopItem(id).price * vars.shopDiscount > vars.material) {
     return false;
   }
   return true;
@@ -52,7 +54,7 @@ export function purchaseShopItem(id, check = true) {
       return;
     }
 
-    let itemPrice = getShopItem(id).price;
+    let itemPrice = getShopItem(id).price * vars.shopDiscount;
     setVar('material', (m) => m - itemPrice);
 
     // Stats

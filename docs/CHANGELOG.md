@@ -10,12 +10,20 @@ follow these exact rules:
 ---
 
 ## 1.2.x
-### 1.2.6 Unreleased
+### 1.2.8 [UNRELEASED]
+#### Additions
+
+#### Changes
+
+#### Fixes
+
+### 1.2.6 + 1.2.7
+These versions were tracked incorrectly, so they are grouped together
 #### Addtions
 - Notification sound for milestones.
 - A playSound fallback, incase the requested sound doesn't exist.
-<!-- - Case "API".
-- Material Case to give you Material. -->
+- Case Logic, and Case Page, except you cannot open the cases just yet.
+- Material Case
 
 #### Changes
 - Changed Golden Click sound to be less annoying.

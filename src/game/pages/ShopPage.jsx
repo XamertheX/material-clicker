@@ -148,7 +148,7 @@ class ShopPage extends Component {
                 <ListItemText
                   primary={item.name}
                   secondary={
-                    vars.shopDiscount === 0
+                    vars.shopDiscount === 1
                       ? item.shortDesc
                         ? <>
                             {item.shortDesc} <br />
@@ -199,7 +199,7 @@ class ShopPage extends Component {
               <div className={c.bottomBar}>
                 <Typography variant='body1' className={classNames(c.grow, c.centerVert)}>
                   Price: {
-                    vars.shopDiscount === 0
+                    vars.shopDiscount === 1
                       ? selectedItem.price
                       : <span>
                         <s>

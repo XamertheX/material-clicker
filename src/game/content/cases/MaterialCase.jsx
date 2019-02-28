@@ -3,7 +3,8 @@ import { vars, setVar } from '../../systems/vars';
 
 export default {
   caseName: 'Material Case',
-  caseDescription: 'Gives you Material.',
+  caseDescription: 'Gives you a boost in Material, proportional to the amount of material'
+                 + 'you get per click',
 
   getItemGenerator() {
     const perClick = vars.materialPerClick;
@@ -31,14 +32,14 @@ export default {
       },
       {
         name: `${perClick * 500} Material`,
-        weight: 50,
+        weight: 30,
         activate() {
           setVar('material', x => x + perClick * 500);
         },
       },
       {
         name: `${perClick * 100} Material`,
-        weight: 100,
+        weight: 20,
         activate() {
           setVar('material', x => x + perClick * 100);
         },

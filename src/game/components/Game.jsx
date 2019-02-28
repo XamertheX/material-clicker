@@ -15,10 +15,10 @@ import { onAnyVarChange, offAnyVarChange, __pageVarChanged } from '../systems/va
 import NavBar from './NavBar';
 import theme from '../content/theme';
 import DialogHandler from './DialogHandler';
-import SettingsPageContainer from './SettingsPageContainer';
 import { Location } from '@reach/router';
 import { vars } from '../systems/vars';
 import FloatingNumberHandler from './FloatingNumberHandler';
+import PopupPageContainer from './PopupPageContainer';
 
 const styles = () => createStyles({
   main: {
@@ -65,7 +65,7 @@ class Game extends Component {
             component to navigate between pages.*/}
         <PageHandler />
 
-        <SettingsPageContainer />
+        <PopupPageContainer />
       </div>
 
       {/* DialogHandler handles the pop up alert dialogs, it doesn't matter where we

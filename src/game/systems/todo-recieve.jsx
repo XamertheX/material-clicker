@@ -1,11 +1,19 @@
 // Lets you give things that don't exist, but will
 // be given out at a later point.
-import { setVar } from './vars';
+import { setVar, vars } from './vars';
 
 export function todoGive(name) {
-  setVar('todoRecieveItems', x => x.concat(name));
+  return () => {
+    setVar('todoRecieveItems', x => x.concat(name));
+  };
 }
-// TODO: Recieve Function.
 export function todoResolved(name, callback) {
+  // eslint-disable-next-line no-console
+  console.log(`NOTICE: TODO Item: '${name}'`);
 
+  if (vars.todoRecieveItems.includes(name)) {
+    callback();
+  }
+
+  return callback();
 }

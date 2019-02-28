@@ -19,7 +19,7 @@ export function getCaseById(id) {
   return registry[id];
 }
 export function startOpenCase(id) {
-  throw new Error('TODO: Open Case (you tried opening ' + id + ')');
+  setVar('caseOpenCase', id);
 }
 export function getCaseInventory() {
   return vars.caseInventory.map(id => getCaseById(id));

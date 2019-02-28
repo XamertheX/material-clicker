@@ -53,6 +53,8 @@ export let vars = {
   clickSound: 'default',
 
   caseInventory: [],
+
+  caseOpenCase: null,
 };
 
 export function setVar(varname, newvalue) {

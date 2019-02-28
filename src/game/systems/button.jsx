@@ -21,7 +21,7 @@ export function refreshNextButtonWorth() {
 
 export function clickButton(clickEvent) {
   // Add the next button's worth
-  setVar('material', m => m + vars.nextClickValue);
+  setVar('material', m => m + vars.nextClickValue * vars.materialPerClickBoost);
 
   // Emit `click`
   emitter.emit('click', clickEvent);

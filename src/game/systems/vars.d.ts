@@ -3,6 +3,8 @@ interface Variables {
   material: number;
   /** Amount of material gained on a single click. */
   materialPerClick: number;
+  // Material Per Click boost. Used for Mondays and powerups.
+  materialPerClickBoost: number;
   /** Amount of material gained per second, calculated by per-second-calc.jsx. */
   materialPerSecond: number;
 

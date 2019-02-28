@@ -9,6 +9,7 @@ export let vars = {
 
   material: 0,
   materialPerClick: 1,
+  materialPerClickBoost: 1,
   materialPerSecond: 0,
 
   shopItemsPurchased: [],

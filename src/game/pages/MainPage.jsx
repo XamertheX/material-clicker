@@ -77,7 +77,7 @@ class MainPage extends Component {
           size='large'
         >
           <Typography variant='h6' className={c.buttonText} color='inherit'>
-            +{vars.nextClickValue}
+            +{vars.nextClickValue * vars.materialPerClickBoost}
           </Typography>
         </Button>
       </div>

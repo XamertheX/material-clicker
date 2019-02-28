@@ -11,12 +11,15 @@ follow these exact rules:
 
 ## 1.2.x
 This update adds in Milestones, Cases and the Stats Page, and a couple more settings.
+
 ### 1.2.8 [UNRELEASED]
 #### Additions
-
-#### Changes
-
-#### Fixes
+- Daily Events
+  - Monday: Double Material Per Click
+  <!-- - Tuesday: Increased Golden Click Chance -->
+  <!-- - Wednesday: Powerups Last Twice as Long -->
+  <!-- - Thursday: Upgrade Price Reduction -->
+  <!-- - Friday: More Golden Material -->
 
 ### 1.2.6 + 1.2.7
 These versions were tracked incorrectly, so they are grouped together

@@ -9,7 +9,7 @@ let dayMap = ['Sunday',
   'Friday',
   'Saturday',
 ];
-let dayNumber = 5
+let dayNumber = new Date().getDay();
 export let day = dayMap[dayNumber];
 
 if(dayNumber === 1) {

@@ -21,6 +21,8 @@ interface Variables {
   buttonDoublePercent: 5,
   /** Multiplier of the button when it's gold */
   buttonDoubleMultiplier: 2,
+  // How much percent should be added to the double chance.
+  buttonDoublePercentBoost: number,
 
   /** Data for the DialogHandler */
   dialogData: any,

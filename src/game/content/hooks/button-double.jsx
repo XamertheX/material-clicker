@@ -6,7 +6,7 @@ import { chance } from '../../util/random';
 import { vars } from '../../systems/vars';
 
 registerButtonWorthHandler((ev) => {
-  if(chance(vars.buttonDoublePercent)) {
+  if(chance(vars.buttonDoublePercent + vars.buttonDoublePercentBoost)) {
     ev.material *= vars.buttonDoubleMultiplier;
     ev.isGold = true;
   }

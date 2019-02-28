@@ -21,6 +21,7 @@ export let vars = {
 
   buttonDoublePercent: 5,
   buttonDoubleMultiplier: 2,
+  buttonDoublePercentBoost: 0,
 
   dialogData: null,
   dialogIsOpen: false,

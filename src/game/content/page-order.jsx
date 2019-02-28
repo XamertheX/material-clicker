@@ -7,6 +7,7 @@ export default [
   require('../pages/MainPage'),
   require('../pages/ShopPage'),
   require('../pages/MilestonePage'),
+  require('../pages/CasePage'),
   require('../pages/StatsPage'),
 
 ].map(page => page.default);

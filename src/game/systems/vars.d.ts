@@ -50,6 +50,8 @@ interface Variables {
   configLowDetail: boolean;
 
   clickSound: string;
+
+  caseInventory: string[];
 }
 
 /** Non-Global Global Variables */

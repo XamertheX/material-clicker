@@ -48,6 +48,8 @@ export let vars = {
   configLowDetail: false,
 
   clickSound: 'default',
+
+  caseInventory: [],
 };
 
 export function setVar(varname, newvalue) {

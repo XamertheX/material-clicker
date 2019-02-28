@@ -20,6 +20,10 @@ const styles = (theme) => createStyles({
     display: 'flex',
     flexDirection: 'column',
   },
+  content: {
+    height: 'calc(100vh - 78px)',
+    overflowY: 'auto',
+  },
   title: {
     textAlign: 'center',
     marginTop: theme.spacing.unit * 6,
@@ -75,46 +79,48 @@ class MilestonePage extends Component {
     const { classes: c } = this.props;
 
     return <div className={c.root}>
-      <Typography variant='h3' className={c.title}>
-        {compact(vars.materialUntilMilestone)} Material
-      </Typography>
-      <Typography variant='h6' className={c.subtitle}>
+      <div className={c.content}>
+        <Typography variant='h3' className={c.title}>
+          {compact(vars.materialUntilMilestone)} Material
+        </Typography>
+        <Typography variant='h6' className={c.subtitle}>
         Until Next Milestone...
-      </Typography>
-      <div className={c.progressContainer}>
-        <LinearProgress
-          variant='determinate'
-          // eslint-disable-next-line max-len
-          value={100 * (1 - vars.materialUntilMilestone / Milestones[vars.currentMilestone].material)}
-          className={c.progress}
-        />
-      </div>
-      <Typography variant='h6' className={c.subtitle}>
+        </Typography>
+        <div className={c.progressContainer}>
+          <LinearProgress
+            variant='determinate'
+            // eslint-disable-next-line max-len
+            value={100 * (1 - vars.materialUntilMilestone / Milestones[vars.currentMilestone].material)}
+            className={c.progress}
+          />
+        </div>
+        <Typography variant='h6' className={c.subtitle}>
         Reward: {Milestones[vars.currentMilestone].description}
-      </Typography>
-      {
-        vars.currentMilestone > 1
+        </Typography>
+        {
+          vars.currentMilestone > 1
         && <Typography variant='h4' className={c.pastMilestoneTitle}>
           Past Milestones
         </Typography>
-      }
-      <div className={c.milestoneContainer}>
-        {
-          Milestones
-            .filter((ms, i) => i < vars.currentMilestone)
-            .reverse()
-            .slice(0, 4)
-            .map((ms, i) => {
-              return <Paper key={i} className={c.milestoneCard} data-num={i}>
-                <Typography variant='h5' className={c.milestoneCardTitle}>
-                  {compact(ms.material)} Material
-                </Typography>
-                <Typography variant='body1' className={c.milestoneCardReward}>
-                  Rewards {ms.description}
-                </Typography>
-              </Paper>;
-            })
         }
+        <div className={c.milestoneContainer}>
+          {
+            Milestones
+              .filter((ms, i) => i < vars.currentMilestone)
+              .reverse()
+              .slice(0, 4)
+              .map((ms, i) => {
+                return <Paper key={i} className={c.milestoneCard} data-num={i}>
+                  <Typography variant='h5' className={c.milestoneCardTitle}>
+                    {compact(ms.material)} Material
+                  </Typography>
+                  <Typography variant='body1' className={c.milestoneCardReward}>
+                  Rewards {ms.description}
+                  </Typography>
+                </Paper>;
+              })
+          }
+        </div>
       </div>
     </div>;
   }

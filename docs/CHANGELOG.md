@@ -14,8 +14,8 @@ follow these exact rules:
 #### Addtions
 - Notification sound for milestones.
 - A playSound fallback, incase the requested sound doesn't exist.
-- Case "API".
-- Material Case to give you Material.
+<!-- - Case "API".
+- Material Case to give you Material. -->
 
 #### Changes
 - Changed Golden Click sound to be less annoying.
@@ -23,6 +23,8 @@ follow these exact rules:
 
 #### Fixes
 - Fixed milestone page not loading.
+- Fixed beta option being checked by default
+- Fixed MacOS Crashing and Title bar
 
 ### 1.2.5
 #### Fixes

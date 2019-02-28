@@ -25,6 +25,7 @@ const styles = () => createStyles({
   page: {
     background: '#fafafa',
     height: '100%',
+    overflowY: 'scroll',
   },
 });
 

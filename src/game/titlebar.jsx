@@ -1,3 +1,7 @@
+const platform = require('custom-electron-titlebar/lib/common/platform');
+platform.isMacintosh = false;
+platform.isWindows = true;
+
 import theme from './content/theme';
 import { Titlebar, Color } from 'custom-electron-titlebar';
 import MenuBar from './content/menubar';

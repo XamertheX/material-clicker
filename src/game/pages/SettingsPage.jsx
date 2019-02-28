@@ -47,7 +47,7 @@ class SettingsPage extends Component {
   static display = 'Settings';
   static hideTab = true;
 
-  state = { betaStatus: 'loading' }
+  state = { betaStatus: false }
 
   handleClose = () => setVar('settingsPageOpen', false);
 
@@ -116,23 +116,21 @@ class SettingsPage extends Component {
 
   componentDidMount() {
     const configFolder = remote.app.getPath('userData');
-    try {
-      readJSON(join(configFolder, 'update-config.json')).then((data) => {
-        if (!data) {
-          this.setState({
-            betaStatus: false,
-          });
-        } else {
-          this.setState({
-            betaStatus: data.updateTrack === 'nightly',
-          });
-        }
-      });
-    } catch (error) {
+    readJSON(join(configFolder, 'update-config.json')).then((data) => {
+      if (!data) {
+        this.setState({
+          betaStatus: false,
+        });
+      } else {
+        this.setState({
+          betaStatus: data.updateTrack === 'nightly',
+        });
+      }
+    }).catch(() => {
       this.setState({
         betaStatus: false,
       });
-    }
+    });
   }
 
   render() {

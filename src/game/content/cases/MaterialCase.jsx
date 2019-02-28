@@ -6,40 +6,41 @@ export default {
   caseDescription: 'Gives you Material.',
 
   getItemGenerator() {
+    const perClick = vars.materialPerClick;
     return createCaseItemWeights([
       {
-        name: `${vars.materialPerClick * 10000} Material`,
+        name: `${perClick * 10000} Material`,
         weight: 1,
         activate() {
-          setVar('material', x => x + vars.materialPerClick + 10000);
+          setVar('material', x => x + perClick + 10000);
         },
       },
       {
-        name: `${vars.materialPerClick * 5000} Material`,
+        name: `${perClick * 5000} Material`,
         weight: 5,
         activate() {
-          setVar('material', x => x + vars.materialPerClick + 5000);
+          setVar('material', x => x + perClick + 5000);
         },
       },
       {
-        name: `${vars.materialPerClick * 2500} Material`,
+        name: `${perClick * 2500} Material`,
         weight: 20,
         activate() {
-          setVar('material', x => x + vars.materialPerClick * 2500);
+          setVar('material', x => x + perClick * 2500);
         },
       },
       {
-        name: `${vars.materialPerClick * 500} Material`,
+        name: `${perClick * 500} Material`,
         weight: 50,
         activate() {
-          setVar('material', x => x + vars.materialPerClick * 500);
+          setVar('material', x => x + perClick * 500);
         },
       },
       {
-        name: `${vars.materialPerClick * 100} Material`,
+        name: `${perClick * 100} Material`,
         weight: 100,
         activate() {
-          setVar('material', x => x + vars.materialPerClick * 100);
+          setVar('material', x => x + perClick * 100);
         },
       },
     ]);

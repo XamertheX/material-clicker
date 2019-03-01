@@ -13,10 +13,12 @@ import {
   Grid,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { getCaseInventory } from '../systems/case';
+import { getCaseInventory, startOpenCase } from '../systems/case';
+import { vars, setVar } from '../systems/vars';
 
 const styles = (theme) => createStyles({
   cardAction: {
+    background: theme.palette.background.default,
     padding: theme.spacing.unit * 2,
   },
   root: {
@@ -66,7 +68,18 @@ class StatsPage extends Component {
           getCaseInventory().map((caseItem, i) => {
             return <Grid item lg={2} md={3} sm={4} xs={6} key={i}>
               <Card className={c.card}>
-                <CardActionArea className={c.cardAction}>
+                <CardActionArea
+                  className={c.cardAction}
+                  onClick={() => {
+                    // delete it
+                    const cases = vars.caseInventory.concat();
+                    cases.splice(i, 1);
+                    setVar('caseInventory', cases);
+
+                    // Open Case
+                    startOpenCase(caseItem.id);
+                  }}
+                >
                   <CardContent>
                     <Typography variant='h5' component='h2'>
                       {caseItem.caseName}

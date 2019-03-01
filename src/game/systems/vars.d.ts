@@ -58,6 +58,8 @@ interface Variables {
   clickSound: string;
 
   caseInventory: string[];
+
+  caseOpenCase: string;
 }
 
 /** Non-Global Global Variables */

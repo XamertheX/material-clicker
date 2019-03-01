@@ -2,7 +2,7 @@ import React from 'react';
 import { remote, shell } from 'electron';
 import { AlertDialog } from '../systems/dialog';
 import { formatDate } from '../util/date';
-import { setVar } from '../systems/vars';
+import { setVar, vars } from '../systems/vars';
 import { exitApp } from '../systems/graceful-exit';
 const { Menu } = remote;
 
@@ -18,7 +18,9 @@ export default Menu.buildFromTemplate([
         label: 'Settings',
         click: () => {
           defocusMenu();
-          setVar('settingsPageOpen', true);
+          if(vars.caseOpenCase === null) {
+            setVar('settingsPageOpen', true);
+          }
         },
       },
       {
@@ -72,6 +74,37 @@ export default Menu.buildFromTemplate([
           shell.openExternal('https://wearedevs.github.io/material-clicker');
         },
       },
+      {
+        label: 'Report an Issue',
+        click: () => {
+          defocusMenu();
+          shell.openExternal('https://github.com/WeAreDevs/material-clicker/issues');
+        },
+      },
     ],
   },
+  ...process.env.NODE_ENV !== 'production' ? [
+    {
+      label: 'Developer',
+      submenu: [
+        {
+          label: 'Toggle Developer Tools',
+          click: () => remote.getCurrentWebContents().toggleDevTools() && defocusMenu(),
+        },
+        {
+          label: 'Open Save Folder',
+          click: () => {
+            defocusMenu();
+            shell.openItem(remote.app.getPath('userData'));
+          },
+        },
+        {
+          label: 'Set Material',
+          click: () => {
+            setVar('material', 100000000000000000);
+          },
+        },
+      ],
+    },
+  ] : [],
 ]);

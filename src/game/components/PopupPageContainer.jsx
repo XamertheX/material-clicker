@@ -7,6 +7,7 @@ import { withStyles, createStyles, Grow } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
 import { vars } from '../systems/vars';
 import SettingsPage from '../pages/SettingsPage';
+import CaseOpenPage from '../pages/CaseOpenPage';
 import classNames from 'classnames';
 
 const styles = () => createStyles({
@@ -29,18 +30,18 @@ const styles = () => createStyles({
   },
 });
 
-class SettingsPageContainer extends Component {
+class PopupPageContainer extends Component {
   render() {
     const { classes: c } = this.props;
 
     return <div
       className={classNames({
         [c.root]: true,
-        [c.closed]: !vars.settingsPageOpen,
+        [c.closed]: !(vars.settingsPageOpen || vars.caseOpenCase !== null),
       })}
     >
       <Grow
-        in={vars.settingsPageOpen}
+        in={vars.settingsPageOpen && vars.caseOpenCase === null}
         style={{ transformOrigin: '0 0 0' }}
         timeout={200}
         unmountOnExit={true}
@@ -49,8 +50,17 @@ class SettingsPageContainer extends Component {
           <SettingsPage />
         </div>
       </Grow>
+      <Grow
+        in={vars.caseOpenCase !== null}
+        timeout={200}
+        unmountOnExit={true}
+      >
+        <div className={c.page} >
+          <CaseOpenPage />
+        </div>
+      </Grow>
     </div>;
   }
 }
 
-export default hot(withStyles(styles)(SettingsPageContainer));
+export default hot(withStyles(styles)(PopupPageContainer));

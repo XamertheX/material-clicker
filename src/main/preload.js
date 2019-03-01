@@ -1,4 +1,4 @@
-import { remote } from "electron";
+import { remote } from 'electron';
 
 // Devtools on Error
 function openDevTools() {

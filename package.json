@@ -37,6 +37,7 @@
     "classnames": "^2.2.6",
     "comma-number": "^2.0.0",
     "custom-electron-titlebar": "^3.0.0",
+    "d3-ease": "^1.0.5",
     "eventemitter3": "^3.1.0",
     "fs-extra": "^7.0.1",
     "howler": "^2.1.1",

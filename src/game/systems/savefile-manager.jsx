@@ -60,7 +60,7 @@ export async function loadGameSaveData() {
       }
     );
     if (btn === 0) {
-      resetData();
+      await resetData();
       return;
     } else if (btn === 1) {
       exitApp();

@@ -1,12 +1,12 @@
 import { select, selectUnique } from 'weighted-map';
 
-function makeMap(items) {
+export function makeMap(items) {
   return items.reduce(
     (map, item) =>
       item.weight
         ? map.set(item, item.weight)
         : map.set(item, 1),
-    new Map()
+    new window.Map()
   );
 }
 export function createWeightedRandom(items) {
@@ -18,5 +18,5 @@ export function createWeightedRandomUnique(items) {
 }
 
 export function weightedRandom(items) {
-  return createWeightedRandom(items).next();
+  return select(makeMap(items));
 }

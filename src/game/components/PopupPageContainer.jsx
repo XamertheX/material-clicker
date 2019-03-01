@@ -27,6 +27,7 @@ const styles = () => createStyles({
     background: '#fafafa',
     height: '100%',
     overflowY: 'scroll',
+    overflowX: 'hidden',
   },
 });
 

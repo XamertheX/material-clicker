@@ -1,4 +1,4 @@
-import { writeJSONSync, readJSONSync, removeSync } from 'fs-extra';
+import { writeJSONSync, readJSONSync, removeSync, existsSync } from 'fs-extra';
 import { join } from 'path';
 import { remote } from 'electron';
 import { setVar } from './vars';
@@ -81,6 +81,9 @@ export async function resetData() {
   }
 
   removeSync(join(configFolder, 'data-manager.json'));
+  if (existsSync(join(configFolder, 'save-manager.json'))) {
+    removeSync(join(configFolder, 'data-manager.json'));
+  }
   setVar('isResettingGame', true);
 
   wait.resolve();

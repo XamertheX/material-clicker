@@ -3,10 +3,11 @@
 // calls the ./loading.jsx to do the real loading.
 //
 
+// Import current day for the console log message.
 import { day } from './content/hooks/daily';
 
 // eslint-disable-next-line no-console
-console.log(`👋 Hello Material Clcker! It is currently ${day}.`);
+console.log(`👋 Hello Material Clcker! Today is ${day}.`);
 
 // Import Global Styles
 import './global.css';

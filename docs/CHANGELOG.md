@@ -21,6 +21,22 @@ This update adds in Milestones, Cases and the Stats Page, and a couple more sett
   <!-- - Thursday: Powerups Last Twice as Long -->
   - Friday: Upgrades 15% Off
   <!-- Saturday: More Golden Material -->
+- Case Page
+  - You can now view all your cases in the Case page.
+  <!-- - You are able to open cases by clicking on them and viewing a short animation. -->
+    <!-- - You can toggle off the animation in settings. -->
+- More Cases
+  - 50/50 Case
+    - 50/50 chance of doubling or taking half you clicks.
+  - Russian Roulette Case
+    - Small chance of doubling you clicks. If you lose, it takes half.
+  - True Russian Roulette Case
+    - Small chance of multiplying your current Material count by five, if you lose, it takes all you Material.
+  - The Case Case™
+    - Gives you one of the many cases we have.
+
+#### Possible Future Changes
+- Adjustment of the weights for the Russian Roulette class cases.
 
 ### 1.2.6 + 1.2.7
 These versions were tracked incorrectly, so they are grouped together

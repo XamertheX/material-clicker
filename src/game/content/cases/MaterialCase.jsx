@@ -3,8 +3,8 @@ import { vars, setVar } from '../../systems/vars';
 
 export default {
   caseName: 'Material Case',
-  caseDescription: 'Gives you a boost in Material, proportional to the amount of material'
-                 + 'you get per click',
+  caseDescription: 'Gives you a boost in Material, proportional to the amount of Material'
+                 + ' you get per click',
 
   getItemGenerator() {
     const perClick = vars.materialPerClick;

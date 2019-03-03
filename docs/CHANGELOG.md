@@ -18,12 +18,13 @@ This update adds in Milestones, Cases and the Stats Page, and a couple more sett
   - Monday: Double Material Per Click
   - Tuesday: Increased Golden Click Chance
   <!-- - Wednesday: Wednesday Case Prize -->
-  <!-- - Thursday: Powerups Last Twice as Long -->
+  - Wednesday: Coming Soon
+  - Thursday: Coming Soon
   - Friday: Upgrades 15% Off
-  <!-- Saturday: More Golden Material -->
+  - Saturday: Coming Soon
 - Case Page
   - You can now view all your cases in the Case page.
-  <!-- - You are able to open cases by clicking on them and viewing a short animation. -->
+  - You are able to open cases by clicking on them and viewing a short animation.
     <!-- - You can toggle off the animation in settings. -->
 - More Cases
   - 50/50 Case

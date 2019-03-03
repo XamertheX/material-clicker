@@ -60,6 +60,8 @@
     const ipc = require('electron').ipcRenderer;
     ipc.on('data', (event, data) => {
       let closing = false;
+      let mousedown = false;
+      let timeout = false;
       function closeNotification(click) {
         if(closing) return;
         closing = true;
@@ -68,16 +70,26 @@
           ipc.send('notif-click', data.focus);
         }
         setTimeout(() => {
-          window.close();
+          require('electron').remote.getCurrentWindow().close()
         }, 250);
       }
-      setTimeout(closeNotification, 10000);
+      setTimeout(() => {
+        timeout = true;
+        !mousedown && closeNotification()
+      }, 10000);
       document.getElementById('title').innerText = data.title;
       document.getElementById('content').innerText = data.content;
       document.getElementsByClassName('container')[0].classList.add('open');
       document.getElementsByClassName('container')[0].addEventListener('click', () => {
         closeNotification(true);
       })
+      document.getElementsByClassName('container')[0].addEventListener('mousedown', () => {
+        mousedown = true;
+      });
+      document.getElementsByClassName('container')[0].addEventListener('mouseout', () => {
+        mousedown = false;
+        if(timeout) closeNotification(false);
+      });
       mdc.ripple.MDCRipple.attachTo(document.getElementsByClassName('container')[0]);
     });
     ipc.send('notif-ready');

@@ -29,6 +29,9 @@ const styles = () => createStyles({
     overflowY: 'scroll',
     overflowX: 'hidden',
   },
+  pageCaseOpen: {
+    overflow: 'hidden',
+  },
 });
 
 class PopupPageContainer extends Component {
@@ -56,7 +59,7 @@ class PopupPageContainer extends Component {
         timeout={200}
         unmountOnExit={true}
       >
-        <div className={c.page} >
+        <div className={classNames(c.page, c.pageCaseOpen)} >
           <CaseOpenPage />
         </div>
       </Grow>

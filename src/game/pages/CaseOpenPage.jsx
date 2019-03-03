@@ -1,5 +1,5 @@
 //
-// Settings Page: Change game settings.
+// Case Open Page
 //
 
 import React, { Component } from 'react';
@@ -33,7 +33,7 @@ const styles = (theme) => createStyles({
   },
   roll: {
     position: 'absolute',
-    width: '100%',
+    width: 'max-content',
     height: 450,
     textAlign: 'center',
     fontSize: 28,
@@ -41,7 +41,9 @@ const styles = (theme) => createStyles({
     overflow: 'hidden',
     transition: 'all 0.3s ' + quadBezier,
     transform: 'scale(1.2)',
+    padding: '0 ' + theme.spacing.unit * 3 + 'px',
     opacity: '0',
+    background: '#fafafa',
   },
   rollVisible: {
     transform: 'scale(1)',
@@ -49,6 +51,14 @@ const styles = (theme) => createStyles({
   },
   coverImg: {
     position: 'absolute',
+  },
+  divider: {
+    height: 2,
+    width: '100%',
+    position: 'absolute',
+    top: 'calc(50% - 1px)',
+    background: 'rgba(0,0,0,0.25)',
+    zIndex: '-1',
   },
 });
 
@@ -68,6 +78,7 @@ class CaseOpenPage extends Component {
   refRoot = (root) => {
     if(root) {
       this.root = root;
+      this.root.scrollTop = 40;
     }
   }
 
@@ -75,17 +86,22 @@ class CaseOpenPage extends Component {
     const caseItem = getCaseById(vars.caseOpenCase);
     const gen = caseItem.getItemGenerator();
 
+    const caseItems = Array(250).fill().map(() => gen.next());
+
+    caseItems[250 - 6] = {name: 'winnner item'};
+
     this.setState({
-      caseItems: Array(250).fill().map(() => gen.next()),
+      caseItems,
     });
 
     setTimeout(() => {
       this.setState({ animation: 1 });
     }, 1000);
+
     setTimeout(() => {
       const calc = () => {
         const x = easeExpOut(this.animationFrame / 400);
-        this.root.scrollTop = x * 11500;
+        this.root.scrollTop = x * (11500 - 40) + 40 + 21;
       };
       const int = setInterval(() => {
         this.animationFrame++;
@@ -93,7 +109,6 @@ class CaseOpenPage extends Component {
       }, 1000 / 60);
       setTimeout(() => {
         clearInterval(int);
-        this.animationFrame = 400;
       }, 1000 / 60 * 400);
       calc();
     }, 2500);
@@ -135,6 +150,8 @@ class CaseOpenPage extends Component {
             }
           </div>
           <img src={CoverImg} alt='' className={c.coverImg} />
+
+          <div className={c.divider} />
         </>
       }
     </div>;

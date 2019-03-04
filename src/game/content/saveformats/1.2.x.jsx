@@ -28,6 +28,8 @@ export async function load() {
     setVar('todoRecieveItems', data.i_owe_you);
   }
 
+  setVar('caseInventory', data.caseInv || []);
+
   data.shopItemsPurchased.forEach(id => {
     purchaseShopItem(id, false);
   });
@@ -49,6 +51,7 @@ export async function save() {
       upgradesBought: vars.statsUpgradesBought,
       statsMilestonesReached: vars.statsMilestonesReached,
     },
+    caseInv: vars.caseInventory,
     // eslint-disable-next-line camelcase
     i_owe_you: vars.todoRecieveItems.length > 0 ? vars.todoRecieveItems : undefined,
   });

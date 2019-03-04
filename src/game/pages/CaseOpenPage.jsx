@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root';
-import { vars } from '../systems/vars';
+import { vars, setVar } from '../systems/vars';
 import classNames from 'classnames';
 import { getCaseById } from '../systems/case';
 import { easeExpOut } from 'd3-ease';
@@ -49,6 +49,10 @@ const styles = (theme) => createStyles({
     transform: 'scale(1)',
     opacity: '1',
   },
+  scalebig: {
+    transition: 'all 0.3s ' + quadBezier,
+    transform: 'scale(1.3)',
+  },
   coverImg: {
     position: 'absolute',
   },
@@ -59,6 +63,15 @@ const styles = (theme) => createStyles({
     top: 'calc(50% - 1px)',
     background: 'rgba(0,0,0,0.25)',
     zIndex: '-1',
+    opacity: 1,
+    transition: 'opacity 0.4s linear 0.1s',
+  },
+  dividerInvisible: {
+    opacity: 0,
+  },
+  opacity0: {
+    transition: 'opacity 0.5s',
+    opacity: 0,
   },
 });
 
@@ -88,8 +101,6 @@ class CaseOpenPage extends Component {
 
     const caseItems = Array(250).fill().map(() => gen.next());
 
-    caseItems[250 - 6] = {name: 'winnner item'};
-
     this.setState({
       caseItems,
     });
@@ -106,10 +117,16 @@ class CaseOpenPage extends Component {
       const int = setInterval(() => {
         this.animationFrame++;
         calc();
+
+        if(this.animationFrame >= 400) {
+          clearInterval(int);
+          caseItems[250 - 6].activate();
+          this.setState({ animation: 3 });
+          setTimeout(() => {
+            setVar('caseOpenCase', null);
+          }, 1500);
+        }
       }, 1000 / 60);
-      setTimeout(() => {
-        clearInterval(int);
-      }, 1000 / 60 * 400);
       calc();
     }, 2500);
   }
@@ -129,7 +146,7 @@ class CaseOpenPage extends Component {
           variant='h3'
           component='h1'
           className={classNames({
-            [c.text1shrink]: step === 1,
+            [c.text1shrink]: step >= 1,
           })}
         >
           {caseItem.caseName}
@@ -145,13 +162,21 @@ class CaseOpenPage extends Component {
           })}>
             {
               this.state.caseItems.map(({ name }, i) => {
-                return <div key={i}>{name}</div>;
+                return <div key={i} className={
+                  step === 3 && (
+                    i !== 250 - 6 ? c.opacity0 : c.scalebig
+                  )
+                  || undefined
+                }>{name}</div>;
               })
             }
           </div>
           <img src={CoverImg} alt='' className={c.coverImg} />
 
-          <div className={c.divider} />
+          <div className={classNames({
+            [c.divider]: true,
+            [c.dividerInvisible]: step === 0,
+          })} />
         </>
       }
     </div>;

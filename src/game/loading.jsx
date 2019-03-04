@@ -72,4 +72,6 @@
   await new Promise(r => setTimeout(r, 400)); // :)
 
   root.classList.add('loaded');
+
+  require('./systems/onload').savefileIsLoaded();
 })();

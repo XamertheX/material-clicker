@@ -38,6 +38,8 @@ export async function upgradeSavefile() {
     upgradesBought: vars.statsUpgradesBought,
   };
 
+  data.caseInv = [];
+
   writeData('data', data);
 
   // Upgrades to version 1.2.0.

@@ -36,6 +36,9 @@ This update adds in Milestones, Cases and the Stats Page, and a couple more sett
   - The Case Case™
     - Gives you one of the many cases we have.
 
+#### Changes
+- Notification Popup has a slightly different behavior when clicked.
+
 #### Possible Future Changes
 - Adjustment of the weights for the Russian Roulette class cases.
 

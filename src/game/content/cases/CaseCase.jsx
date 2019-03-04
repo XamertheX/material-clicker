@@ -1,4 +1,4 @@
-import { createCaseItemWeights } from '../../systems/case';
+import { createCaseItemWeights, addCase } from '../../systems/case';
 import { setVar } from '../../systems/vars';
 
 export default {
@@ -11,35 +11,43 @@ export default {
         name: '50/50 Case',
         weight: 1,
         activate() {
-          setVar('caseInventory', x => x.push('FiftyFiftyCase'));
+          addCase('FiftyFiftyCase');
         },
       },
       {
         name: 'Material Case',
         weight: 1,
         activate() {
-          setVar('caseInventory', x => x.push('MaterialCase'));
+          addCase('MaterialCase');
         },
       },
       {
         name: 'Russian Roulette Case',
         weight: 1,
         activate() {
-          setVar('caseInventory', x => x.push('RussianRouletteCase'));
+          addCase('RussianRouletteCase');
         },
       },
       {
         name: 'True Russian Roulette Case',
         weight: 1,
         activate() {
-          setVar('caseInventory', x => x.push('TrueRussianRouletteCase'));
+          addCase('TrueRussianRouletteCase');
         },
       },
       {
         name: 'The Case Case™',
         weight: 1,
         activate() {
-          setVar('caseInventory', x => x.push('CaseCase'));
+          addCase('CaseCase');
+        },
+      },
+      {
+        name: '2x The Case Case™',
+        weight: 1,
+        activate() {
+          addCase('CaseCase');
+          addCase('CaseCase');
         },
       },
     ]);

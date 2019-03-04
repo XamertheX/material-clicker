@@ -24,7 +24,7 @@
       "url": "https://hparcells.me"
     }
   ],
-  "license": "MIT",
+  "license": "gpl-3.0",
   "config": {
     "forge": "./conf/forge.config.js"
   },

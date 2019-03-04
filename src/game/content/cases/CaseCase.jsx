@@ -50,6 +50,13 @@ export default {
           addCase('CaseCase');
         },
       },
+      {
+        name: '(The Case Case™) Case™',
+        weight: 1,
+        activate() {
+          addCase('CaseCaseCase');
+        },
+      },
     ]);
   },
 };

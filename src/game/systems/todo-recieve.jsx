@@ -14,10 +14,11 @@ export function todoResolved(name, callback) {
 
   onSavefileLoaded(() => {
     if (vars.todoRecieveItems.includes(name)) {
+      console.log('helk');
       setVar('todoRecieveItems', vars.todoRecieveItems.filter(x => x !== name));
       callback();
     }
   });
 
-  return callback();
+  return callback;
 }
